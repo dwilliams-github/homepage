@@ -23,6 +23,14 @@ class Side extends React.Component {
                         <div><a href={s.url}>{s.object}</a></div>
                     ))}
                 </div>
+                <div className="sidetitle">
+                    About
+                </div>
+                <div className="sideitem">
+                    <div><Link to="/terms">Terms of use</Link></div>
+                    <div><a href="admin@slashdave.com">Contact us</a></div>
+                    <div className="copyright">© Copyright 2019 David C. Williams</div>
+                </div>
             </div>
         )
     }
