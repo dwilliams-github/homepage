@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const path = require('path');
 var cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
@@ -80,8 +81,17 @@ router.post('/putData', (req, res) => {
   });
 });
 
+// Serve the static files from the React app
+app.use('/public', express.static(path.join(__dirname, '/../client/public')));
+
 // append /api for our http requests
 app.use('/api', router);
+
+
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../client/index.html'));
+});
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

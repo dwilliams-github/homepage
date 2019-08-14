@@ -1,0 +1,48 @@
+.notfound div.big {
+	color:#CC9933;
+	font-size:150pt;
+	position: absolute;
+	left: 20px;
+	top: 40px;
+	line-height: 120pt;
+}
+.notfound div.content {
+	margin-left: 80px;
+	margin-top: 70px;
+	max-width: 700px;
+}
+.notfound div.head {
+	position: relative;
+	font-size: 12pt;
+	border-bottom: 1px solid #666;
+}
+.notfound div.label {
+	position: absolute;
+	right: 15px;
+	bottom: 4px;
+	font-size: 10pt;
+	font-family: monospace;
+	color: #999;
+}
+.notfound span.value {
+	font-size: 50pt;
+}
+.notfound div.desc {
+	margin-top: 10px;
+	margin-right: 20px;
+	font-size: small;
+}
+.notfound img.cookie {
+	margin-top: 20px;
+}
+.notfound li {
+	line-height: 160%;
+}
+.notfound a, a:link, a:visited, a:active { 
+	color: #CCCC66;
+	text-decoration: none; 
+}
+.notfound a:hover {
+	color: #CCCC66;
+	text-decoration: underline;
+}

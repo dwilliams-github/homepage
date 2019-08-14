@@ -1,7 +1,13 @@
-body {
-    background-image:url('./moleback.png');
-    background-color:black;
-    background-repeat:no-repeat;
+div.landing {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image:url('./1e9d2508.png');
+    background-color:#CCCCCC;
 }
 div.menu {
     position:absolute;
