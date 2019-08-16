@@ -13,7 +13,7 @@ const router = express.Router();
 
 // this is our MongoDB database
 const dbRoute =
-  'mongodb+srv://webhome:oKcpOUraIdmPLyIb@cluster0-gyfof.mongodb.net/test?retryWrites=true&w=majority';
+  'mongodb+srv://webhome:oKcpOUraIdmPLyIb@cluster0-gyfof.mongodb.net/music?retryWrites=true&w=majority';
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });
@@ -33,11 +33,15 @@ app.use(logger('dev'));
 
 // this is our get method
 // this method fetches all available data in our database
-router.get('/getData', (req, res) => {
-  Data.find((err, data) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
-  });
+router.get('/music/get', (req, res) => {
+  Data.Gig.find()
+    .populate("group")
+    .populate("director")
+    .populate("venue")
+    .exec( (err, data) => {
+      if (err) return res.json({ success: false, error: err });
+      return res.json({ success: true, data: data });
+    });
 });
 
 // this is our update method
@@ -80,6 +84,8 @@ router.post('/putData', (req, res) => {
     return res.json({ success: true });
   });
 });
+
+
 
 // Serve the static files from the React app
 app.use('/public', express.static(path.join(__dirname, '/../client/public')));

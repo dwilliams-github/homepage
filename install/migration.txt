@@ -1,0 +1,71 @@
+Dump old database from phpadmin on webfaction
+
+
+$ brew install mariadb
+....
+
+MySQL is configured to only allow connections from localhost by default
+
+To connect:
+    mysql -uroot
+
+To have launchd start mariadb now and restart at login:
+  brew services start mariadb
+Or, if you don't want/need a background service you can just run:
+  mysql.server start
+
+
+$ mysql.server start
+$ mysql < dump.mssql
+
+Huh, couldn't be easier
+
+$ mysql dwilliams_django
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 15
+Server version: 10.4.6-MariaDB Homebrew
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [dwilliams_django]> show tables;
++----------------------------+
+| Tables_in_dwilliams_django |
++----------------------------+
+| auth_group                 |
+| auth_group_permissions     |
+| auth_message               |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| blog_article               |
+| blog_article_category      |
+| blog_category              |
+| blog_picture               |
+| captcha_captchastore       |
+| django_admin_log           |
+| django_comment_flags       |
+| django_comments            |
+| django_content_type        |
+| django_session             |
+| django_site                |
+| music_director             |
+| music_gig                  |
+| music_group                |
+| music_venue                |
++----------------------------+
+22 rows in set (0.000 sec)
+
+MariaDB [dwilliams_django]> 
+
+mariadb is a little wierd, in that access is granted at the command line (mysql) but not
+to a python3 script using pymysql. To fix this, use the command line to grant access:
+
+$ mysql dwilliams_django
+> GRANT ALL PRIVILEGES ON *.* TO 'dwilliams'@'localhost' IDENTIFIED BY 'wierdo';
+

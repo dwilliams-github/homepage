@@ -5,6 +5,14 @@ class Side extends React.Component {
     render() {
         return (
             <div id="side">
+                {this.props.contents ? <div className="sidetitle">Contents</div> : null }
+                {this.props.contents ?
+                    <div className="sideitem">
+                        {this.props.contents.map( c => (
+                            <div><a href={c.url}>{c.name}</a></div>
+                        ))}
+                    </div> : null
+                }
                 <div className="sidetitle">
                     Site
                 </div>
@@ -20,7 +28,7 @@ class Side extends React.Component {
                 </div>
                 <div className="sideitem">
                     {this.props.sides.map( s => (
-                        <div><a href={s.url}>{s.object}</a></div>
+                        <div key={s.url}><a href={s.url}>{s.object}</a></div>
                     ))}
                 </div>
                 <div className="sidetitle">
@@ -28,7 +36,7 @@ class Side extends React.Component {
                 </div>
                 <div className="sideitem">
                     <div><Link to="/terms">Terms of use</Link></div>
-                    <div><a href="admin@slashdave.com">Contact us</a></div>
+                    <div><a href="admin@slashdave.com">Contact</a></div>
                     <div className="copyright">© Copyright 2019 David C. Williams</div>
                 </div>
             </div>

@@ -1,0 +1,14 @@
+.music p, .music ul {
+	font-weight:normal;
+	margin-left:20px;
+	font-size:small;
+	max-width:600px
+}
+.music div.show {margin-bottom:20px;margin-left:20px}
+.music div.show div.title {font-weight:bold;}
+.music div.show div.author {font-size:smaller; font-style:italic}
+.music div.show div.pres,div.direct,div.venue,div.dates,div.pos {
+	font-size:small;
+	margin-left:20px;
+}
+.music div.show div.pos {font-style:italic}
