@@ -57,21 +57,23 @@ class Blog extends React.Component {
             <div className="blog content">
                 <Banner />
                 <div id="bannercaption">The mad ramblings of a scientist</div>
-                {grouped.map( g => (
-                    <div className="day" key={g.day}>
-                        <div className="date">
-                            {g.day.toLocaleDateString("en-US", {
-                                weekday: 'long', 
-                                month: 'long', 
-                                day: 'numeric', 
-                                year: 'numeric'
-                            })}
+                <div className="articles">
+                    {grouped.map( g => (
+                        <div className="day" key={g.day}>
+                            <div className="date">
+                                {g.day.toLocaleDateString("en-US", {
+                                    weekday: 'long', 
+                                    month: 'long', 
+                                    day: 'numeric', 
+                                    year: 'numeric'
+                                })}
+                            </div>
+                            {g.articles.map(a => (
+                                <BlogArticle article={a} categories={categories} key={a._id} />
+                            ))}
                         </div>
-                        {g.articles.map(a => (
-                            <BlogArticle article={a} categories={categories} key={a._id} />
-                        ))}
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         )
     }
