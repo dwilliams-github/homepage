@@ -12,7 +12,7 @@ cursor = dbold.cursor()
 # Connect to our new mongoDB
 #
 client = MongoClient('mongodb+srv://webhome:oKcpOUraIdmPLyIb@cluster0-gyfof.mongodb.net/music?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE')
-db = client.music
+db = client.home
 
 
 #

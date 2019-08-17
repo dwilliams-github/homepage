@@ -5,7 +5,7 @@ const config = {
     devtool: 'eval-source-map',
     entry: __dirname + '/src/index.jsx',
     output: {
-        path: resolve('public'),
+        path: resolve('../backend/public'),
         filename: 'bundle.js',
         publicPath: 'public/'
     },

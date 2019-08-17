@@ -1,6 +1,11 @@
 import pymysql
 from pymongo import MongoClient
 import datetime, os
+import pypandoc
+
+#
+# Must install pandoc first ("brew install pandoc")
+#
 
 #
 # Connect to old database (copied to local machine)
@@ -12,7 +17,15 @@ cursor = dbold.cursor()
 # Connect to our new mongoDB
 #
 client = MongoClient('mongodb+srv://webhome:oKcpOUraIdmPLyIb@cluster0-gyfof.mongodb.net/blog?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE')
-db = client.blog
+db = client.home
+
+#
+# Get rid of old copies
+#
+db["Article"].drop()
+db["Author"].drop()
+db["Picture"].drop()
+db["Category"].drop()
 
 
 #
@@ -57,33 +70,39 @@ result = db.Author.insert_one({
 author_id = result.inserted_id
 
 #
-# Port stories
-#
-stories = {}
-
-cursor.execute( "SELECT id, title, body, created, modified FROM blog_article" )
-for row in cursor.fetchall():
-    [id,title,body,created,modified] = row
-    result = db.Article.insert_one({
-        'title': title,
-        'body': body,
-        'author': author_id,
-        'categories': catlinks.get(aid,[]),
-        'created': created,
-        'modified': modified
-    })
-    stories[id] = result.inserted_id
-
-#
 # Now the pictures
 # Here we dump the images themselves
 #
+pictures = {}
+
 cursor.execute( "SELECT article_id, image, caption FROM blog_picture" )
 for row in cursor.fetchall():
     [article_id, image, caption] = row
-    if os.path.exists(image):
-        result = db.Picture.insert_one({
-            'article': stories[article_id],
-            'image': open(image,"rb").read(),
-            'caption': caption
-        })
+    if not os.path.exists(image): continue
+
+    result = db.Picture.insert_one({
+        'image': open(image,"rb").read(),
+        'caption': caption
+    })
+    try:
+        pictures[article_id].append(result.inserted_id)
+    except KeyError:
+        pictures[article_id] = [result.inserted_id]
+
+#
+# Port stories
+#
+cursor.execute( "SELECT id, title, body, created, modified FROM blog_article" )
+for row in cursor.fetchall():
+    [aid,title,body,created,modified] = row
+    result = db.Article.insert_one({
+        'title': title,
+        'body': pypandoc.convert_text(body,'markdown-smart', format='rst'),
+        'author': author_id,
+        'categories': catlinks.get(aid,[]),
+        'pictures': pictures.get(aid,[]),
+        'created': created,
+        'modified': modified
+    })
+
+
