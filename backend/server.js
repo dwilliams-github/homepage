@@ -1,103 +1,108 @@
-const mongoose = require('mongoose');
 const express = require('express');
+const async = require("async");
 const path = require('path');
 var cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const Data = require('./data');
+const mongoose = require('mongoose');
 
-const API_PORT = 3001;
+const Data = require('./data');
+const config = require('./config.json');
+
+//
+// Our server app
+//
 const app = express();
 app.use(cors());
-const router = express.Router();
-
-// this is our MongoDB database
-const dbRoute =
-  'mongodb+srv://webhome:oKcpOUraIdmPLyIb@cluster0-gyfof.mongodb.net/music?retryWrites=true&w=majority';
-
-// connects our back end code with the database
-mongoose.connect(dbRoute, { useNewUrlParser: true });
-
-let db = mongoose.connection;
-
-db.once('open', () => console.log('connected to the database'));
-
-// checks if connection with the database is successful
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-// (optional) only made for logging and
-// bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-// this is our get method
-// this method fetches all available data in our database
+//
+// Open database
+//
+// Note that, by default, mongoose keeps a global state, and after
+// the connection all schemas (previously declared or not) will be 
+// associated to that one database.
+//
+mongoose.connect(config.dbroute, { useNewUrlParser: true })
+mongoose.connection.once('open', () => console.log('connected to the database'));
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//
+// We're going to dump our API into one route
+//
+const router = express.Router();
+
+//
+// Fetch all music gigs
+//
 router.get('/music/get', (req, res) => {
-  Data.Gig.find()
-    .populate("group")
-    .populate("director")
-    .populate("venue")
-    .exec( (err, data) => {
-      if (err) return res.json({ success: false, error: err });
-      return res.json({ success: true, data: data });
+    Data.Gig.find()
+        .populate("group")
+        .populate("director")
+        .populate("venue")
+        .exec( (err, data) => {
+            if (err) return res.json({ success: false, error: err });
+            return res.json({ success: true, data: data });
+        });
+});
+
+//
+// Fetch blog stores
+//
+router.get('/blog/article/get', (req, res) => {
+    const { category, skip, limit } = req.body
+
+    //
+    // Modify query according to optional arguments
+    //
+    var query = {};
+    if (category) {
+        query.categories = {
+            $elemMatch: { 
+                $eq: ObjectId(category)
+            }
+        }
+    }
+
+    //
+    // We'll return all categories at the same time
+    // (so a page can present a full list).
+    // Do this in parallel with fetching the articles.
+    //
+    async.parallel({
+        articles: function(callback) {
+            Data.Article.find(query)
+                .sort({created:-1})
+                .skip(skip || 0)
+                .limit(limit || 5)
+                .populate("author")
+                .exec( callback )
+        },
+        categories: function(callback) {
+            Data.Category.find(callback);
+        }
+    }, function(err,results) {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ 
+            success: true, 
+            categories: results.categories, 
+            articles: results.articles
+        });
     });
 });
-
-// this is our update method
-// this method overwrites existing data in our database
-router.post('/updateData', (req, res) => {
-  const { id, update } = req.body;
-  Data.findByIdAndUpdate(id, update, (err) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
-  });
-});
-
-// this is our delete method
-// this method removes existing data in our database
-router.delete('/deleteData', (req, res) => {
-  const { id } = req.body;
-  Data.findByIdAndRemove(id, (err) => {
-    if (err) return res.send(err);
-    return res.json({ success: true });
-  });
-});
-
-// this is our create methid
-// this method adds new data in our database
-router.post('/putData', (req, res) => {
-  let data = new Data();
-
-  const { id, message } = req.body;
-
-  if ((!id && id !== 0) || !message) {
-    return res.json({
-      success: false,
-      error: 'INVALID INPUTS',
-    });
-  }
-  data.message = message;
-  data.id = id;
-  data.save((err) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
-  });
-});
-
-
 
 // Serve the static files from the React app
-app.use('/public', express.static(path.join(__dirname, '/../client/public')));
+app.use('/public', express.static(path.join(__dirname, '/public')));
 
-// append /api for our http requests
+// append /api for our api requests
 app.use('/api', router);
 
-
-// Handles any requests that don't match the ones above
+// Issue index.html for any requests that don't match the ones above
 app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/../client/index.html'));
+    res.sendFile(path.join(__dirname,'static','index.html'));
 });
 
-// launch our backend into a port
-app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+// launch
+app.listen(config.port, () => console.log(`Listening on port ${config.port}`));
