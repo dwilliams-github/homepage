@@ -69,3 +69,9 @@ to a python3 script using pymysql. To fix this, use the command line to grant ac
 $ mysql dwilliams_django
 > GRANT ALL PRIVILEGES ON *.* TO 'dwilliams'@'localhost' IDENTIFIED BY 'wierdo';
 
+
+Well, it doesn't seem restructedText is much in fashion, so convert all text 
+into MarkDown. MarkDown is nicer anyhows.
+
+pandoc seems to understand our old code, so use it. Kind of klugy, but this is a one
+time conversion process.

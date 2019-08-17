@@ -1,1 +1,95 @@
-#wrap {	font-family:verdana, arial, sans-serif;	position: relative;	margin: 0;}#main {	position: absolute;	top: 0;	width: 63%;}#side {	position: absolute;	left: 65%;	width: 35%;}.sideitem {	font-size: x-small;   	padding: 0px 0px 1px 15px; 	background:#333;	line-height:140%;				}.sidetitle {	font-size: x-small;	color: #CCC;	font-weight:bold;	line-height:140%;					padding: 15px 2px 2px 15px;	border-bottom: 1px solid #666;	text-transform:uppercase;	letter-spacing: .2em;  					}.calendar {	color:#666;	font-size:x-small;	font-weight:normal;	padding:5px;		width:210px;	margin-left:auto;	margin-right:auto;	margin-bottom:10px;}.calendarhead {		text-align:center;	color:#CC9933;	font-weight:bold;	line-height:140%;	padding-top:10px;	padding-bottom:2px;}	.week {	clear:left;}.week div {	float:left;	text-align:center;	width:26px;	padding:2px;}.week div.match {	color:white;}.description {	color:#CCC;	font-size:small;	font-weight:bold;}.blog {	padding-left:15px;	padding-top:15px;	padding-right:15px;                                     }       .blogbody {	color:#CCC;	font-size:small;	font-weight:normal;	line-height:140%;	border-left:1px solid #666;	border-right:1px solid #666;	border-bottom:1px solid #666;	padding:10px;}.search {	color:#CC9933;}.title { 	font-size: small; 	color: #CCC; 	text-transform: uppercase;	font-weight:bold;}                       .attribution {	font-size: x-small;}.picture {	float: left;	padding: 15px 10px 5px 0;}.date   { 	font-size: 18pt; 	color: #999; 	font-weight:bold;	text-transform:uppercase;	margin-top:10px;	margin-bottom:0px;	border-bottom:1px solid #666;	clear: both;}               .newer {	font-size: small;	float: right;	padding: 5px;}.older {	font-size: small;	float: left;	padding: 5px;}.posted { 	font-size: x-small; 	color: #999; }.comment_title {	clear: both;	padding-top: 10px;	font-size: small; 	color: #CCC; 	font-weight:bold;}.comment_title div.buttons {	float: right;}.comment_title div.buttons span.links img {	vertical-align: middle;	border: none;	padding: 1px;}.comment img.bubble {	margin-top:5px;	float:left;}.comment div.name {	margin-top: 4px;	margin-left: 24px;	margin-bottom: 2px;	color:#CC9933;}.comment div.name span.desc {	font-size: x-small; 	color: #999; }.comment div.text {	margin-left: 24px;	margin-bottom: 8px;	padding-left: 6px;	border-left: 1px dotted #666;}.comment_form {	padding-top:10px;}.comment_form form {	margin:0;}.field_wrapper {	position: relative;}.field_wrapper textarea {	width: 400px;	height: 80px;	padding: 2px;	margin: 2px 1px;	font-size: small;	background: #CCC;	border: 1px solid black;}.field_wrapper textarea:focus {background:#FFF;}.field_wrapper input {	width: 250px;	padding: 2px;	margin: 2px 1px;	font-size: small;	background: #CCC;	border: 1px solid black;}.field_wrapper input:focus {background:#FFF;}.embed {	position: absolute;	left: 6px;	top: 3px;	font-size: x-small;	color: #888;	cursor: text;}.field_wrapper span.error {	color: #D88;	font-size: x-small;}.field_wrapper img.captcha {    padding: 3px 2px;}.field_wrapper div.captcha input {	width: 150px;	position: absolute;	left: 100px;	top: 0;}div.captcha label.embed {	left: 108px;	z-index:10;}
+#wrap {
+	font-family:verdana, arial, sans-serif;
+	position: relative;
+	margin: 0;
+}
+.blog .articles {
+	width: 63%;
+	padding-top: 10px;
+}
+.blog .calendar {
+	color:#666;
+	font-size:x-small;
+	font-weight:normal;
+	padding:5px;	
+	width:210px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+}
+.blog .calendarhead {	
+	text-align:center;
+	color:#CC9933;
+	font-weight:bold;
+	line-height:140%;
+	padding-top:10px;
+	padding-bottom:2px;
+}	
+.week {
+	clear:left;
+}
+.week div {
+	float:left;
+	text-align:center;
+	width:26px;
+	padding:2px;
+}
+.week div.match {
+	color:white;
+}
+.description {
+	color:#CCC;
+	font-size:small;
+	font-weight:bold;
+}
+.blog .body {
+	color:#CCC;
+	font-size:small;
+	font-weight:normal;
+	line-height:140%;
+	border-left:1px solid #666;
+	border-right:1px solid #666;
+	border-bottom:1px solid #666;
+	padding:10px;
+}
+.blog .search {
+	color:#CC9933;
+}
+.blog .title { 
+	font-size: small; 
+	color: #CCC; 
+	text-transform: uppercase;
+	font-weight:bold;
+}                       
+.blog .attribution {
+	font-size: x-small;
+}
+.blog .picture {
+	float: left;
+	padding: 15px 10px 5px 0;
+}
+.blog .date { 
+	font-size: 18pt; 
+	color: #999; 
+	font-weight:bold;
+	text-transform:uppercase;
+	margin-top:10px;
+	margin-bottom:0px;
+	border-bottom:1px solid #666;
+	padding-bottom: 2px;
+	clear: both;
+}               
+.blog .newer {
+	font-size: small;
+	float: right;
+	padding: 5px;
+}
+.blog .older {
+	font-size: small;
+	float: left;
+	padding: 5px;
+}
+.blog .posted { 
+	font-size: x-small; 
+	color: #999; 
+}

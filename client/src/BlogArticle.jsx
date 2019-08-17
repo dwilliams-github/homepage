@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';
 
 class BlogArticle extends React.Component {
     render() {
-        const { article } = this.props;
+        const { article, categories } = this.props;
 
-        let altered = article.modified && (Date.parse(article.modified) - Date.parse(article.created)) > 600;
+        //
+        // We only show the altered statement if the article was altered.
+        // Also, ignore alteration dates within 10 minutes of original posting.
+        //
+        let altered = article.modified && (Date.parse(article.modified) - Date.parse(article.created)) > 600000;
 
         return (
-            <div className="blogbody">
+            <div className="body">
                 <div className="title">{article.title}</div>
                 <Markdown source={article.body} />
                 <div className="posted">
@@ -19,12 +23,17 @@ class BlogArticle extends React.Component {
                             {formatTime(article.created)}
                         </Link>
                         {altered ? (
-                            <span> (Edited: {formatDateTime(article.modified)})</span>
+                                <span>&nbsp;(Edited: {formatDateTime(article.modified)})</span>
                             ) : null
                         }
                     </div>
                     <div>
                         Categories:&nbsp;
+                        {categories
+                            .filter( c => article.categories.includes(c._id) )
+                            .map( (c,index) => (
+                            <span>{index ? ", " : " "}<Link to={"/blog/article?cat=" + c._id}>{c.name}</Link></span>
+                        ))}
                     </div>
                 </div>
             </div>
