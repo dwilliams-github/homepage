@@ -17,6 +17,7 @@ class Music extends React.Component {
     componentDidMount() {
         axios.get("/api/music/get")
         .then( (res) => {
+            if (!res.data.success) throw res.error;
             this.setState({
                 gigs: res.data.data.map( g => ({...g, start_msec: Date.parse(g.start_date)}) )
             });

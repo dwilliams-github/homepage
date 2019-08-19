@@ -7,34 +7,35 @@ import './css/projects.css';
 
 class Projects extends React.Component {
     render() {
-        let contents = [
+        const sides = [
             {
-                url: "#pCT",
-                name: "Computed Tomography"
+                title: 'Contents',
+                items: [
+                    <a href="#pCT">Computed Tomograph</a>,
+                    <a href="#hep">High-Energy Physics</a>,
+                    <a href="#fiction">Fiction</a>
+                ]
             },
             {
-                url: "#hep",
-                name: "High-Energy Physics"
+                special: "site"
             },
             {
-                url: "#fiction",
-                name: "Fiction"
+                title: "Links",
+                items: [
+                    <a href="http://scipp.ucsc.edu/">
+                        Santa Cruz Institute of Particle Physics
+                    </a>
+                ]
+            },
+            {
+                special: "about"
             }
         ]
-    
-        let sides = [
-            {
-                url: "http://scipp.ucsc.edu/",
-                object: (
-                    <span>Santa Cruz Institute of Particle Physics</span>
-                )
-            }
-        ];
 
         return (
             <div className="projects content">
                 <Banner />
-                <Side sides={sides} contents={contents}/>
+                <Side contents={sides}/>
                 <div id="main">
                     <h3><a name="pCT">Computed Tomography</a></h3>
 
