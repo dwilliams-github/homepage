@@ -13,8 +13,7 @@ import nodejs from './images/nodejs.svg';
 
 class About extends React.Component {
     render() {
-
-        let sides = [
+        const links = [
             {
                 url: "https://reactjs.org/",
                 object: (
@@ -66,10 +65,23 @@ class About extends React.Component {
             }
         ];
 
+        const sides = [
+            {
+                special: "site" 
+            },
+            {
+                title: "Links",
+                items: links.map( c => <a href={c.url}>{c.object}</a> )
+            },
+            {
+                special: "about"
+            }
+        ]
+
         return (
             <div className="about content">
                 <Banner />
-                <Side sides={sides}/>
+                <Side contents={sides}/>
                 <div id="main">
                     <h3>About slashdave.com</h3>
                     <img src={portrait} height={279} alt="portrait" />

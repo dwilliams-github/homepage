@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Banner from './Banner';
 import BlogArticle from './BlogArticle';
+import BlogCalendar from './BlogCalendar';
+import { Link } from 'react-router-dom';
+import BeatLoader from 'react-spinners/BeatLoader';
 import Side from './Side';
 import axios from 'axios';
 import './css/styles-site.css';
@@ -12,7 +15,8 @@ class Blog extends React.Component {
 
         this.state = {
             categories: [],
-            articles: []
+            articles: [],
+            loading: true
         };
     }
 
@@ -22,7 +26,8 @@ class Blog extends React.Component {
             if (!res.data.success) throw res.error;
             this.setState({
                 categories: res.data.categories,
-                articles: res.data.articles
+                articles: res.data.articles,
+                loading: false
             });
         })
         .catch( (err) => {
@@ -32,6 +37,40 @@ class Blog extends React.Component {
 
     render() {
         const { articles, categories } = this.state;
+
+        if (this.state.loading) {
+            return (
+                <div className="blog content">
+                    <Banner />
+                    <div id="bannercaption">The mad ramblings of a scientist</div>
+                    <BeatLoader color="#FFFF99" />
+                </div>
+            )
+        }
+
+        let target_date = new Date( articles.length ? articles[0].created : null );
+
+        const sides = [
+            {
+                items: [
+                    <div className="calendar-wrap">
+                        <BlogCalendar {...this.props} targetDate={target_date} />
+                    </div>
+                ]
+            },
+            {
+                title: 'Categories',
+                items: this.state.categories.sort( (a,b) => a.name.localeCompare(b.name) ).map( c => (
+                    <Link to={"/blog?cat="+c._id}>{c.name}</Link>
+                ))
+            },
+            {
+                special: "site"
+            },
+            {
+                special: "about"
+            }
+        ]
 
         //
         // My design is sort of annoying because it groups articles
@@ -53,10 +92,12 @@ class Blog extends React.Component {
                 return g;
             }, []);
 
+
         return (
             <div className="blog content">
                 <Banner />
                 <div id="bannercaption">The mad ramblings of a scientist</div>
+                <Side contents={sides} />
                 <div className="articles">
                     {grouped.map( g => (
                         <div className="day" key={g.day}>

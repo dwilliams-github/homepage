@@ -32,7 +32,7 @@ class BlogArticle extends React.Component {
                         {categories
                             .filter( c => article.categories.includes(c._id) )
                             .map( (c,index) => (
-                            <span>{index ? ", " : " "}<Link to={"/blog/article?cat=" + c._id}>{c.name}</Link></span>
+                            <span key={"c"+index}>{index ? ", " : " "}<Link to={"/blog/article?cat=" + c._id}>{c.name}</Link></span>
                         ))}
                     </div>
                 </div>
