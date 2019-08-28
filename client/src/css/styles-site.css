@@ -57,6 +57,10 @@ a:active {
 .sideitem img {
 	padding: 5px 0;
 }
+.sideitem a.clickable:hover {
+	background: #555555;
+	cursor: pointer;
+}
 .sidetitle {
 	font-size: x-small;
 	font-weight:normal;
