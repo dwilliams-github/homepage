@@ -2,6 +2,14 @@ import pymysql
 from pymongo import MongoClient
 import datetime, os
 import pypandoc
+import pytz
+import sys
+
+#
+# I wrote everything in California, I am pretty sure...
+#
+pacific = pytz.timezone('US/Pacific')
+
 
 #
 # Must install pandoc first ("brew install pandoc")
@@ -13,10 +21,16 @@ import pypandoc
 dbold = pymysql.connect( database="dwilliams_django", user="dwilliams", password="wierdo" )
 cursor = dbold.cursor()
 
+
+
 #
 # Connect to our new mongoDB
 #
-client = MongoClient('mongodb+srv://webhome:oKcpOUraIdmPLyIb@cluster0-gyfof.mongodb.net/blog?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE')
+# Password is first and only argument
+#
+password = sys.argv[1]
+
+client = MongoClient('mongodb+srv://webhome:{}@cluster0-gyfof.mongodb.net/blog?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE'.format(password))
 db = client.home
 
 #
@@ -71,7 +85,7 @@ author_id = result.inserted_id
 
 #
 # Now the pictures
-# Here we dump the images themselves
+# Here we dump the images themselves rather than use side storage
 #
 pictures = {}
 
@@ -92,6 +106,9 @@ for row in cursor.fetchall():
 #
 # Port stories
 #
+# Note that null timestamps are returned as wierdo strings by pymysql.
+# Not sure why this choice was made.
+#
 cursor.execute( "SELECT id, title, body, created, modified FROM blog_article" )
 for row in cursor.fetchall():
     [aid,title,body,created,modified] = row
@@ -101,8 +118,8 @@ for row in cursor.fetchall():
         'author': author_id,
         'categories': catlinks.get(aid,[]),
         'pictures': pictures.get(aid,[]),
-        'created': created,
-        'modified': modified
+        'created': pacific.localize(created),
+        'modified': pacific.localize(modified) if not isinstance(modified, str) else None
     })
 
 
