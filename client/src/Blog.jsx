@@ -1,68 +1,37 @@
 import React, { Component } from 'react';
 import Banner from './Banner';
-import BlogArticle from './BlogArticle';
+import BlogArticleList from './BlogArticleList';
 import BlogCalendar from './BlogCalendar';
-import { Link } from 'react-router-dom';
-import BeatLoader from 'react-spinners/BeatLoader';
+import BlogArchive from './BlogArchive';
+import BlogCategories from './BlogCategories';
 import Side from './Side';
-import axios from 'axios';
+import queryString from 'query-string';
 import './css/styles-site.css';
 import './css/blog.css';
 
 class Blog extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            categories: [],
-            articles: [],
-            loading: true
-        };
-    }
-
-    componentDidMount() {
-        axios.get("/api/blog/article/get")
-        .then( (res) => {
-            if (!res.data.success) throw res.error;
-            this.setState({
-                categories: res.data.categories,
-                articles: res.data.articles,
-                loading: false
-            });
-        })
-        .catch( (err) => {
-            console.log(err);
-        });
     }
 
     render() {
-        const { articles, categories } = this.state;
-
-        if (this.state.loading) {
-            return (
-                <div className="blog content">
-                    <Banner />
-                    <div id="bannercaption">The mad ramblings of a scientist</div>
-                    <BeatLoader color="#FFFF99" />
-                </div>
-            )
-        }
-
-        let target_date = new Date( articles.length ? articles[0].created : null );
+        const parsed = queryString.parse(this.props.location.search);
 
         const sides = [
             {
                 items: [
                     <div className="calendar-wrap">
-                        <BlogCalendar {...this.props} targetDate={target_date} />
+                        <BlogCalendar {...this.props} {...parsed} />
                     </div>
                 ]
             },
             {
                 title: 'Categories',
-                items: this.state.categories.sort( (a,b) => a.name.localeCompare(b.name) ).map( c => (
-                    <Link to={"/blog?cat="+c._id}>{c.name}</Link>
-                ))
+                items: [ <BlogCategories/> ]
+            },
+            {
+                title: 'Archive',
+                items: [ <BlogArchive/> ]
             },
             {
                 special: "site"
@@ -72,59 +41,15 @@ class Blog extends React.Component {
             }
         ]
 
-        //
-        // My design is sort of annoying because it groups articles
-        // by date. Do that grouping now, keeping in mind that the
-        // articles are already sorted by date by the api.
-        //
-        let grouped = articles
-            .map( a => ({ ...a, day: dayOnly(a.created)}) )
-            .reduce( (g,a) => {
-                const prev = g[g.length-1];
-                if (prev && prev.day == a.day) {
-                    prev.articles.push(a)
-                } else {
-                    g.push({
-                        day: a.day,
-                        articles: [a]
-                    });
-                }
-                return g;
-            }, []);
-
-
         return (
             <div className="blog content">
                 <Banner />
                 <div id="bannercaption">The mad ramblings of a scientist</div>
                 <Side contents={sides} />
-                <div className="articles">
-                    {grouped.map( g => (
-                        <div className="day" key={g.day}>
-                            <div className="date">
-                                {g.day.toLocaleDateString("en-US", {
-                                    weekday: 'long', 
-                                    month: 'long', 
-                                    day: 'numeric', 
-                                    year: 'numeric'
-                                })}
-                            </div>
-                            {g.articles.map(a => (
-                                <BlogArticle article={a} categories={categories} key={a._id} />
-                            ))}
-                        </div>
-                    ))}
-                </div>
+                <BlogArticleList  {...this.props} {...parsed} />
             </div>
         )
     }
 }
-
-function dayOnly(ts) {
-    let d = new Date(ts);
-    d.setHours(0,0,0,0);
-    return d;
-}
-
 
 export default Blog;

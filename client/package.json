@@ -21,6 +21,8 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26",
     "npm-watch": "^0.6.0",
     "query-string": "^6.8.2",
     "react": "^16.9.0",
