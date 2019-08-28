@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//
+// Specify the "collection" option for all schemas,
+// because mongoose has some really silly default
+// conventions for this.
+//
+
 const GroupSchema = new Schema(
     {
         name: String,
