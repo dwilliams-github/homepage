@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import axios from 'axios';

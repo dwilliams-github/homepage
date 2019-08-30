@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import queryString from 'query-string';
@@ -63,7 +63,7 @@ class BlogArchive extends React.Component {
         const month_divs = months.slice(0,num_show).map( m => (
             <div key={"arch"+m.year+m.month}>
                 <Link to={"/blog?" + queryString.stringify(m)}>
-                    {moment().year(m.year).month(m.month).format('MMMM YYYY')}
+                    {moment().year(m.year).month(m.month-1).format('MMMM YYYY')}
                 </Link>
             </div>
         ));

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Markdown from 'react-markdown';
 import queryString from 'query-string';
 import { Link } from 'react-router-dom';
@@ -12,14 +12,21 @@ class BlogArticle extends React.Component {
         // We only show the altered statement if the article was altered.
         // Also, ignore alteration dates within 10 minutes of original posting.
         //
-        let created = moment(article.created);
-        let modified = moment(article.modified);
+        const created = moment(article.created);
+        const modified = moment(article.modified);
 
-        let altered = article.modified && modified.diff(created,'minutes') > 10;
+        const altered = article.modified && modified.diff(created,'minutes') > 10;
+
+        const imageToBase64 = i => new Buffer(i.data).toString("base64");
 
         return (
             <div className="body">
                 <div className="title">{article.title}</div>
+                {article.pictures.map( (p,index) => (
+                    <div className="picture" key={"bp_"+index}>
+                        <img alt={p.caption} src={"data:image/jpeg;base64," + imageToBase64(p.image)}/>
+                    </div>
+                ))}
                 <Markdown source={article.body} />
                 <div className="posted">
                     <div>
@@ -41,9 +48,11 @@ class BlogArticle extends React.Component {
                         ))}
                     </div>
                 </div>
+                <div style={{clear: "both"}}/>
             </div>
         )
     }
 };
+
 
 export default BlogArticle;

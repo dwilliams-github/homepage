@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Banner from './Banner';
 import { Link } from "react-router-dom";
 import { FaQuestion, FaQuoteRight, FaHammer, FaMusic, FaLink } from 'react-icons/fa';

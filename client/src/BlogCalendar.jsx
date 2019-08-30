@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
 import queryString from 'query-string';
