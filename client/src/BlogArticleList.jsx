@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BlogArticle from './BlogArticle';
 import BeatLoader from 'react-spinners/BeatLoader';
 import axios from 'axios';

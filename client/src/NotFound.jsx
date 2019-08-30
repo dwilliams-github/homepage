@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './css/404.css';
 import cookie from './images/cookie.png';
 

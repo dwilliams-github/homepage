@@ -57,8 +57,7 @@ router.get('/music/get', (req, res) => {
 //
 // It might be faster to fetch everything and sort them explicitly,
 // but it's more fun to figure out how to do so in the aggregate.
-// Note that year has to appear first in the group _id. Also note
-// that the $limit makes the sort more efficient.
+// Note that year has to appear first in the group _id. 
 //
 router.get('/blog/months', (req, res) => {
     Data.Article.aggregate([
@@ -83,8 +82,8 @@ router.get('/blog/months', (req, res) => {
 
 
 //
-// Return days of the month that have at least one article for 
-// given the target date, and all months with at least one article.
+// Return days of the month that have at least one article following 
+// the given target date, and all months with at least one article.
 //
 // This api is designed specifically to support the blog calendar.
 //
@@ -224,6 +223,7 @@ router.get('/blog/article/get', (req, res) => {
         .sort({created:-1})
         .skip(skip || 0)
         .limit(limit || 5)
+        .populate("pictures")
         .populate("author")
         .populate("categories")
         .exec((err,results) => {
