@@ -3,7 +3,7 @@ import Banner from './Banner';
 import Side from './Side';
 import Markdown from 'react-markdown';
 import queryString from 'query-string';
-import resume from './text/resume.txt';
+import resume from './text/resume.md';
 import './css/resume';
 
 class Resume extends React.Component {
