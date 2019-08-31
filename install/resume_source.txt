@@ -1,0 +1,110 @@
+Goal
+----
+
+The application of scientific skills and knowledge for the benefit of society
+
+Knowledge and Skills
+--------------------
+
+* Capable of independently guiding a scientific analysis from concept to publication
+* Productive in both small groups and very large, international collaborations
+* Able to present scientific results accurately, clearly, and concisely
+* Experience writing grant proposals
+* Experience with the analysis of very large data sets using advanced multivariate analysis
+* An expert on the statistical interpretation of small signals
+* An expert on the computer simulation of detectors
+* Experience with data acquisition and reconstruction software for particle detectors
+* A working knowledge of all types of particle detector hardware
+* A proficient software programmer with knowledge of object-oriented design
+
+Education
+---------
+
+Ph.D., Physics, Massachusetts Institute of Technology, Cambridge, MA, 1994
+
+B.S., Physics, Northeastern University, Boston, MA, 1987
+
+Accomplishments
+---------------
+
+* Authored eight peer-reviewed journal publications
+* Privileged to have mentored seven graduate students
+* Productive member of several major international high-energy physics collaborations
+* Journal referee for IEEE Transactions on Nuclear Science and the American Physical Society
+
+Computer Experience
+-------------------
+
+* Proficient in c, c++, FORTRAN, JavaScript, Perl, Python, SQL, and x86 assembly
+* Extensive experience with web development, including client programming using HTML, Ajax/DHTML, CSS, 
+  SVG, and server programming using Apache/CGI/WSGI, CherryPy, Django, Python, Perl, and SQL
+* University courses in software development, software design, data structures, Pascal, LISP, and VMS MACRO
+* Experience with Sinclair, Atari, Apple II, PL/11, MS-DOS, 
+  MacOS 9, MacOS X, VAX/VMS, IBM VM, Aix, Ultrix, Irix, Solaris, OS-9, Redhat/Ubuntu/OpenSUSE
+  Linux, and Windows NT and XP platforms
+* Experience with cluster computing, run-time environments, embedded computer systems, and
+  data acquisition with camac, VME, and Fastbus standards
+* A developer of simulation, reconstruction, alignment, and pattern
+  recognition algorithms for a variety of particle detector systems
+
+Professional Experience
+-----------------------
+
+Director, Research and Development, Verseon, Fremont, CA 2011–Present
+`````````````````````````````````````````````````````````````````````
+
+Responsible for managing Verseon’s R&D efforts, including planning
+and hiring.
+
+Scientist, Verseon, Fremont, CA 2006–2011
+`````````````````````````````````````````
+
+Contributed to the development and testing of Verseon’s computational drug-discovery
+platform. Responsible for the continued development and maintenance of the
+corporate virtual compound library. Assisted in Verseon’s drug development
+programs as needed.
+
+
+Postdoctoral Researcher, University of California, Santa Cruz, CA 1994–2006
+```````````````````````````````````````````````````````````````````````````
+
+Contributed to the search for SUSY using signatures associated with missing
+energy as a member of the ATLAS Collaboration. Explored various topics in
+Charm physics, such as D0 mixing and charm spectroscopy, as a member of the
+BaBar Collaboration. Served as co-convener of the BaBar Charm Analysis Working
+Group. Developed the BaBar Geant4 detector simulation. Explored topics in
+proton computed tomography as a member of the pCT Collaboration. Explored
+various topics in diffraction, deep-inelastic scattering, and exotic physics
+as a member of the ZEUS Collaboration. Helped commission and operate the LPS
+and BPT detector subsystems of ZEUS.
+
+Lecturer in Physics, University of California, Santa Cruz, CA 2000
+``````````````````````````````````````````````````````````````````
+
+Organized and taught the graduate course Introduction to Particle Physics.
+
+Research Associate, Massachusetts Institute of Technology, Cambridge, MA 1987–1994
+``````````````````````````````````````````````````````````````````````````````````
+
+Spearheaded the study of the left-right forward-backward asymmetry of b and c
+quarks as a member of the SLD Collaboration. Designed and implemented the
+tracking pattern recognition algorithm. Organized, revamped, and commissioned
+both the online and offline software for the WIC subsystem of the SLD.
+Developed particle identification algorithms and a fast-shower simulation.
+
+Research Associate, Northeastern University, Boston, MA 1983–1985
+`````````````````````````````````````````````````````````````````
+
+Helped construct the hadron calorimeter of the E-706 Experiment on site at the
+Fermi National Accelerator Laboratory.
+
+Talks And Publications
+----------------------
+
+Academic information is available separately:
+http://slashdave.com/static/documents/cv.pdf
+
+References
+----------
+
+Available upon request

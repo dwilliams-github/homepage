@@ -35,6 +35,10 @@ const config = {
                         name: 'images/[hash]-[name].[ext]'
                     } 
                 }]
+            },
+            {
+                test: /\.txt$/i,
+                use: 'raw-loader'
             }
         ]
     }

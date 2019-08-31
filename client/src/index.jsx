@@ -7,6 +7,7 @@ import Music from './Music';
 import Projects from './Projects';
 import ProjectsHepAuthors from './ProjectsHepAuthors';
 import Blog from './Blog';
+import Resume from './Resume';
 import NotFound from './NotFound';
 
 const routing = (
@@ -17,6 +18,7 @@ const routing = (
             <Route path="/projects/hepauthors" component={ProjectsHepAuthors} />
             <Route path="/projects" exact component={Projects} />
             <Route path="/blog" component={Blog} />
+            <Route path="/resume" component={Resume} />
             <Route path="/" exact component={Landing} />
             <Route component={NotFound} />
         </Switch>

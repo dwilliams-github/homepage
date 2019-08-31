@@ -30,37 +30,40 @@ class Music extends React.Component {
     render() {
         const { gigs } = this.state;
 
-        let contents = [
+        const sides = [
             {
-                url: "#groups",
-                name: "Groups"
+                title: 'Contents',
+                items: [
+                    <a href="#pCT">Computed Tomograph</a>,
+                    <a href="#hep">High-Energy Physics</a>,
+                    <a href="#fiction">Fiction</a>
+                ]
             },
             {
-                url: "#shows",
-                name: "Shows"
+                title: "Links",
+                items: [
+                    <a href="http://www.trumpetguild.org/">
+                        Internation Trumpet Guild
+                    </a>,
+                    <a href="http://www.trumpetherald.com/">
+                        The Trumpet Herald
+                    </a>
+                ]
+            },
+            {
+                special: "site"
+            },
+            {
+                special: "about"
             }
         ]
 
-        let sides = [
-            {
-                url: "http://www.trumpetguild.org/",
-                object: (
-                    <span>Internation Trumpet Guild</span>
-                )
-            },
-            {
-                url: "http://www.trumpetherald.com/",
-                object: (
-                    <span>The Trumpet Herald</span>
-                )
-            }
-        ];
 
         return (
             <div className="music content">
                 <Banner />
                 <div id="bannercaption">Music</div>
-                <Side sides={sides} contents={contents}/>
+                <Side contents={sides}/>
                 <h3><a name="groups">Groups</a></h3>
                 <p>Here are the musical groups that I am most active with lately</p>
                 <ul>
