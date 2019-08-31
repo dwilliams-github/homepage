@@ -75,3 +75,9 @@ into MarkDown. MarkDown is nicer anyhows.
 
 pandoc seems to understand our old code, so use it. Kind of klugy, but this is a one
 time conversion process.
+
+
+
+# Resume
+
+> pandoc -s -t rst resume_source.txt -o ../client/src/text/resume.txt

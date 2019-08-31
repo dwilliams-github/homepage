@@ -25,6 +25,7 @@
     "moment-timezone": "^0.5.26",
     "npm-watch": "^0.6.0",
     "query-string": "^6.8.2",
+    "raw-loader": "^3.1.0",
     "react": "^16.9.0",
     "react-calendar": "^2.19.1",
     "react-dom": "^16.9.0",
