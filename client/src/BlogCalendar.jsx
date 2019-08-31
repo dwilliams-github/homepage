@@ -37,16 +37,21 @@ class BlogCalendar extends React.Component {
     // url address is unchanged.
     //
     componentDidUpdate(prevProps) {
-        if (prevProps.year != this.props.year || prevProps.month != this.props.month) {
-            this.updateDate(this.props.year,this.props.month);
+        if (prevProps.year != this.props.year || 
+            prevProps.month != this.props.month ||
+            prevProps.cat != this.props.cat 
+        ) {
+            this.updateDate(this.props.year, this.props.month, this.props.cat);
         }
     }
 
-    updateDate(year,month) {
+    updateDate(year,month,cat) {
         axios.get("/api/blog/days", {
             params: {
                 year: year,
-                month: month
+                month: month,
+                cat: cat,
+                timezone: "America/Los_Angeles"
             }
         })
         .then( res => {
@@ -89,14 +94,16 @@ class BlogCalendar extends React.Component {
         this.props.history.push("/blog?" + queryString.stringify({
             month: day.getMonth() + 1,
             year: day.getFullYear(),
-            day: day.getDate()
+            day: day.getDate(),
+            cat: this.props.cat
         }))
     }
 
     clickMonth(day) {
         this.props.history.push("/blog?" + queryString.stringify({
             month: day.getMonth() + 1,
-            year: day.getFullYear()
+            year: day.getFullYear(),
+            cat: this.props.cat
         }))
     }
 

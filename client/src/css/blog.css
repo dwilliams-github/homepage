@@ -6,7 +6,7 @@
 .blog .articles {
 	float: left;
 	width: 63%;
-	padding-top: 10px;
+	padding: 10px 0;
 }
 .blog .calendar-wrap {
 	margin-left: auto;
@@ -121,11 +121,13 @@
 .blog .newer {
 	font-size: small;
 	float: right;
+	margin-top: 5px;
 	padding: 5px;
 }
 .blog .older {
 	font-size: small;
 	float: left;
+	margin-top: 5px;
 	padding: 5px;
 }
 .blog .posted { 

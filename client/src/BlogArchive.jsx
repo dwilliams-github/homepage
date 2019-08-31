@@ -62,7 +62,10 @@ class BlogArchive extends React.Component {
         const date_options = { month: 'long', year: 'numeric' };
         const month_divs = months.slice(0,num_show).map( m => (
             <div key={"arch"+m.year+m.month}>
-                <Link to={"/blog?" + queryString.stringify(m)}>
+                <Link to={"/blog?" + queryString.stringify({
+                    ...m,
+                    cat: this.props.cat
+                })}>
                     {moment().year(m.year).month(m.month-1).format('MMMM YYYY')}
                 </Link>
             </div>
