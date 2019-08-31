@@ -27,11 +27,11 @@ class Blog extends React.Component {
             },
             {
                 title: 'Categories',
-                items: [ <BlogCategories/> ]
+                items: [ <BlogCategories {...parsed}/> ]
             },
             {
                 title: 'Archive',
-                items: [ <BlogArchive/> ]
+                items: [ <BlogArchive {...parsed}/> ]
             },
             {
                 special: "site"

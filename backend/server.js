@@ -88,14 +88,24 @@ router.get('/blog/months', (req, res) => {
 // This api is designed specifically to support the blog calendar.
 //
 router.get('/blog/days', (req, res) => {
-    const { year, month } = req.query;
+    const { year, month, cat, timezone } = req.query;
 
     //
     // Find first article on or after given year and/or month
     //
     const target_date = year ? new Date( year, Number(month || 0) ) : new Date();
 
-    Data.Article.find({created: {$lte: target_date}})
+    query = {
+        created: {$lte: target_date}
+    };
+
+    if (cat) {
+        query.categories = {
+            $elemMatch: { $eq: cat }
+        }
+    };
+
+    Data.Article.find(query)
         .sort({created:-1})
         .limit(1)
         .exec( (err,results) => {
@@ -103,12 +113,12 @@ router.get('/blog/days', (req, res) => {
             //
             // Return calendar info
             //
-            return BlogDays(res, results.length ? results[0].created : target_date);
+            return BlogDays( res, results.length ? results[0].created : target_date, timezone );
         })
 });
 
 
-function BlogDays(res,target_date) {
+function BlogDays(res,target_date,timezone) {
     //
     // Get start and end of month containing target date.
     // Note that javascript allows month to go out of range in which
@@ -138,7 +148,7 @@ function BlogDays(res,target_date) {
                 {
                     $group: {
                         _id: {
-                            $dayOfMonth: {date: "$created", timezone: "America/Los_Angeles"}
+                            $dayOfMonth: {date: "$created", timezone: timezone}
                         }
                     }
                 }
@@ -184,18 +194,16 @@ router.get('/blog/categories', (req, res) => {
 // Fetch blog stories
 //
 router.get('/blog/article/get', (req, res) => {
-    const { category, year, month, day, skip, limit } = req.query
+    const { cat, year, month, day, skip, limit } = req.query
 
     //
     // Modify query according to optional arguments
     //
     var query = {};
 
-    if (category) {
+    if (cat) {
         query.categories = {
-            $elemMatch: { 
-                $eq: ObjectId(category)
-            }
+            $elemMatch: { $eq: cat }
         }
     }
 
@@ -221,8 +229,8 @@ router.get('/blog/article/get', (req, res) => {
     
     Data.Article.find(query)
         .sort({created:-1})
-        .skip(skip || 0)
-        .limit(limit || 5)
+        .skip(skip ? parseInt(skip) : 0)
+        .limit(limit ? parseInt(limit): 5)
         .populate("pictures")
         .populate("author")
         .populate("categories")

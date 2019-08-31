@@ -36,9 +36,17 @@ class BlogCategories extends React.Component {
             return <BeatLoader color="#FFFF99" />
         }
 
+        //
+        // We drop the page property when changing categories
+        //
         return categories.map( c => (
             <div key={"bcat" + c._id}>
-                <Link to={"/blog?" + queryString.stringify({cat: c._id})}>{c.name}</Link>
+                <Link to={"/blog?" + queryString.stringify({
+                    year: this.props.year,
+                    month: this.props.month,
+                    day: this.props.day,
+                    cat: c._id
+                })}>{c.name}</Link>
             </div>
         ));
     }
