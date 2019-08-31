@@ -37,7 +37,7 @@ const config = {
                 }]
             },
             {
-                test: /\.txt$/i,
+                test: /\.(txt|md)$/i,
                 use: 'raw-loader'
             }
         ]
