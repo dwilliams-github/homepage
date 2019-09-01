@@ -46,9 +46,9 @@ class Resume extends React.Component {
                     E-mail: <a href="mailto:david.c.williams@mac.com">david.c.williams@mac.com</a><br/>
                     Web: <a href="http://slashdave.com/">http://slashdave.com/</a>
                 </div>
-                <Side sides={sides} contents={sides}/>
+                <Side contents={sides}/>
                 <div className="content">
-                    <Markdown source={resume} />
+                    <Markdown source={resume} linkTarget="_blank" />
                 </div>
             </div>
         )
