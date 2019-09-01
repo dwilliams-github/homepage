@@ -25,6 +25,6 @@
 }
 
 @media print {
-    .resume { width: 80% }
+    .resume .content { width: 80% }
     .resume #side { display: none; }
 }
