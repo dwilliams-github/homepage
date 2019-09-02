@@ -6,7 +6,6 @@ import BlogArchive from './BlogArchive';
 import BlogCategories from './BlogCategories';
 import Side from './Side';
 import queryString from 'query-string';
-import './css/styles-site.css';
 import './css/blog.css';
 
 class Blog extends React.Component {

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Banner from './Banner';
 import Side from './Side';
-import './css/styles-site.css';
 import './css/projects.css';
 
 class Projects extends React.Component {

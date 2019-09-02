@@ -2,7 +2,6 @@ import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import axios from 'axios';
-import './css/styles-site.css';
 import './css/music.css';
 
 class Music extends React.Component {
