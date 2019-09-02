@@ -2,7 +2,6 @@ import React from 'react';
 import Banner from './Banner';
 import { Link } from "react-router-dom";
 import { FaQuestion, FaQuoteRight, FaHammer, FaMusic, FaLink } from 'react-icons/fa';
-import './css/styles-site.css';
 import './css/landing.css';
 
 class Landing extends React.Component {

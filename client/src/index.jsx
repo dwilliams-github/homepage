@@ -11,6 +11,7 @@ import Links from './Links';
 import Resume from './Resume';
 import Terms from './Terms';
 import NotFound from './NotFound';
+import './css/styles-site.css';
 
 const routing = (
     <Router>

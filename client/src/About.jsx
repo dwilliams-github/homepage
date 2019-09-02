@@ -2,14 +2,13 @@ import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import { Link } from "react-router-dom";
-import './css/styles-site.css';
-import './css/about.css';
 import portrait from './images/portrait.jpg';
 import react from './images/react.svg';
 import webfaction from './images/webfaction-110x40-white-logo.png';
 import godaddy from './images/godaddy.png';
 import mongodb from './images/mongodb.svg';
 import nodejs from './images/nodejs.svg';
+import './css/about.css';
 
 class About extends React.Component {
     render() {

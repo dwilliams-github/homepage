@@ -15,7 +15,8 @@
 -  An expert on the computer simulation of detectors
 -  Experience with data acquisition and reconstruction software for
    particle detectors
--  Experience with hardware design, development, and fabrication,
+-  Experience with the design, development, and fabrication of
+   experimental apparatus,
    including digital circuitry and basic metalworking
 
 [Education](#education)

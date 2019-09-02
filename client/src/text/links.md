@@ -8,7 +8,7 @@ Nothing makes a Physics geek smile more than online, on demand
 [solutions](https://www.wolframalpha.com/calculators/integral-calculator/) to integrals.
 
 If you do any numerical computation, you probably know about
-[Numeric Recipes](https://www.amazon.com/Numerical-Recipes-3rd-Scientific-Computing/dp/0521880688). 
+[Numerical Recipes](https://www.amazon.com/Numerical-Recipes-3rd-Scientific-Computing/dp/0521880688). 
 But, did you know that it is now freely available 
 [online](http://numerical.recipes/)?
 

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import './css/styles-site.css';
-import './css/projects.css';
 
 class HepAuthors extends React.Component {
     render() {
