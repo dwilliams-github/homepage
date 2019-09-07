@@ -11,7 +11,7 @@ class BlogPager extends React.Component {
         let controls = [];
         if (page) {
             controls.push(
-                <div className="newer">
+                <div className="newer" key="newer">
                     <Link to={"/blog?" + queryString.stringify({
                         ...linkProps,
                         page: ipage-1
@@ -21,7 +21,7 @@ class BlogPager extends React.Component {
         }
         if (isMore) {
             controls.push(
-                <div className="older">
+                <div className="older" key="older">
                     <Link to={"/blog?" + queryString.stringify({
                         ...linkProps,
                         page: ipage+1
