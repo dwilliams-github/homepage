@@ -77,3 +77,6 @@ a:active {
 span.monospace {
 	font-family: monospace;
 }
+@media only screen and (max-width: 960px) {
+	#banner {font-size:5vw;}
+}
