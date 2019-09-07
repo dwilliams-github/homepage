@@ -30,13 +30,13 @@ div.menu div.right {
     margin-left:14px;
 }
 div.menu div.icon {
-    width:90px;
-    height:80px;
-    margin-bottom:10px;
+    width: 95%;
+    height: 80px;
+    margin-bottom: 10px;
     font-size: 35pt;
     text-align: center;
     line-height: 80px;
-    opacity:0.7;
+    opacity: 0.7;
     filter:alpha(opacity=70);
 }
 div.menu div.item:hover div.icon {
@@ -46,7 +46,28 @@ div.menu div.item:hover div.icon {
 div.menu div.link {
     width:100%;
     text-align:center;
+    font-size: 1.8vw;
 }
 div.menu div.item:hover div.link {
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 960px) {
+    /* switch to proportional layout */
+    div.menu {
+        left: 8%;
+        right: 8%;
+        top: 10%;
+        height:auto;
+        padding: 2% 5%;
+        width: auto;
+    }
+    div.menu div.item {
+        width: 15%;
+    }
+    div.menu div.icon {
+        height: 5vw;
+        line-height: 6vw;
+        font-size: 5vw;
+    }
 }
