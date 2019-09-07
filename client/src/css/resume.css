@@ -23,8 +23,12 @@
 .resume li {
 	margin: 1px 9px;
 }
-
 @media print {
     .resume .content { width: 80% }
     .resume #side { display: none; }
+}
+@media only screen and (max-width: 960px) {
+	.resume .content {
+		width: auto;
+	}
 }

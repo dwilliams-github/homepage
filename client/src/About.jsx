@@ -81,9 +81,9 @@ class About extends React.Component {
             <div className="about content">
                 <Banner />
                 <Side contents={sides}/>
-                <div id="main">
+                <div className="about-main">
                     <h3>About slashdave.com</h3>
-                    <img src={portrait} height={279} alt="portrait" />
+                    <img src={portrait} alt="portrait" />
                     <p>Welcome to my small corner of the internet.</p>
                     <p>
                         I established slashdave (<span className="monospace">/dave</span>) in 2011 as my personal presence on the web, to present my <Link to="/resume">credentials</Link> and express my identity. It also serves as a permanent place to store my electronic documents, as a personal code repository, and a place to experiment with the latest trends in computer technology.

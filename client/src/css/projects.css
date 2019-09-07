@@ -5,3 +5,13 @@
 	font-size: x-small;
 	line-height: 130%;
 }
+.projects .text {
+	padding-top: 10px;
+	font-size: small;
+	width: 70%;
+}
+@media only screen and (max-width: 960px) {
+	.projects .text {
+		width: auto;
+	}
+}

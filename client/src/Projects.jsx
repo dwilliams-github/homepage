@@ -35,7 +35,7 @@ class Projects extends React.Component {
             <div className="projects content">
                 <Banner />
                 <Side contents={sides}/>
-                <div id="main">
+                <div className="text">
                     <h3><a name="pCT">Computed Tomography</a></h3>
 
                     <p>

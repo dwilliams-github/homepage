@@ -30,7 +30,6 @@ a:active {
 #main {
 	padding-top: 10px;
 	font-size: small;
-	width: 70%;
 }
 #banner {
 	color:#CC9933;
@@ -74,9 +73,45 @@ a:active {
 	font-size: 0.5em;
 	color: rgb(133, 133, 133);
 }
+#side-button {
+	position: absolute;
+	top: 1rem;
+	right: 4%;
+	font-size: 1.5rem;
+	display: none;
+}
 span.monospace {
 	font-family: monospace;
 }
 @media only screen and (max-width: 960px) {
-	#banner {font-size:5vw;}
+	div.content {
+		margin: 2% 2% 2% 3%;
+	}
+	#banner {
+		font-size:5vw;
+	}
+	#side-button {
+		display: block
+	}
+	#side-button:hover {
+		cursor: pointer;
+	}
+	#side {
+		position: absolute;
+		top: 4rem;
+		right: 4%;
+		float: none;
+		width: 300px;
+		z-index: 11;
+		display: none;
+		background:#111;
+		border: 1px solid #696969;
+		padding: 0.5rem;
+	}
+	#side.side-show {
+		display: block;
+	}
+	#side .sidetitle, #side .sideitem {
+		font-size: small;
+	}
 }
