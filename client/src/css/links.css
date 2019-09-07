@@ -1,40 +1,45 @@
-.links .content {
+.links-content {
     font-size: small;
     width: 60%;
     margin: 0;
     padding: 0;
 }
-.links #address {
+.links-content #address {
 	font-size: small;
 	padding-bottom: 20px;
 }
-.links h1 {
+.links-content h1 {
 	font-size: 11pt;
 	color: #CCCC66;
 }
-.links h2 {
+.links-content h2 {
 	font-size: 10pt;
 }
-.links p {
+.links-content p {
 	padding-top: 1pt;
 	padding-bottom: 3pt;
 	margin: 0;
 }
-.links li {
+.links-content li {
 	margin: 1px 9px;
 }
-.links table {
+.links-content table {
     border-collapse: collapse;
     margin-bottom: 15px;
 }
-.links table tbody  {
+.links-content table tbody  {
     border-top: 1px solid rgb(126, 126, 126);
     border-bottom: 1px solid rgb(126, 126, 126);
 }
-.links table th {
+.links-content table th {
     padding-bottom: 4px;
 }
-.links table td {
+.links-content table td {
     border: none;
     padding: 3px 15px 3px 0;
+}
+@media only screen and (max-width: 960px) {
+	.links-content {
+		width: auto;
+	}
 }

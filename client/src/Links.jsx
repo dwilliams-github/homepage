@@ -29,11 +29,11 @@ class Links extends React.Component {
         ];
 
         return (
-            <div className="links content">
+            <div className="content">
                 <Banner />
                 <div id="bannercaption">A few links I have found useful or interesting</div>
                 <Side contents={sides}/>
-                <div className="content">
+                <div className="links-content">
                     <Markdown source={links} linkTarget="_blank"/>
                 </div>
             </div>

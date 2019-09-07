@@ -5,7 +5,7 @@ class HepAuthors extends React.Component {
     render() {
         return (
             <div className="projects content">
-                    <div id="main">
+                    <div className="text">
                     <h3>Authorship in High-Energy Physics</h3>
                     <p>
                         Over the decades, as high-energy physics experiments became larger and more complex, the collaboration of physicists that formed to build and run them became larger and larger. These days, high-energy physics collaborations are so large it is almost comical. Some present day examples and their size as of April 2006:

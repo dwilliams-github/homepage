@@ -12,6 +12,6 @@ to the author alone and do not reflect the official policy or
 position of either Verseon Corporation or BlockRules Ltd.
 
 No personal data is collected or stored by this web site,
-with the exception of routine server log data which may
+with the exception of conventional server log data which may
 contain an IP address or device identifier, request date and
 time, pages requested, and user agent.
