@@ -1,5 +1,5 @@
 body {
-	font-family: verdana, arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	background: #333333;		
 	color: #CCCCCC;
 	margin: 0;
@@ -33,7 +33,7 @@ a:active {
 }
 #banner {
 	color:#CC9933;
-	font-size:27pt;
+	font-size:30pt;
 	font-weight:bold;
 }
 #bannercaption {
