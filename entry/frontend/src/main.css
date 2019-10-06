@@ -1,0 +1,9 @@
+.main {
+    font-size: small;
+}
+.dialog {
+    padding: 20px;
+}
+.dialog .bp3-input-group {
+    margin: 5px 0;
+}

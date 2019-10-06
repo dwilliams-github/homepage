@@ -19,8 +19,13 @@ babel, and react.
 really possible, or at least not easy, because mongoose and webpack do not mix.
 Instead, run an express server in an electron thread.
 
-* The webpack and node/express modules are mixed in together using the same
-node_module path. This is a little wierd, but does work.
+* Some suggest running threads in an electron thread in a render process, but,
+actually, why would we do this? Electron is a full node.js application, so just
+use normal thread methods (cluster) for our data serving stuff.
+
+* The front-end uses webpack and react, which is pretty foreign to electron.
+It would be a bad idea to mix and match packages, so the front-end and electron
+app have separate package directories.
 
 * I decided to use blueprintjs in this app, just to try another css platform.
 I haven't bothered to make the app very pretty, just functional.
