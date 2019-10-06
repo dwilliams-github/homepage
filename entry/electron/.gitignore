@@ -1,0 +1,9 @@
+config.json
+/node_modules
+
+# don't save secrets
+data/config.json
+
+# Builds
+bunder.js
+
