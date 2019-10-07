@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDataGrid from 'react-data-grid';
 import { Icon, Spinner, Dialog, Button, AnchorButton, InputGroup } from "@blueprintjs/core";
-import { IconNames } from "@blueprintjs/icons";
 import axios from 'axios';
 import '@blueprintjs/table/lib/css/table.css'
 
