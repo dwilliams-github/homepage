@@ -31,9 +31,6 @@ function service(port) {
     //
     app.get('/gigs/get', (req, res) => {
         Data.Gig.find()
-            .populate("group")
-            .populate("director")
-            .populate("venue")
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
@@ -54,7 +51,7 @@ function service(port) {
     //
     // Add a venue
     //
-    // Return new id...
+    // Return new row
     //
     app.get('/venues/add', (req, res) => {
         Data.Venue
@@ -97,10 +94,112 @@ function service(port) {
     });
 
     //
+    // Fetch groups
+    //
+    app.get('/groups/get', (req, res) => {
+        Data.Group.find()
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    //
+    // Add a group
+    //
+    // Return new row
+    //
+    app.get('/groups/add', (req, res) => {
+        Data.Group
+            .create( req.query )
+            .then( (data) => {
+                return res.json({ success: true, data: data });
+            })
+            .catch( (err) => {
+                return res.json({ success: false, error: err });
+            })
+    });
+
+    //
+    // Update groups (one at a time)
+    //
+    // Note that url requests don't support nested json structures,
+    // so manual parsing is required
+    //
+    app.get('/groups/update', (req, res) => {
+        const { id, values } = req.query;
+        Data.Group
+            .updateOne( { '_id': id }, JSON.parse(values) )
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    //
+    // Remove single group
+    //
+    app.get('/groups/remove', (req, res) => {
+        const { id } = req.query;
+        Data.Group
+            .findByIdAndRemove( id )
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    
+    //
     // Fetch directors
     //
     app.get('/directors/get', (req, res) => {
         Data.Director.find()
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    //
+    // Add a director
+    //
+    // Return new row
+    //
+    app.get('/directors/add', (req, res) => {
+        Data.Director
+            .create( req.query )
+            .then( (data) => {
+                return res.json({ success: true, data: data });
+            })
+            .catch( (err) => {
+                return res.json({ success: false, error: err });
+            })
+    });
+
+    //
+    // Update directors (one at a time)
+    //
+    // Note that url requests don't support nested json structures,
+    // so manual parsing is required
+    //
+    app.get('/directors/update', (req, res) => {
+        const { id, values } = req.query;
+        Data.Director
+            .updateOne( { '_id': id }, JSON.parse(values) )
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    //
+    // Remove single director
+    //
+    app.get('/directors/remove', (req, res) => {
+        const { id } = req.query;
+        Data.Director
+            .findByIdAndRemove( id )
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
