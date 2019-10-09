@@ -26,6 +26,8 @@ function service(port) {
     mongoose.connection.once('open', () => console.log('Connected to database'));
     mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+    // -------
+
     //
     // Fetch gigs
     //
@@ -36,6 +38,50 @@ function service(port) {
                 return res.json({ success: true, data: data });
             });
     });
+
+    //
+    // Add a gig
+    //
+    // Return new row
+    //
+    app.get('/gigs/add', (req, res) => {
+        Data.Gig.create( req.query )
+            .then( (data) => {
+                return res.json({ success: true, data: data });
+            })
+            .catch( (err) => {
+                return res.json({ success: false, error: err });
+            })
+    });
+
+    //
+    // Update gigs (one at a time)
+    //
+    // Note that url requests don't support nested json structures,
+    // so manual parsing is required
+    //
+    app.get('/gigs/update', (req, res) => {
+        const { id, values } = req.query;
+        Data.Gig.updateOne( { '_id': id }, JSON.parse(values) )
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    //
+    // Remove single venue
+    //
+    app.get('/gigs/remove', (req, res) => {
+        const { id } = req.query;
+        Data.Gig.findByIdAndRemove( id )
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    // -------
 
     //
     // Fetch venues
@@ -54,8 +100,7 @@ function service(port) {
     // Return new row
     //
     app.get('/venues/add', (req, res) => {
-        Data.Venue
-            .create( req.query )
+        Data.Venue.create( req.query )
             .then( (data) => {
                 return res.json({ success: true, data: data });
             })
@@ -72,8 +117,7 @@ function service(port) {
     //
     app.get('/venues/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Venue
-            .updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Venue.updateOne( { '_id': id }, JSON.parse(values) )
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
@@ -85,13 +129,14 @@ function service(port) {
     //
     app.get('/venues/remove', (req, res) => {
         const { id } = req.query;
-        Data.Venue
-            .findByIdAndRemove( id )
+        Data.Venue.findByIdAndRemove( id )
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
             });
     });
+
+    // -------
 
     //
     // Fetch groups
@@ -110,8 +155,7 @@ function service(port) {
     // Return new row
     //
     app.get('/groups/add', (req, res) => {
-        Data.Group
-            .create( req.query )
+        Data.Group.create( req.query )
             .then( (data) => {
                 return res.json({ success: true, data: data });
             })
@@ -128,8 +172,7 @@ function service(port) {
     //
     app.get('/groups/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Group
-            .updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Group.updateOne( { '_id': id }, JSON.parse(values) )
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
@@ -141,14 +184,14 @@ function service(port) {
     //
     app.get('/groups/remove', (req, res) => {
         const { id } = req.query;
-        Data.Group
-            .findByIdAndRemove( id )
+        Data.Group.findByIdAndRemove( id )
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
             });
     });
 
+    // -------
     
     //
     // Fetch directors
@@ -167,8 +210,7 @@ function service(port) {
     // Return new row
     //
     app.get('/directors/add', (req, res) => {
-        Data.Director
-            .create( req.query )
+        Data.Director.create( req.query )
             .then( (data) => {
                 return res.json({ success: true, data: data });
             })
@@ -185,8 +227,7 @@ function service(port) {
     //
     app.get('/directors/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Director
-            .updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Director.updateOne( { '_id': id }, JSON.parse(values) )
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
@@ -198,8 +239,7 @@ function service(port) {
     //
     app.get('/directors/remove', (req, res) => {
         const { id } = req.query;
-        Data.Director
-            .findByIdAndRemove( id )
+        Data.Director.findByIdAndRemove( id )
             .exec( (err, data) => {
                 if (err) return res.json({ success: false, error: err });
                 return res.json({ success: true, data: data });
