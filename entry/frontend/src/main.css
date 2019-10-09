@@ -10,3 +10,7 @@
 .rdg-cell-action-button {
     width: 20px;
 }
+.grid-date .DayPicker {
+    background: white;
+    border: 1px solid grey;
+}

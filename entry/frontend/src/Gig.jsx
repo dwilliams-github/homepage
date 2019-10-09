@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ReactDataGrid from 'react-data-grid';
 import { Icon, Spinner, Dialog, Button, AnchorButton, InputGroup } from "@blueprintjs/core";
+import { Editors } from "react-data-grid-addons";
+import DateEditor from './DateEditor';
 import axios from 'axios';
 import '@blueprintjs/table/lib/css/table.css'
 
@@ -193,6 +195,8 @@ class Gig extends Component {
 
         if (!(gigs.length && venues && directors && groups) ) return <Spinner/>;
 
+        
+
         const columns = [
             {
                 key: '_id', 
@@ -206,13 +210,30 @@ class Gig extends Component {
                 sortable: true,
                 editable: true
             },
+            {
+                key: 'start_date',
+                name: 'Start Date',
+                resizable: true,
+                sortable: true,
+                formatter: d => timeStampToDate(d.value),
+                editor: <DateEditor />
+            },
+            {
+                key: 'end_date',
+                name: 'End Date',
+                resizable: true,
+                sortable: true,
+                formatter: d => timeStampToDate(d.value),
+                editor: <DateEditor />
+            },
             { 
                 key: 'group',
                 name: 'Group',
                 resizable: true,
                 sortable: true,
                 editable: true,
-                formatter: d => groups[d.value]
+                formatter: d => groups[d.value],
+                editor: <Editors.DropDownEditor options={dropdownOptions(groups)} />
             },
             { 
                 key: 'director',
@@ -220,7 +241,8 @@ class Gig extends Component {
                 resizable: true,
                 sortable: true,
                 editable: true,
-                formatter: d => directors[d.value]
+                formatter: d => directors[d.value],
+                editor: <Editors.DropDownEditor options={dropdownOptions(directors)} />
             },
             { 
                 key: 'venue',
@@ -228,21 +250,8 @@ class Gig extends Component {
                 resizable: true,
                 sortable: true,
                 editable: true,
-                formatter: d => venues[d.value]
-            },
-            {
-                key: 'start_date',
-                name: 'Start Date',
-                resizable: true,
-                sortable: true,
-                formatter: d => timeStampToDate(d.value)
-            },
-            {
-                key: 'end_date',
-                name: 'End Date',
-                resizable: true,
-                sortable: true,
-                formatter: d => timeStampToDate(d.value)
+                formatter: d => venues[d.value],
+                editor: <Editors.DropDownEditor options={dropdownOptions(venues)} />
             }
         ];
 
@@ -293,6 +302,14 @@ class Gig extends Component {
     }
 }
 
+
+//
+// Documentation is a little poor for the DropDownEditor addon.
+//
+// The following was derived by inspecting the code:
+//    id: <unique>,  value: <returned result>, text: <text shown>, title: <title field for option???>
+//
+const dropdownOptions = (f) => Object.entries(f).map(([k,v]) => ({id: k, value: k, text: v}));
 
 function timeStampToDate(ts) {
     return new Date(ts).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' } );
