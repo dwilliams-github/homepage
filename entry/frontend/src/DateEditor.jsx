@@ -7,8 +7,11 @@ class DateEditor extends Component {
     constructor(props) {
         super(props);
 
+        const date = new Date(props.value)
+
         this.state = {
-            date: new Date(props.value)
+            // Make sure we protect against an invalid date
+            date: isFinite(date) ? date : new Date()
         }
     }
 
@@ -19,6 +22,7 @@ class DateEditor extends Component {
     }
 
     getValue() {
+        // Note that our grid wants an isostring
         return { [this.props.column.key]: this.state.date.toISOString() }
     }
   

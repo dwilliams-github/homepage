@@ -4,6 +4,7 @@ import Gig from "./Gig";
 import Venue from "./Venue";
 import Director from "./Director";
 import Group from "./Group";
+import Blog from "./Blog";
 import '@blueprintjs/core/lib/css/blueprint.css';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
                     <Tab id="venue" title="Venue" panel={<Venue />} />
                     <Tab id="director" title="Director" panel={<Director />} />
                     <Tab id="group" title="Group" panel={<Group />} />
+                    <Tab id="blog" title="Blog" panel={<Blog />} />
                 </Tabs>
             </div>
         )
