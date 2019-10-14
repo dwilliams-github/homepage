@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDataGrid from 'react-data-grid';
-import { Icon, Spinner, Dialog, Button, AnchorButton, InputGroup } from "@blueprintjs/core";
+import { Icon, Spinner, Dialog, Button, AnchorButton, InputGroup, HTMLSelect } from "@blueprintjs/core";
+import { DateRangePicker } from "@blueprintjs/datetime";
 import { Editors } from "react-data-grid-addons";
 import DateEditor from './DateEditor';
 import axios from 'axios';
@@ -77,6 +78,14 @@ class Gig extends Component {
 
     addOnChange(name,event) {
         this.add[name] = event.target.value;
+    }
+
+    dateChange(range) {
+        this.add = {
+            ...this.add,
+            start_date: range[0] ? range[0].toISOString() : undefined,
+            end_date: range[1] ? range[1].toISOString() : undefined
+        }
     }
 
     submitAdd() {
@@ -210,6 +219,13 @@ class Gig extends Component {
                 sortable: true,
                 editable: true
             },
+            { 
+                key: 'authors',
+                name: 'Authors',
+                resizable: true,
+                sortable: true,
+                editable: true
+            },
             {
                 key: 'start_date',
                 name: 'Start Date',
@@ -226,13 +242,20 @@ class Gig extends Component {
                 formatter: d => timeStampToDate(d.value),
                 editor: <DateEditor />
             },
+            {
+                key: 'position',
+                name: 'Position',
+                resizable: true,
+                sortable: true,
+                editable: true
+            },
             { 
                 key: 'group',
                 name: 'Group',
                 resizable: true,
                 sortable: true,
                 editable: true,
-                formatter: d => groups[d.value],
+                formatter: d => d.value ? groups[d.value] : "ERROR",
                 editor: <Editors.DropDownEditor options={dropdownOptions(groups)} />
             },
             { 
@@ -241,7 +264,7 @@ class Gig extends Component {
                 resizable: true,
                 sortable: true,
                 editable: true,
-                formatter: d => directors[d.value],
+                formatter: d => d.value ? directors[d.value] : "ERROR",
                 editor: <Editors.DropDownEditor options={dropdownOptions(directors)} />
             },
             { 
@@ -250,7 +273,7 @@ class Gig extends Component {
                 resizable: true,
                 sortable: true,
                 editable: true,
-                formatter: d => venues[d.value],
+                formatter: d => d.value ? venues[d.value] : "ERROR",
                 editor: <Editors.DropDownEditor options={dropdownOptions(venues)} />
             }
         ];
@@ -258,20 +281,42 @@ class Gig extends Component {
         return (
             <div style={{position: 'relative'}}>
                 <div style={{position: 'absolute', width: '100%'}}>
-                    <Dialog title="Add Venue" isOpen={adding} onClose={() => this.cancelAdd()}>
+                    <Dialog title="Add Gig" isOpen={adding} onClose={() => this.cancelAdd()}>
                         <div className="dialog">
                             <InputGroup
-                                placeholder="Name"
-                                onChange={(e) => this.addOnChange("name",e)}
+                                placeholder="Title"
+                                onChange={(e) => this.addOnChange("title",e)}
                             />
                             <InputGroup
-                                placeholder="Address"
-                                onChange={(e) => this.addOnChange("address",e)}
+                                placeholder="Authors"
+                                onChange={(e) => this.addOnChange("authors",e)}
+                            />
+                            <DateRangePicker
+                                shortcuts={false}
+                                onChange={(r) => this.dateChange(r)}
                             />
                             <InputGroup
-                                placeholder="URL"
-                                onChange={(e) => this.addOnChange("url",e)}
+                                placeholder="Position"
+                                onChange={(e) => this.addOnChange("position",e)}
                             />
+                            <HTMLSelect defaultValue="none" onChange={(e) => this.addOnChange("group",e)}>
+                                <option value="none" disabled>Select group...</option>
+                                {Object.entries(groups).sort((a,b) => a[1] > b[1] ? 1 : -1).map( ([k,v]) => (
+                                    <option value={k} key={k}>{v}</option>
+                                ))}
+                            </HTMLSelect>
+                            <HTMLSelect defaultValue="none" onChange={(e) => this.addOnChange("director",e)}>
+                                <option value="none" disabled>Select director...</option>
+                                {Object.entries(directors).sort((a,b) => a[1] > b[1] ? 1 : -1).map( ([k,v]) => (
+                                    <option value={k} key={k}>{v}</option>
+                                ))}
+                            </HTMLSelect>
+                            <HTMLSelect defaultValue="none" onChange={(e) => this.addOnChange("venue",e)}>
+                                <option value="none" disabled>Select venue...</option>
+                                {Object.entries(venues).sort((a,b) => a[1] > b[1] ? 1 : -1).map( ([k,v]) => (
+                                    <option value={k} key={k}>{v}</option>
+                                ))}
+                            </HTMLSelect>
                             <div className="buttons">
                                 <Button icon="undo" text="Cancel" onClick={() => this.cancelAdd()}/>
                                 <AnchorButton icon="add" text="Add" onClick={() => this.submitAdd()}/>

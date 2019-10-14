@@ -7,10 +7,40 @@
 .dialog .bp3-input-group {
     margin: 5px 0;
 }
+.dialog .checks {
+    margin: 5px 0;
+}
 .rdg-cell-action-button {
     width: 20px;
 }
 .grid-date .DayPicker {
     background: white;
     border: 1px solid grey;
+}
+.preview {
+    font-family: 'Open Sans', sans-serif;
+	background: #333333;		
+    color: #CCCCCC;
+    font-size: small;
+	margin: 20px;
+    padding: 10px;
+    max-width: 800px;
+}
+.preview a,
+.preview a:link,
+.preview a:visited
+{
+	color: #CCCC66;
+	text-decoration:none;
+	outline: none;
+}
+.preview a:hover {
+	color: #FFFF99;
+	text-decoration:underline;
+	outline: none;
+}
+.preview a:active {
+	color: #FFFF99;
+	text-decoration:none;
+	outline: none;
 }

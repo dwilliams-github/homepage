@@ -246,6 +246,74 @@ function service(port) {
             });
     });
 
+    // -------
+    
+    //
+    // Fetch blogs
+    //
+    app.get('/blogs/get', (req, res) => {
+        Data.Article.find()
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    //
+    // Fetch categories.
+    // For now these are fixed (there is no way to add one)
+    //
+    app.get('/blogs/cats', (req, res) => {
+        Data.Category.find()
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+
+    //
+    // Add a blog article
+    //
+    // Return new row
+    //
+    app.get('/blogs/add', (req, res) => {
+        Data.Article.create( req.query )
+            .then( (data) => {
+                return res.json({ success: true, data: data });
+            })
+            .catch( (err) => {
+                return res.json({ success: false, error: err });
+            })
+    });
+
+    //
+    // Update blog articles (one at a time)
+    //
+    // Note that url requests don't support nested json structures,
+    // so manual parsing is required
+    //
+    app.get('/blogs/update', (req, res) => {
+        const { id, values } = req.query;
+        Data.Article.updateOne( { '_id': id }, JSON.parse(values) )
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
+    //
+    // Remove single blog article
+    //
+    app.get('/blogs/remove', (req, res) => {
+        const { id } = req.query;
+        Data.Article.findByIdAndRemove( id )
+            .exec( (err, data) => {
+                if (err) return res.json({ success: false, error: err });
+                return res.json({ success: true, data: data });
+            });
+    });
+
     // launch
     app.listen(port, () => console.log(`Listening on port ${port}`));
 }
