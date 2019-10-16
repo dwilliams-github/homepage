@@ -46,7 +46,7 @@ div.menu div.item:hover div.icon {
 div.menu div.link {
     width:100%;
     text-align:center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 div.menu div.item:hover div.link {
     text-decoration: underline;
