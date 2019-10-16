@@ -25,6 +25,7 @@ class BlogCalendar extends React.Component {
         this.clickDay = this.clickDay.bind(this);
         this.clickMonth = this.clickMonth.bind(this);
         this.inactiveDay = this.inactiveDay.bind(this);
+        this.newView = this.newView.bind(this);
     }
     
     componentDidMount() {
@@ -66,6 +67,36 @@ class BlogCalendar extends React.Component {
         .catch( err => {
             console.log(err.errmsg || err);
         });       
+    }
+
+    newView(day) {
+        if (day.view == "month") {
+            //
+            // Change month by clicking on header.
+            // Month with an article?
+            //
+            let newMonth = day.activeStartDate.getMonth()+1;
+            let newYear = day.activeStartDate.getFullYear();
+
+            let hasArticle = this.state.active.months.find( m => (
+                m.year == newYear && m.month == newMonth
+            ));
+
+            if (hasArticle) {
+                this.updateDate(
+                    day.activeStartDate.getFullYear(),
+                    day.activeStartDate.getMonth()+1,
+                    this.props.cat
+                );
+            } else {
+                this.setState({
+                    active: {
+                        ...this.state.active,
+                        days: []
+                    }
+                });
+            }
+        }
     }
 
     // by the way, "getDate" fetches the day of the month
@@ -114,8 +145,8 @@ class BlogCalendar extends React.Component {
 
         return (
             <Calendar
-                onActiveDateChange={d => this.updateDate(d.getFullYear(),d.getMonth)}
                 value={date}
+                onActiveDateChange={this.newView}
                 onClickDay={this.clickDay}
                 onClickMonth={this.clickMonth}
                 tileDisabled={this.inactiveDay}
