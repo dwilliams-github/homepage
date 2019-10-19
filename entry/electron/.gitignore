@@ -5,5 +5,5 @@ config.json
 data/config.json
 
 # Builds
-bunder.js
+bundle.js
 
