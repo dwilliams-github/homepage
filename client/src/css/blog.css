@@ -91,6 +91,18 @@
 	border-bottom:1px solid #666;
 	padding:10px;
 }
+.blog .body table {
+	border-collapse: collapse;
+}
+.blog .body table td { 
+	border: 1px solid #555;
+	padding: 4px 12px;
+}
+.blog .body table th {
+	border: 1px solid #555;
+	padding: 4px 12px;
+	border-bottom: 1px solid #777;
+}
 .blog .search {
 	color:#CC9933;
 }
