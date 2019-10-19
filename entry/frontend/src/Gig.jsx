@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import ReactDataGrid from 'react-data-grid';
 import { Icon, Spinner, Dialog, Button, AnchorButton, InputGroup, HTMLSelect } from "@blueprintjs/core";
 import { DateRangePicker } from "@blueprintjs/datetime";
-import { Editors } from "react-data-grid-addons";
 import DateEditor from './DateEditor';
+import DropDownEditor from './DropDownEditor';
 import axios from 'axios';
 import '@blueprintjs/table/lib/css/table.css'
 
@@ -256,7 +256,7 @@ class Gig extends Component {
                 sortable: true,
                 editable: true,
                 formatter: d => d.value ? groups[d.value] : "ERROR",
-                editor: <Editors.DropDownEditor options={dropdownOptions(groups)} />
+                editor: <DropDownEditor options={dropdownOptions(groups)} />
             },
             { 
                 key: 'director',
@@ -265,7 +265,7 @@ class Gig extends Component {
                 sortable: true,
                 editable: true,
                 formatter: d => d.value ? directors[d.value] : "ERROR",
-                editor: <Editors.DropDownEditor options={dropdownOptions(directors)} />
+                editor: <DropDownEditor options={dropdownOptions(directors)} />
             },
             { 
                 key: 'venue',
@@ -274,7 +274,7 @@ class Gig extends Component {
                 sortable: true,
                 editable: true,
                 formatter: d => d.value ? venues[d.value] : "ERROR",
-                editor: <Editors.DropDownEditor options={dropdownOptions(venues)} />
+                editor: <DropDownEditor options={dropdownOptions(venues)} />
             }
         ];
 
@@ -349,12 +349,11 @@ class Gig extends Component {
 
 
 //
-// Documentation is a little poor for the DropDownEditor addon.
+// Convert object dictionary to sorted array.
 //
-// The following was derived by inspecting the code:
-//    id: <unique>,  value: <returned result>, text: <text shown>, title: <title field for option???>
-//
-const dropdownOptions = (f) => Object.entries(f).map(([k,v]) => ({id: k, value: k, text: v}));
+const dropdownOptions = (f) => 
+    Object.entries(f).map(([k,v]) => ({value: k, text: v}))
+        .sort( (a,b) => a.text < b.text ? -1 : 1);
 
 function timeStampToDate(ts) {
     return new Date(ts).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' } );
