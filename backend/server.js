@@ -42,9 +42,11 @@ router.get('/music/get', (req, res) => {
         .populate("group")
         .populate("director")
         .populate("venue")
-        .exec( (err, data) => {
-            if (err) return res.json({ success: false, error: err });
-            return res.json({ success: true, data: data });
+        .then( data => {
+            res.json({ success: true, data: data });
+        })
+        .catch( err => {
+            res.json({ success: false, error: err });
         });
 });
 
@@ -60,24 +62,28 @@ router.get('/music/get', (req, res) => {
 // Note that year has to appear first in the group _id. 
 //
 router.get('/blog/months', (req, res) => {
-    Data.Article.aggregate([
-        {
-            $group: { 
-                _id: { 
-                    year: {$year: "$created"},
-                    month: {$month: "$created"} 
+    Data.Article
+        .aggregate([
+            {
+                $group: { 
+                    _id: { 
+                        year: {$year: "$created"},
+                        month: {$month: "$created"} 
+                    }
+                }
+            },
+            {
+                $sort: {
+                    "_id": -1
                 }
             }
-        },
-        {
-            $sort: {
-                "_id": -1
-            }
-        }
-    ]).exec( (err, data) => {
-        if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true, data: data.map(function(r){return r._id}) });
-    });
+        ])
+        .then( data => {
+            res.json({ success: true, data: data.map(function(r){return r._id}) });
+        })
+        .catch( err => {
+            res.json({ success: false, error: err });
+        });
 });
 
 
@@ -108,13 +114,15 @@ router.get('/blog/days', (req, res) => {
     Data.Article.find(query)
         .sort({created:-1})
         .limit(1)
-        .exec( (err,results) => {
-            if (err) return res.json({ success: false, error: err });
+        .then( results => {
             //
             // Return calendar info
             //
-            return BlogDays( res, results.length ? results[0].created : target_date, timezone );
+            BlogDays( res, results.length ? results[0].created : target_date, timezone );
         })
+        .catch( err => {
+            res.json({ success: false, error: err });
+        });
 });
 
 
@@ -168,9 +176,9 @@ function BlogDays(res,target_date,timezone) {
             ])
             .exec(callback);
         }
-    }, function(err,results) {
-        if (err) return res.json({ success: false, error: err });
-        return res.json({ 
+    }, (err,results) => {
+        if (err) res.json({ success: false, error: err });
+        res.json({ 
             success: true, 
             target: target_date,
             days: results.days.map(function(r){return r._id}), 
@@ -184,10 +192,14 @@ function BlogDays(res,target_date,timezone) {
 // Fetch blog categories
 //
 router.get('/blog/categories', (req, res) => {
-    Data.Category.find().exec( (err, data) => {
-        if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true, data: data });
-    });
+    Data.Category
+        .find()
+        .then( data => {
+            res.json({ success: true, data: data });
+        })
+        .catch( err => {
+            res.json({ success: false, error: err });
+        })
 });
 
 //
@@ -234,12 +246,11 @@ router.get('/blog/article/get', (req, res) => {
         .populate("pictures")
         .populate("author")
         .populate("categories")
-        .exec((err,results) => {
-            if (err) return res.json({ success: false, error: err });
-            return res.json({ 
-                success: true, 
-                articles: results
-            });
+        .then( results => {
+            res.json({ success: true,  articles: results });
+        })
+        .catch( err => {
+            res.json({ success: false, error: err });
         });
 });
 
