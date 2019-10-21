@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
 import ReactDataGrid from 'react-data-grid';
-import { Icon, Spinner, Dialog, Button, AnchorButton, Collapse, TextArea, InputGroup, Checkbox } from "@blueprintjs/core";
+import {
+    Icon,
+    Spinner,
+    Dialog,
+    Button,
+    AnchorButton,
+    Collapse,
+    TextArea,
+    InputGroup,
+    Checkbox,
+    FileInput
+} from "@blueprintjs/core";
 import Markdown from 'react-markdown';
 import axios from 'axios';
 import '@blueprintjs/table/lib/css/table.css'
@@ -15,6 +26,8 @@ class Blog extends Component {
             editing: null,
             editBody: null,
             removing: null,
+            removeImage: null,
+            addImage: null,
             blogs: [],
             cats: []
         }
@@ -181,7 +194,7 @@ class Blog extends Component {
         //
         // Update state independently
         //
-        let replaced = this.state.blogs.findIndex(r => r._id = this.state.editing);
+        let replaced = this.state.blogs.findIndex(r => r._id == this.state.editing);
 
         this.setState({
             blogs: [
@@ -195,10 +208,122 @@ class Blog extends Component {
         })
     }
 
-    cellActions(col,row) {
-        if (col.key != '_id') return;
+    //
+    // Here we remove the last image. This doesn't seem to be much of 
+    // a limitation, since very few stories will have more than one image
+    //
+    submitImageRemove() {
+        let target = this.state.blogs.find(r => r._id == this.state.removeImage).pictures;
+        if (target.length == 0) return;  // nothing to do?
 
-        return [
+        axios.get("http://localhost:8000/blogs/picture/drop", {
+            params: {
+                id: this.state.removeImage,
+                picture: target.slice(-1).pop()
+            }
+        })
+        .then( (res) => {
+            if (!res.data.success) throw res.error;
+
+            let updated = this.state.blogs.findIndex(r => r._id == this.state.removeImage);
+
+            this.setState({
+                blogs: [
+                    ...this.state.blogs.slice(0,updated),
+                    {
+                        ...this.state.blogs[updated],
+                        pictures: this.state.blogs[updated].pictures.slice(0,-1)
+                    },
+                    ...this.state.blogs.slice(updated+1)
+                ],
+                removeImage: null
+            })        
+        })
+        .catch( (err) => {
+            console.log(err);
+        });
+    }
+
+
+    cancelImageRemove() {
+        this.setState({removeImage: null});
+    }
+
+    setImageFile(event) {
+        this.setState({
+            addImage: {
+                ...this.state.addImage,
+                image: event.target.files[0]
+            }
+        });
+        return true;
+    }
+
+    setImageCaption(event) {
+        this.setState({
+            addImage: {
+                ...this.state.addImage,
+                caption: event.target.value
+            }
+        });
+        return true;
+    }
+
+    cancelAddImage() {
+        this.setState({addImage: null});
+    }
+
+    submitAddImage() {
+        let formData = new FormData()
+        formData.append('id', this.state.addImage.id );
+        formData.append('image', this.state.addImage.image );
+        formData.append('caption', this.state.addImage.caption );
+
+        axios.post("http://localhost:8000/blogs/picture/post", formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then((res) => {
+            if (!res.data.success) throw res.error;
+
+            let updated = this.state.blogs.findIndex(r => r._id == this.state.addImage.id);
+
+            this.setState({
+                blogs: [
+                    ...this.state.blogs.slice(0,updated),
+                    {
+                        ...this.state.blogs[updated],
+                        pictures: [ ...this.state.blogs[updated].pictures, res.data.data ]
+                    },
+                    ...this.state.blogs.slice(updated+1)
+                ],
+                addImage: null,
+                image: null
+            })
+        });
+    }
+
+    cellActions(col,row) {
+        if (col.key == 'pictures') {
+            let answer = [
+                {
+                    icon: <Icon icon="add"/>,
+                    callback: () => this.setState({addImage: {id: row._id}})
+                }
+            ];
+
+            if (row.pictures.length > 0) {
+                answer.push({
+                    icon: <Icon icon="remove" intent="warning"/>,
+                    callback: () => this.setState({removeImage: row._id})
+                })
+            }
+
+            return answer;
+        }
+
+        if (col.key == '_id') return [
             {
                 icon: <Icon icon="add"/>,
                 callback: () => this.setState({adding: true})
@@ -211,7 +336,9 @@ class Blog extends Component {
                 icon: <Icon icon="remove" intent="warning"/>,
                 callback: () => this.setState({removing: row._id})
             }
-        ]
+        ];
+
+        return;
     }
 
     sortRow( col, dir ) {
@@ -230,7 +357,7 @@ class Blog extends Component {
     }
 
     render() {
-        const { adding, addBody, cats, editing, editBody, removing, blogs } = this.state;
+        const { adding, addBody, cats, editing, editBody, removing, removeImage, addImage, blogs } = this.state;
 
         if (blogs.length == 0) return <Spinner/>;
 
@@ -259,6 +386,12 @@ class Blog extends Component {
                 resizable: true,
                 sortable: true,
                 formatter: d => d.value ? timeStampToDate(d.value) : ""
+            },
+            {
+                key: 'pictures',
+                name: 'Pictures',
+                resizable: true,
+                formatter: d => d.value.length
             }
         ];
 
@@ -273,12 +406,21 @@ class Blog extends Component {
                         enableCellSelect={true}
                         getCellActions={(r,c) => this.cellActions(r,c)}
                     />
-                    <Dialog title="Confirm removal" isOpen={removing} onClose={() => this.cancelRemove()}>
+                    <Dialog key="br" title="Confirm removal" isOpen={removing} onClose={() => this.cancelRemove()}>
                         <div className="dialog">
                             <div>Are you sure?</div>
                             <div className="buttons">
                                 <Button icon="undo" text="Cancel" onClick={() => this.cancelRemove()}/>
                                 <AnchorButton icon="remove" text="Remove" onClick={() => this.submitRemove()}/>
+                            </div>
+                        </div>
+                    </Dialog>
+                    <Dialog key="ir" title="Confirm image removal" isOpen={removeImage} onClose={() => this.cancelImageRemove()}>
+                        <div className="dialog">
+                            <div>Are you sure?</div>
+                            <div className="buttons">
+                                <Button icon="undo" text="Cancel" onClick={() => this.cancelImageRemove()}/>
+                                <AnchorButton icon="remove" text="Remove" onClick={() => this.submitImageRemove()}/>
                             </div>
                         </div>
                     </Dialog>
@@ -343,6 +485,19 @@ class Blog extends Component {
                             <div className="buttons">
                                 <Button icon="undo" text="Cancel" onClick={() => this.cancelEdit()}/>
                                 <AnchorButton icon="confirm" text="Update" onClick={() => this.submitEdit()}/>
+                            </div>                        
+                        </div>
+                    </Collapse>
+                    <Collapse isOpen={addImage}>
+                        <div className="dialog">
+                            <FileInput text="Choose file..." onInputChange={(e) => this.setImageFile(e)}/>
+                            <InputGroup
+                                placeholder="Caption"
+                                onChange={(e) => this.setImageCaption(e)}
+                            />                            
+                            <div className="buttons">
+                                <Button icon="undo" text="Cancel" onClick={() => this.cancelAddImage()}/>
+                                <AnchorButton icon="add" text="Add" onClick={() => this.submitAddImage()}/>
                             </div>                        
                         </div>
                     </Collapse>

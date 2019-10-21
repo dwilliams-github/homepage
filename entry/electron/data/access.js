@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const formidable = require('formidable');
+const fs = require('fs');
 
 const Data = require('./data');
 const config = require('./config.json');
@@ -356,7 +358,7 @@ function service(port) {
                 { '_id': id },
                 { $pull: { pictures: picture } }
             )
-            .then( () => {
+            .then( (d) => {
                 // Count remaining references to this picture
                 return Data.Article.countDocuments({ pictures: picture }).exec();
             })
@@ -370,6 +372,35 @@ function service(port) {
             .catch( err => {
                 res.json({ success: false, error: err });
             });
+    });
+
+    //
+    // Add picture (multipart form).
+    // Returns id of inserted picture.
+    //
+    app.post('/blogs/picture/post', (req, res) => {
+        new formidable.IncomingForm().parse(req, (err,fields,files) => {
+            if (err) {
+                res.json({ success: false, error: err })
+                return;
+            }
+
+            const { caption, id } = fields;
+            
+            //
+            // Chain query: load file, then link
+            //
+            Data.Picture.create({ image: fs.readFileSync(files.image.path), caption: caption })
+                .then( (pic) => {
+                    Data.Article.updateOne( { '_id': id }, {$push: {pictures: pic.id}} )
+                        .then( () => {
+                            res.json({ success: true, data: pic.id });
+                        })
+                })
+                .catch( (err) => {
+                    res.json({ success: false, error: err });
+                });
+        });
     });
 
     // launch
