@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Banner from './Banner';
 import Side from './Side';
+import fred from './images/fred.jpg';
 import './css/projects.css';
 
 class Projects extends React.Component {
@@ -10,6 +11,7 @@ class Projects extends React.Component {
             {
                 title: 'Contents',
                 items: [
+                    <a href="#robots">Robotics</a>,
                     <a href="#pCT">Computed Tomograph</a>,
                     <a href="#hep">High-Energy Physics</a>,
                     <a href="#fiction">Fiction</a>
@@ -21,7 +23,10 @@ class Projects extends React.Component {
             {
                 title: "Links",
                 items: [
-                    <a href="http://scipp.ucsc.edu/">
+                    <a href="https://github.com/dwilliams-github" target="_blank">
+                        Public code repository (GitHub)
+                    </a>,
+                    <a href="http://scipp.ucsc.edu/" target="_blank">
                         Santa Cruz Institute of Particle Physics
                     </a>
                 ]
@@ -36,6 +41,24 @@ class Projects extends React.Component {
                 <Banner />
                 <Side contents={sides}/>
                 <div className="text">
+                    <h3><a name="robots">Robotics</a></h3>
+
+                    <div className="image">
+                        <img src={fred} alt="fred" width="250px"/>
+                    </div>
+
+                    <p>
+                        I've always been interested in robots, and even as a child I built little motorized contraptions. In the summer of 2001 I decided (in my spare time) that I would try to build something a little more serious. The result was the robot (named "Fred") pictured to the left.
+                    </p>
+
+                    <p>
+                        This is before the advent of 3D printing, so I desgined and constructed Fred's frame from bent aluminum and screws and used a track chassis I cut out of a motorized plastic toy. Fred is powered by a <a href="http://handyboard.com/hb/" target="_blank">HandyBoard</a>, a computer platform build around a Motorola MC68HC11 embedded processor that is primitive by today's standards. Fred features a sonic range finder, a directional photodetector, bump switches for collision detection, and dual optical decoder disks to measure wheel rotation.
+                    </p>
+
+                    <p>
+                        I wrote Fred's operating system <a href="https://github.com/dwilliams-github/robots" target="_blank">from scratch</a> in a combination of C and assembly.
+                    </p>
+
                     <h3><a name="pCT">Computed Tomography</a></h3>
 
                     <p>
@@ -88,7 +111,7 @@ class Projects extends React.Component {
                         Here are some papers in which I had a large hand in writing, but whose scientific results were obtained in collaboration with others.
                     </p>
 
-                    <div class="reference">
+                    <div className="reference">
                         <ol>
                             <li>
                                 <a href="http://www.arxiv.org/abs/hep-ex/0310050">Observation of a Narrow Meson Decaying to D<sub>s</sub><sup>+</sup>&pi;<sup>0</sup>&gamma; at a Mass of 2.458 GeV/c<sup>2</sup>, the BaBar Collaboration, Phys.Rev. <b>D69</b> (2004) 031101.</a>

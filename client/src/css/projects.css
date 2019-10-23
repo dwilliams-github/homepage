@@ -10,8 +10,16 @@
 	font-size: small;
 	width: 70%;
 }
+.projects .image {
+	float: left;
+	padding-right: 20px;
+	margin-top: 8px;
+}
 @media only screen and (max-width: 960px) {
 	.projects .text {
 		width: auto;
+	}
+	.project .image {
+		float: none
 	}
 }

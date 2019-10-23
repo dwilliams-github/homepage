@@ -24,8 +24,8 @@ considered by many as the state-of-the-art for numerical linear algebra.
 | [AP](https://www.apnews.com/Science) | The science news feed from the [Associated Press](https://www.ap.org/en-us/) |
 | [news@nature](https://www.nature.com/news) | Online news from [Nature](https://www.nature.com/) magazine |
 | [slashdot](https://science.slashdot.org/)  | Recent science news and public commentary from [Slashdot](https://slashdot.org/) |
-| [digg](https://www.digg.com/channel/science) | Publically submitted science news from the [digg](https://www.digg.com/) |
-| [reddit](https://www.reddit.com/r/science/) | Publically submitted science news from [reddit](https://www.reddit.com/) |
+| [digg](https://www.digg.com/channel/science) | Publicly submitted science news from the [digg](https://www.digg.com/) |
+| [reddit](https://www.reddit.com/r/science/) | Publicly submitted science news from [reddit](https://www.reddit.com/) |
 | [BioSpace](https://www.biospace.com/news/#breakingnews) | The breaking news page of the [BioSpace](https://www.biospace.com/) web hub |
 | [Reuters](https://www.reuters.com/news/health) | Health news from [Reuters](https://www.reuters.com/) |
 | [FiercePharma](https://www.fiercepharma.com/) | Pharma industry news and insight |
@@ -56,7 +56,7 @@ anywhere. Just pretend you didn't know it came from [Microsoft](https://www.micr
 By the way, if you are curious how it works, you can take a peek at all the
 details on [github](https://github.com/microsoft/vscode).
 
-Well, some say its ruined interviewing for programming jobs, but [LeetCode](https://leetcode.com/)
+Well, some say its ruined interviewing for computer science jobs, but [LeetCode](https://leetcode.com/)
 is still a good way to learn algorithms. If you are new to programming and find their
 examples bewildering, you can pick up the python language with no prior experience at
 [learningpython.org](https://www.learnpython.org/).

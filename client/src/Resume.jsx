@@ -19,14 +19,20 @@ class Resume extends React.Component {
                 ]
             },
             {
+                title: "Personal Projects",
+                items: [
+                    <a href="https://github.com/dwilliams-github" target="_blank">GitHub</a>
+                ]
+            },
+            {
                 title: "Academic Links",
                 items: [
                     <a href={"https://inspirehep.net/search?" + queryString.stringify({
                         p: "FIND AUTHOR D C WILLIAMS AND (J PRLTA OR J PHRVA OR J PHLTA OR J ZEPYA OR J EPHJA OR J NUIMA)"
-                    })}>
-                        My Journal Publications (SPIRES)
+                    })} target="_blank">
+                        Journal Publications (SPIRES)
                     </a>,
-                    <a href="/public/documents/cv.pdf">
+                    <a href="/public/documents/cv.pdf" target="_blank">
                         Curriculum Vitae (out of date)
                     </a>
                 ]
@@ -43,8 +49,8 @@ class Resume extends React.Component {
             <div className="resume content">
                 <Banner />
                 <div id="address">
-                    E-mail: <a href="mailto:david.c.williams@mac.com">david.c.williams@mac.com</a><br/>
-                    Web: <a href="http://slashdave.com/">http://slashdave.com/</a>
+                    E-mail: <a href="mailto:dwilliams@slashdave.com">dwilliams@slashdave.com</a><br/>
+                    Web: <a href="https://slashdave.com/">https://slashdave.com/</a>
                 </div>
                 <Side contents={sides}/>
                 <div className="content">

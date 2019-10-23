@@ -4,17 +4,18 @@
 
 -  A proficient software programmer with experience in a wide
    range of development roles
--  Capable of independently guiding a scientific analysis from concept
-   to publication
--  Productive in both small groups and very large, international
-   collaborations
--  Able to present scientific results accurately, clearly, and concisely
--  Experience with the analysis of very large data sets using advanced
+-  Capable of independently guiding research and development
+   projects from concept to publication
+-  Able to present complex data analyses accurately, clearly, and concisely
+-  Experience with the analysis of very large data sets through
    multivariate analysis
 -  An expert on the statistical interpretation of small signals
--  An expert on the computer simulation of detectors
--  Experience with data acquisition and reconstruction software for
-   particle detectors
+-  Productive in both small groups and very large, international
+   collaborations
+-  Broad knowledge and practical experience with the theory and application
+   of molecular simulations in drug discovery
+-  Experience with data acquisition, reconstruction software,
+   and computer simulation for particle detectors
 -  Experience with the design, development, and fabrication of
    experimental apparatus,
    including digital circuitry and basic metalworking
@@ -31,17 +32,17 @@ B.S., Physics, Northeastern University, Boston, MA, 1987
 
 -  Proficient in more than a dozen computer languages, including Python,
    ES6, c++, and SQL
+-  Responsible for numerous applications in numerical computing developed 
+   for a wide range of research roles
 -  Extensive experience with full-stack web development, including
-   front-end implementations in React, Redux, jQuery, CSS, and SVG, with backend
-   experience in Python, perl, SQL, and Ceph
+   front-end implementations with React, Redux, jQuery, CSS, and SVG, with backend
+   implementations with Python, perl, Node.js, SQL, MongoDB, and Boto
 -  Direct experience with a wide range of computer hardware and operating
    systems, old and new
--  Experience with cluster computing, containers, run-time environments, 
+-  Experience with high-performance computing, containers, run-time environments, 
    embedded computer systems, and high-speed data acquisition
--  University courses in software development, software design, data
-   structures, Pascal, LISP, and assembly
--  Author of several novel simulation, reconstruction, alignment, and pattern
-   recognition algorithms for a variety of particle detector systems
+-  University courses in software development, software design, and data
+   structures
 
 [Professional Experience](#experience)
 =======================
@@ -60,7 +61,7 @@ in computational drug development.
 ## Director, Research and Development, Verseon, Fremont, CA 2011–2018
 
 Responsible for managing Verseon’s Computational R&D efforts, including operations,
-planning, purchasing, and recruiting. Assisted in the production of promotional collatoral.
+planning, purchasing, and recruiting. Assisted in the production of promotional collateral.
 Assisted in the development of corporate-wide policies and procedures in preparation
 for Verseon's IPO. Continued to directly contribute to code development efforts.
 Assisted in Verseon’s drug development programs as needed.
