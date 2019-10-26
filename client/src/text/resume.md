@@ -12,7 +12,7 @@
 -  An expert on the statistical interpretation of small signals
 -  Productive in both small groups and very large, international
    collaborations
--  Broad knowledge and practical experience with the theory and application
+-  Broad knowledge in and practical experience with the theory and application
    of molecular simulations in drug discovery
 -  Experience with data acquisition, reconstruction software,
    and computer simulation for particle detectors

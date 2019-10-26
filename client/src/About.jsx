@@ -89,7 +89,7 @@ class About extends React.Component {
                         I established slashdave (<span className="monospace">/dave</span>) in 2011 as my personal presence on the web, to present my <Link to="/resume">credentials</Link> and express my identity. It also serves as a permanent place to store my electronic documents, as a personal code repository, and a place to experiment with the latest trends in computer technology.
                     </p>
                     <p>
-                        This web site is my own design and implementation. In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, the backend runs on <a href="https://nodejs.org/en/">node.js</a>, and data is stored in <a href="https://www.mongodb.com/">MongoDB</a>. The backend is hosted by <a href="http://www.webfaction.com/">WebFaction</a> on a <a href="http://www.centos.org/">CentOS 7 linux</a> platform and the database is currently maintained on the cloud by <a href="https://www.mongodb.com/cloud/atlas">MongoDB atlas</a>.
+                        This web site is my own design and implementation. In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, the backend runs on <a href="https://nodejs.org/en/">Node.js</a>, and data is stored in <a href="https://www.mongodb.com/">MongoDB</a>. The backend is hosted by <a href="http://www.webfaction.com/">WebFaction</a> on a <a href="http://www.centos.org/">CentOS 7 linux</a> platform and the database is currently maintained on the cloud by <a href="https://www.mongodb.com/cloud/atlas">MongoDB atlas</a>.
                     </p>
                 </div>
             </div>
