@@ -12,6 +12,7 @@ class Projects extends React.Component {
                 title: 'Contents',
                 items: [
                     <a href="#robots">Robotics</a>,
+                    <a href="#classMac">Class MacOS apps</a>,
                     <a href="#pCT">Computed Tomograph</a>,
                     <a href="#hep">High-Energy Physics</a>,
                     <a href="#fiction">Fiction</a>
@@ -58,6 +59,26 @@ class Projects extends React.Component {
                     <p>
                         I wrote Fred's operating system <a href="https://github.com/dwilliams-github/robots" target="_blank">from scratch</a> in a combination of C and assembly.
                     </p>
+
+                    <h3><a name="classicMac">Classic MacOS applications</a></h3>
+
+                    <p>
+                        Between 1988 and 1998 I wrote a bunch of applications for fun for the <a href="https://en.wikipedia.org/wiki/Classic_Mac_OS" target="_blank">Classic MacOS</a> operating system. This operating system has long become obsolete, and the "event driven" architecture for its applications is quite different than what we are used to today. Many of the projects were left in various states of completion. Below are listed, in chronological order, some of the more functional examples:
+                    </p>
+
+                    <ul>
+                        <li><a href="https://github.com/dwilliams-github/flyer" target="_blank">Flyer</a>: a black+white real-time video game in the spirit of <a href="https://en.wikipedia.org/wiki/Asteroids_(video_game)" target="_blank">Asteroids</a> driven by a built-in <a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)" target="_blank">sprite library</a>.</li>
+
+                        <li><a href="https://github.com/dwilliams-github/Mandel" target="_blank">Mandel</a>: A simple program for graphically exploring the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" target="_blank">Mandelbrot set</a>.</li>
+
+                        <li><a href="https://github.com/dwilliams-github/Henon" target="_blank">Henon</a>: A simple program for graphically exploring the <a href="https://en.wikipedia.org/wiki/H%C3%A9non_map" target="_blank">Hénon Map</a>.</li>
+
+                        <li><a href="https://github.com/dwilliams-github/cridders" target="_blank">Cridders</a>: An artifical life evolution simulation, with behavior controlled through mutable genes.</li>
+
+                        <li><a href="https://github.com/dwilliams-github/duit" target="_blank">Duit</a>: An editor for <a href="https://en.wikipedia.org/wiki/Doom_WAD" target="_blank">Doom WAD</a> game files.</li>
+
+                        
+                    </ul>
 
                     <h3><a name="pCT">Computed Tomography</a></h3>
 
