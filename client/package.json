@@ -9,7 +9,9 @@
     "dev-build": "webpack --progress -d --config webpack.dev.js",
     "watch": "webpack --progress -d --config webpack.dev.js --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "serialize-javascript": "^2.1.1"
+  },
   "proxy": "http://localhost:3001",
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -38,7 +40,7 @@
     "style-loader": "^1.0.0",
     "url-loader": "^2.1.0",
     "watch": "^1.0.2",
-    "webpack": "^4.39.1",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.2"
   }
