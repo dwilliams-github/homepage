@@ -60,6 +60,24 @@ class Projects extends React.Component {
                         I wrote Fred's operating system <a href="https://github.com/dwilliams-github/robots" target="_blank">from scratch</a> in a combination of C and assembly.
                     </p>
 
+                    <div className="image-right">
+                        <iframe src="https://player.vimeo.com/video/379925448" width="380" height="200" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+
+                    <p>
+                        One of my annual holiday rituals is to log into our Christmas tree and perform a software update. Which sounds strange, except our Christmas tree is controlled by a <a href="https://www.raspberrypi.org/" target="_blank">Raspberry Pi</a>.
+                    </p>
+
+                    <p>
+                        In it's latest configuration, the tree has 100 LED RGB lights, each individually programmable. The lights are quite bright and certain effects can be pretty garish. So as to not to be too distracting, I have programmed the default light sequence to gently rotate colors. Since the Raspberry Pi has a synchronized clock, I have also programmed it to turn off late at night and back on in the morning.
+                    </p>
+
+                    <p>
+                        You can find details of this project on <a href="https://github.com/dwilliams-github/xmastree" target="_blank">GitHub</a>.
+                    </p>
+
+                    <div className="clear"/>
+
                     <h3><a name="classicMac">Classic MacOS applications</a></h3>
 
                     <p>
