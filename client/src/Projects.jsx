@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Banner from './Banner';
 import Side from './Side';
 import fred from './images/fred.jpg';
+import flyerShip from './images/ship.png';
 import './css/projects.css';
 
 class Projects extends React.Component {
@@ -11,6 +12,7 @@ class Projects extends React.Component {
             {
                 title: 'Contents',
                 items: [
+                    <a href="#apps">Apps</a>,
                     <a href="#robots">Robotics</a>,
                     <a href="#classMac">Class MacOS apps</a>,
                     <a href="#pCT">Computed Tomograph</a>,
@@ -42,10 +44,28 @@ class Projects extends React.Component {
                 <Banner />
                 <Side contents={sides}/>
                 <div className="text">
+                    <h3><a name="apps">Apps</a></h3>
+
+                    <div className="image">
+                        <img src={flyerShip} alt="flyer" width="80px"/>
+                    </div>
+
+                    <p>
+                        I wrote a simple arcade-style game called "Flyer" many years ago, and even wrote a <a href="https://github.com/dwilliams-github/flyer" target="_blank">port</a> to the classic MacOS. Recently I decided it would be fun to recreate it for modern Macs. The result was convincing enough that I decided to offer it on the <a href="https://apps.apple.com/us/app/flyer/id1494646505" target="_blank">Mac App Store</a>.
+                    </p>
+
+                    <p>
+                        This is the third version of Flyer, and is compatible with macOS 10.14 or later (64 bit processor). If you want some simple fun (and own a Mac), I encourage you to give it a try (it's free). If you are curious about how it was written, you can find the source on my <a href="https://github.com/dwilliams-github/flyer-macos" target="_blank">Public GitHub</a>. For more information, see the simpe <a href="https://flyer.slashdave.com" target="_blank">web site</a> I created to support the game.
+                    </p>
+
+                    <p>
+                        This project was my introduction to the <a href="https://swift.org" target="_blank">Swift</a> programming language and also my first serious project built using <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>. Performance is no longer an issue on modern computer hardware, so for this version I focused instead on adding some new features, like <a href="https://developer.apple.com/documentation/avfoundation/avaudio3dmixing" target="_blank">3D sound</a>.
+                    </p>
+
                     <h3><a name="robots">Robotics</a></h3>
 
                     <div className="image">
-                        <img src={fred} alt="fred" width="250px"/>
+                        <img src={fred} alt="fred" width="180px"/>
                     </div>
 
                     <p>
