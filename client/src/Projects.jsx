@@ -55,7 +55,7 @@ class Projects extends React.Component {
                     </p>
 
                     <p>
-                        This is the third version of Flyer, and is compatible with macOS 10.14 or later (64 bit processor). If you want some simple fun (and own a Mac), I encourage you to give it a try (it's free). If you are curious about how it was written, you can find the source on my <a href="https://github.com/dwilliams-github/flyer-macos" target="_blank">Public GitHub</a>. For more information, see the simpe <a href="https://flyer.slashdave.com" target="_blank">web site</a> I created to support the game.
+                        This is the third version of Flyer, and is compatible with macOS 10.14 or later (64 bit processor). If you want some simple fun (and own a Mac), I encourage you to give it a try (it's free). If you are curious about how it was written, you can find the source on my <a href="https://github.com/dwilliams-github/flyer-macos" target="_blank">Public GitHub</a>. For more information, see the simple <a href="https://flyer.slashdave.com" target="_blank">web site</a> I created to support the game.
                     </p>
 
                     <p>
@@ -98,7 +98,7 @@ class Projects extends React.Component {
 
                     <div className="clear"/>
 
-                    <h3><a name="classicMac">Classic MacOS applications</a></h3>
+                    <h3><a name="classicMac">Classic MacOS Apps</a></h3>
 
                     <p>
                         Between 1988 and 1998 I wrote a bunch of applications for fun for the <a href="https://en.wikipedia.org/wiki/Classic_Mac_OS" target="_blank">Classic MacOS</a> operating system. This operating system has long become obsolete, and the "event driven" architecture for its applications is quite different than what we are used to today. Many of the projects were left in various states of completion. Below are listed, in chronological order, some of the more functional examples:
