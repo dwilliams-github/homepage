@@ -13,6 +13,7 @@ class Links extends React.Component {
                 items: [
                     <a href="#math">Mathematics and Algorithms</a>,
                     <a href="#biotech">Biotech News</a>,
+                    <a href="#computing">Computing News</a>,
                     <a href="#physics">Physics News</a>,
                     <a href="#space">Space News</a>,
                     <a href="#programming">Programming</a>,

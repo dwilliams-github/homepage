@@ -21,15 +21,21 @@ considered by many as the state-of-the-art for numerical linear algebra.
 
 | Link | Description |
 | ----- | ----- |
+| [BioSpace](https://www.biospace.com/news/#breakingnews) | The breaking news page of the [BioSpace](https://www.biospace.com/) web hub |
+| [FiercePharma](https://www.fiercepharma.com/) | Pharma industry news and insight |
 | [AP](https://www.apnews.com/Science) | The science news feed from the [Associated Press](https://www.ap.org/en-us/) |
 | [news@nature](https://www.nature.com/news) | Online news from [Nature](https://www.nature.com/) magazine |
-| [slashdot](https://science.slashdot.org/)  | Recent science news and public commentary from [Slashdot](https://slashdot.org/) |
-| [digg](https://www.digg.com/channel/science) | Publicly submitted science news from the [digg](https://www.digg.com/) |
-| [reddit](https://www.reddit.com/r/science/) | Publicly submitted science news from [reddit](https://www.reddit.com/) |
-| [BioSpace](https://www.biospace.com/news/#breakingnews) | The breaking news page of the [BioSpace](https://www.biospace.com/) web hub |
 | [Reuters](https://www.reuters.com/news/health) | Health news from [Reuters](https://www.reuters.com/) |
-| [FiercePharma](https://www.fiercepharma.com/) | Pharma industry news and insight |
 | [MedicalNewsToday](https://www.medicalnewstoday.com/) | General health news |
+
+# [Computing News](#computing)
+
+| Link | Description |
+| ----- | ----- |
+| [Ars Technica](https://arstechnica.com/) | Technology web magazine |
+| [Slashdot](https://science.slashdot.org/)  | Recent science news and public commentary from [Slashdot](https://slashdot.org/) |
+| [HackerNews](https://news.ycombinator.com) | Submitted stories from [Y Combinator](https://www.ycombinator.com) |
+
 
 # [Physics News](#physics)
 
