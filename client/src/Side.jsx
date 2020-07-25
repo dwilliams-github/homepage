@@ -76,7 +76,7 @@ const aboutStuff = [
     <div className="sideitem" key="sideIabout">
         <div><Link to="/about">About</Link></div>
         <div><Link to="/terms">Terms of use</Link></div>
-        <div className="copyright">© Copyright 2019 David C. Williams</div>
+        <div className="copyright">© Copyright 2020 David C. Williams</div>
     </div>
 ]
 
