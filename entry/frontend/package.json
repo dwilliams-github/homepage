@@ -31,6 +31,6 @@
         "webpack-cli": "^3.3.12"
     },
     "dependencies": {
-        "serialize-javascript": "^2.1.2"
+        "serialize-javascript": "^4.0.0"
     }
 }

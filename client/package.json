@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "dot-prop": "^5.2.0",
-    "serialize-javascript": "^2.1.2"
+    "serialize-javascript": "^4.0.0"
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {

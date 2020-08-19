@@ -13,6 +13,7 @@ class Projects extends React.Component {
                 title: 'Contents',
                 items: [
                     <a href="#apps">Apps</a>,
+                    <a href="#web">Web</a>,
                     <a href="#robots">Robotics</a>,
                     <a href="#classMac">Class MacOS apps</a>,
                     <a href="#pCT">Computed Tomograph</a>,
@@ -28,6 +29,9 @@ class Projects extends React.Component {
                 items: [
                     <a href="https://github.com/dwilliams-github" target="_blank">
                         Public code repository (GitHub)
+                    </a>,
+                    <a href="https://covid19.slashdave.com/" target="_blank">
+                        A collection of plots on COVID-19
                     </a>,
                     <a href="http://scipp.ucsc.edu/" target="_blank">
                         Santa Cruz Institute of Particle Physics
@@ -61,6 +65,21 @@ class Projects extends React.Component {
                     <p>
                         This project was my introduction to the <a href="https://swift.org" target="_blank">Swift</a> programming language and also my first serious project built using <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>. Performance is no longer an issue on modern computer hardware, so for this version I focused instead on adding some new features, like <a href="https://developer.apple.com/documentation/avfoundation/avaudio3dmixing" target="_blank">3D sound</a>.
                     </p>
+
+                    <h3><a name="web">Web</a></h3>
+
+                    <p>
+                        The web site you are currently reading is my own design and implementation. In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, the backend runs on <a href="https://nodejs.org/en/">Node.js</a>, and data is stored in <a href="https://www.mongodb.com/">MongoDB</a>. You can find all of the details on <a href="https://github.com/dwilliams-github/homepage">github</a>.
+                    </p>
+
+                    <p>
+                        When the COVID-19 pandemic reached the United States, I could not resist studying its spread by analyzing data from several publicly available sources. My analyses started as a set of ad-hoc scripts which I pulled together organically using some of my favorite data science tools, including <a href="https://pandas.pydata.org/">pandas</a>, <a href="https://matplotlib.org/">matplotlib</a>, and <a href="https://jupyter.org/">juypter</a>.
+                    </p>
+
+                    <p>
+                        Once I started sharing some of my COVID-19 analyzes with friends and family, it started to become tedious to re-run them regularly. So I spent a weekend putting together a <a href="https://covid19.slashdave.com/">simple web site</a>, built on <a href="https://flask.palletsprojects.com/">Flask</a> and powered by <a href="https://gunicorn.org/">gunicorn</a>. For this web site I switched to <a href="https://vega.github.io/vega-lite//">Vega-Lite</a> in order to provide graphics output more suitable to a web page. I also employed <a href="https://redis.io/">redis</a> as a data cache, so as to minimize the load on third-party data sources and to improve performance. All of the details are on <a href="https://github.com/dwilliams-github/covidweb">github</a>.
+                    </p>
+
 
                     <h3><a name="robots">Robotics</a></h3>
 
