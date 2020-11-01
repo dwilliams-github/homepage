@@ -24,3 +24,4 @@ yarn-error.log*
 
 # don't save any secrets
 config.json
+.env

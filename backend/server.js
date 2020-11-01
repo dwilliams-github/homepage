@@ -7,7 +7,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const Data = require('./data');
-const config = require('./config.json');
+require("dotenv").config();
 
 //
 // Our server app
@@ -25,7 +25,7 @@ app.use(logger('dev'));
 // the connection all schemas (previously declared or not) will be 
 // associated to that one database.
 //
-mongoose.connect(config.dbroute, { useNewUrlParser: true })
+mongoose.connect(process.env.dbroute, { useNewUrlParser: true })
 mongoose.connection.once('open', () => console.log('Connected to database'));
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -272,4 +272,4 @@ app.get('*', (req,res) =>{
 });
 
 // launch
-app.listen(config.port, () => console.log(`Listening on port ${config.port}`));
+app.listen(process.env.port, () => console.log(`Listening on port ${process.env.port}`));
