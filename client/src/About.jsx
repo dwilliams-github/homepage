@@ -4,7 +4,7 @@ import Side from './Side';
 import { Link } from "react-router-dom";
 import portrait from './images/portrait.jpg';
 import react from './images/react.svg';
-import webfaction from './images/webfaction-110x40-white-logo.png';
+import aws from './images/aws_smile-header-desktop-en-white_59x35.png';
 import godaddy from './images/godaddy.png';
 import mongodb from './images/mongodb.svg';
 import nodejs from './images/nodejs.svg';
@@ -17,18 +17,18 @@ class About extends React.Component {
                 url: "https://reactjs.org/",
                 object: (
                     <img 
-                        style={{width: 25, marginTop: 3}} 
+                        style={{width: 30, marginTop: 3}} 
                         src={react} 
                         alt="Webfaction" 
                     />
                 )
             },
             {
-                url: "http://www.webfaction.com/",
+                url: "http://aws.amazon.com/",
                 object: (
                     <img 
-                        src={webfaction} 
-                        alt="Webfaction" 
+                        src={aws} 
+                        alt="aws" 
                     />
                 )
             },
@@ -89,7 +89,7 @@ class About extends React.Component {
                         I established slashdave (<span className="monospace">/dave</span>) in 2011 as my personal presence on the web, to present my <Link to="/resume">credentials</Link> and express my identity. It also serves as a permanent place to store my electronic documents, as a personal code repository, and a place to experiment with the latest trends in computer technology.
                     </p>
                     <p>
-                        This web site is my own design and implementation. In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, the backend runs on <a href="https://nodejs.org/en/">Node.js</a>, and data is stored in <a href="https://www.mongodb.com/">MongoDB</a>. The backend is hosted by <a href="http://www.webfaction.com/">WebFaction</a> on a <a href="http://www.centos.org/">CentOS 7 linux</a> platform and the database is currently maintained on the cloud by <a href="https://www.mongodb.com/cloud/atlas">MongoDB atlas</a>.
+                        This web site is my own design and implementation. In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, the backend runs on <a href="https://nodejs.org/en/">Node.js</a>, and data is stored in <a href="https://www.mongodb.com/">MongoDB</a>. The backend is deployed in <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a> on <a href="https://aws.amazon.com/">AWS</a> and the database is currently maintained on the cloud by <a href="https://www.mongodb.com/cloud/atlas">MongoDB atlas</a>.
                     </p>
                 </div>
             </div>

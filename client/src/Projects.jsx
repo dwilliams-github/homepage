@@ -33,6 +33,9 @@ class Projects extends React.Component {
                     <a href="https://covid19.slashdave.com/" target="_blank">
                         A collection of plots on COVID-19
                     </a>,
+                    <a href="https://flyer.slashdave.com/" target="_blank">
+                        Flyer
+                    </a>,
                     <a href="http://scipp.ucsc.edu/" target="_blank">
                         Santa Cruz Institute of Particle Physics
                     </a>
@@ -69,7 +72,7 @@ class Projects extends React.Component {
                     <h3><a name="web">Web</a></h3>
 
                     <p>
-                        The web site you are currently reading is my own design and implementation. In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, the backend runs on <a href="https://nodejs.org/en/">Node.js</a>, and data is stored in <a href="https://www.mongodb.com/">MongoDB</a>. You can find all of the details on <a href="https://github.com/dwilliams-github/homepage">github</a>.
+                        The web site you are currently reading is my own design and implementation. In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, the backend runs on <a href="https://nodejs.org/en/">Node.js</a>, and data is stored in <a href="https://www.mongodb.com/">MongoDB</a>. You can find all of the details on <a href="https://github.com/dwilliams-github/homepage">github</a>. It is currently deployed on <a href="https://aws.amazon.com/">AWS</a>.
                     </p>
 
                     <p>
@@ -77,7 +80,7 @@ class Projects extends React.Component {
                     </p>
 
                     <p>
-                        Once I started sharing some of my COVID-19 analyzes with friends and family, it started to become tedious to re-run them regularly. So I spent a weekend putting together a <a href="https://covid19.slashdave.com/">simple web site</a>, built on <a href="https://flask.palletsprojects.com/">Flask</a> and powered by <a href="https://gunicorn.org/">gunicorn</a>. For this web site I switched to <a href="https://vega.github.io/vega-lite//">Vega-Lite</a> in order to provide graphics output more suitable to a web page. I also employed <a href="https://redis.io/">redis</a> as a data cache, so as to minimize the load on third-party data sources and to improve performance. All of the details are on <a href="https://github.com/dwilliams-github/covidweb">github</a>.
+                        Once I started sharing some of my COVID-19 analyzes with friends and family, it started to become tedious to re-run them regularly. So I spent a weekend putting together a <a href="https://covid19.slashdave.com/">simple web site</a>, built on <a href="https://flask.palletsprojects.com/">Flask</a> and powered by <a href="https://gunicorn.org/">gunicorn</a>. For this web site I switched to <a href="https://vega.github.io/vega-lite//">Vega-Lite</a> in order to provide graphics output more suitable to a web page. I also employed <a href="https://redis.io/">redis</a> as a data cache, so as to minimize the load on third-party data sources and to improve performance. All of the details are on <a href="https://github.com/dwilliams-github/covidweb">github</a>. It is currently deployed on <a href="https://aws.amazon.com/">AWS</a>.
                     </p>
 
 

@@ -13,9 +13,10 @@ class Resume extends React.Component {
                 title: 'Contents',
                 items: [
                     <a href="#skills">Knowledge and Skills</a>,
+                    <a href="#experience">Professional Experience</a>,
                     <a href="#education">Education</a>,
                     <a href="#computer">Computer Experience</a>,
-                    <a href="#experience">Professional Experience</a>
+                    <a href="#publications">Selected Publications and Patents</a>
                 ]
             },
             {
