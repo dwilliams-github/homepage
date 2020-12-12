@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Side from './Side';
 import fred from './images/fred.jpg';
 import flyerShip from './images/ship.png';
+import arrowBoard from './images/arrowboard.png'
 import './css/projects.css';
 
 class Projects extends React.Component {
@@ -67,6 +68,18 @@ class Projects extends React.Component {
 
                     <p>
                         This project was my introduction to the <a href="https://swift.org" target="_blank">Swift</a> programming language and also my first serious project built using <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>. Performance is no longer an issue on modern computer hardware, so for this version I focused instead on adding some new features, like <a href="https://developer.apple.com/documentation/avfoundation/avaudio3dmixing" target="_blank">3D sound</a>.
+                    </p>
+
+                    <div className="image">
+                        <img src={arrowBoard} alt="Arrow Board" width="120px" />
+                    </div>
+
+                    <p>
+                        I've never written an application for a phone before, so I thought it would be fun to build something simple. Arrow is a iOS app that simulates a traffic <a href="https://mutcd.fhwa.dot.gov/htm/2003r1r2/part6/fig6f-06_longdesc.htm" target="_blank">arrow board</a>. It is built using <a href="https://developer.apple.com/xcode/swiftui/" target="_blank">swiftui</a>, which is a great modern framework provided by Apple. The idea about the app came from my wife, who joked many years ago during a road trip about getting a construction road sign as a gift. Now she has one on her phone!
+                    </p>
+
+                    <p>
+                        The app is fully functional and self contained. You won't find it on the Apple App Store, but you can check out the source on my <a href="https://github.com/dwilliams-github/Arrow" target="_blank">Public GitHub</a>.
                     </p>
 
                     <h3><a name="web">Web</a></h3>
