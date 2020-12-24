@@ -23,6 +23,7 @@ considered by many as the state-of-the-art for numerical linear algebra.
 | ----- | ----- |
 | [BioSpace](https://www.biospace.com/news/#breakingnews) | The breaking news page of the [BioSpace](https://www.biospace.com/) web hub |
 | [FiercePharma](https://www.fiercepharma.com/) | Pharma industry news and insight |
+| [SciTechDaily](https://scitechdaily.com/news/biology/) | Biology news from [SciTechDaily](https://scitechdaily.com/) |
 | [AP](https://www.apnews.com/Science) | The science news feed from the [Associated Press](https://www.ap.org/en-us/) |
 | [news@nature](https://www.nature.com/news) | Online news from [Nature](https://www.nature.com/) magazine |
 | [Reuters](https://www.reuters.com/news/health) | Health news from [Reuters](https://www.reuters.com/) |
