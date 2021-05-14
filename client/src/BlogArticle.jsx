@@ -1,5 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
 import queryString from 'query-string';
 import { Link } from 'react-router-dom';
 import moment from 'moment-timezone';
@@ -27,7 +28,7 @@ class BlogArticle extends React.Component {
                         <img alt={p.caption} src={"data:image/jpeg;base64," + imageToBase64(p.image)}/>
                     </div>
                 ))}
-                <Markdown source={article.body} />
+                <Markdown children={article.body} remarkPlugins={[gfm]}/>
                 <div className="posted">
                     <div>
                         Posted at:&nbsp;

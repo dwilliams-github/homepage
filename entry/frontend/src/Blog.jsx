@@ -13,6 +13,7 @@ import {
     FileInput
 } from "@blueprintjs/core";
 import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
 import axios from 'axios';
 import '@blueprintjs/table/lib/css/table.css'
 
@@ -426,7 +427,7 @@ class Blog extends Component {
                     </Dialog>
                     <Collapse isOpen={adding}>
                         <div className="preview">
-                            <Markdown source={addBody} />
+                            <Markdown children={addBody} remarkPlugins={[gfm]}/>
                         </div>
                         <div className="dialog">
                             <InputGroup
@@ -456,7 +457,7 @@ class Blog extends Component {
                     </Collapse>
                     <Collapse isOpen={editing}>
                         <div className="preview">
-                            <Markdown source={editBody} />
+                            <Markdown children={editBody} remarkPlugins={[gfm]}/>
                         </div>
                         {/* Use context specific key, to force refresh of default values */}
                         <div className="dialog" key={editing}>

@@ -22,7 +22,7 @@ class Terms extends React.Component {
                 <div id="bannercaption">Terms of Use</div>
                 <Side contents={sides}/>
                 <div className="content">
-                    <Markdown source={terms} />
+                    <Markdown children={terms} />
                 </div>
             </div>
         )

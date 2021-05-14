@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import Markdown from 'react-markdown';
+import gfm from 'remark-gfm';
 import links from './text/links.md'
 import './css/links';
 
@@ -35,7 +36,7 @@ class Links extends React.Component {
                 <div id="bannercaption">A few links I have found useful or interesting</div>
                 <Side contents={sides}/>
                 <div className="links-content">
-                    <Markdown source={links} linkTarget="_blank"/>
+                    <Markdown children={links} remarkPlugins={[gfm]} linkTarget="_blank"/>
                 </div>
             </div>
         )

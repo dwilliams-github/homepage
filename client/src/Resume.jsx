@@ -55,7 +55,7 @@ class Resume extends React.Component {
                 </div>
                 <Side contents={sides}/>
                 <div className="content">
-                    <Markdown source={resume} linkTarget="_blank" />
+                    <Markdown children={resume} linkTarget="_blank" />
                 </div>
             </div>
         )
