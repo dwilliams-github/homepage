@@ -3,6 +3,7 @@ import Markdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import queryString from 'query-string';
 import { Link } from 'react-router-dom';
+import { Buffer } from 'buffer';
 import moment from 'moment-timezone';
 
 class BlogArticle extends React.Component {
