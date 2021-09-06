@@ -3,6 +3,7 @@
     "verseon": "0.1",
     "private": true,
     "main": "main.js",
+    "license": "MIT",
     "scripts": {
         "build": "webpack --progress --mode production",
         "dev-build": "webpack --progress --mode development",

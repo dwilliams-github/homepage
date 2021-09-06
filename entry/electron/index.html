@@ -11,23 +11,4 @@
         <div id="app"></div>
         <script src="bundle.js"></script>
     </body>
-    <script>
-        //
-        // Install spell checker
-        //
-        const electronSpellchecker = window.require('electron-spellchecker');
-        const SpellCheckHandler = electronSpellchecker.SpellCheckHandler;
-        const ContextMenuListener = electronSpellchecker.ContextMenuListener;
-        const ContextMenuBuilder = electronSpellchecker.ContextMenuBuilder;
-
-        window.spellCheckHandler = new SpellCheckHandler();
-        window.spellCheckHandler.attachToInput();
-        window.spellCheckHandler.switchLanguage('en-US');
-
-        let contextMenuBuilder = new ContextMenuBuilder(window.spellCheckHandler);
-
-        let contextMenuListener = new ContextMenuListener((info) => {
-            contextMenuBuilder.showPopupMenu(info);
-        });
-    </script>
 </html>

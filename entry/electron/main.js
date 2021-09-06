@@ -16,17 +16,14 @@ if (cluster.isMaster) {
             width: 1000, 
             height: 600,
             webPreferences: {
-                nodeIntegration: true,       // blueprintjs expects a process object
-                contextIsolation: false
+                nodeIntegration: true,       // Our webpack bundle expects a process object
+                contextIsolation: false,     // and also won't run in isolation
+                spellcheck: true
             }
         });
 
         // Specify entry point
         win.loadFile('index.html');
-
-        // Show dev tools
-        // Remove this line before distributing
-        win.webContents.openDevTools()
 
         // Remove window once app is closed
         win.on('closed', function () {
