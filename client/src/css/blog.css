@@ -29,6 +29,9 @@
 .blog .react-calendar button {
 	color: #AAA;
 	min-width: 35px;
+	border: none;
+	background: inherit;
+	padding: 0.2rem 0;
 }
 .blog .react-calendar button[disabled] {
 	background: inherit;
@@ -45,10 +48,14 @@
 }
 .blog .react-calendar .react-calendar__month-view__weekdays {
 	font-weight: normal;
+	text-transform: uppercase;
+	font-size: smaller;
+	padding: 0.2rem 0;
 }
 .blog .react-calendar .react-calendar__tile {
 	padding: 0.25em 0.25em;
 	color: #FFFF99;
+	border: none;
 }
 .blog .react-calendar .react-calendar__tile--active {
 	background: inherit;

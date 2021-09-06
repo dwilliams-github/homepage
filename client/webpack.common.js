@@ -1,11 +1,12 @@
 const resolve = require('path').resolve;
 
 const config = {
-    entry: __dirname + '/src/index.jsx',
+    entry: resolve(__dirname, 'src') + '/index.jsx',
     output: {
-        path: resolve('../backend/public'),
+        path: resolve('../backend/public/js/'),
+        chunkFilename: "[id].js",
         filename: 'bundle.js',
-        publicPath: 'public/'
+        publicPath: 'public/js/'
     },
     resolve: {
         extensions: ['.js','.jsx','.css']

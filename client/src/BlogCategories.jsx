@@ -1,24 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import queryString from 'query-string';
 import BeatLoader from 'react-spinners/BeatLoader';
 
-class BlogCategories extends React.Component {
-    constructor(props) {
-        super(props);
+function BlogCategories({year, month, day}) {
+    const [data, setData] = useState({loading: false, categories: []});
 
-        this.state = {
-            loading: true,
-            categories: []
-        };
-    }
-    
-    componentDidMount() {
+    useEffect( () => {
         axios.get("/api/blog/categories")
         .then( res => {
             if (!res.data.success) throw res.data.error;
-            this.setState({
+            setData({
                 categories: res.data.data,
                 loading: false
             });
@@ -26,30 +19,25 @@ class BlogCategories extends React.Component {
         .catch( err => {
             console.log(err.errmsg || err);
         });
+    }, []);
+
+    if (data.loading) {
+        return <BeatLoader color="#FFFF99" />
     }
 
-
-    render() {
-        const { loading, categories } = this.state;
-
-        if (loading) {
-            return <BeatLoader color="#FFFF99" />
-        }
-
-        //
-        // We drop the page property when changing categories
-        //
-        return categories.map( c => (
-            <div key={"bcat" + c._id}>
-                <Link to={"/blog?" + queryString.stringify({
-                    year: this.props.year,
-                    month: this.props.month,
-                    day: this.props.day,
-                    cat: c._id
-                })}>{c.name}</Link>
-            </div>
-        ));
-    }
+    //
+    // We drop the page property when changing categories
+    //
+    return data.categories.map( c => (
+        <div key={"bcat" + c._id}>
+            <Link to={"/blog?" + queryString.stringify({
+                year: year,
+                month: month,
+                day: day,
+                cat: c._id
+            })}>{c.name}</Link>
+        </div>
+    ));
 };
 
 export default BlogCategories;

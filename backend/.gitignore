@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/public/bundle.js*
+/public/js
+/public/images
 
 # misc
 .DS_Store

@@ -55,6 +55,7 @@ considered by many as the state-of-the-art for numerical linear algebra.
 | [space.com](https://www.space.com/news) | News from [space.com](https://www.space.com/) |
 | [NASA Spaceflight](https://www.nasaspaceflight.com) | Community-based news and discussion |
 | [SpaceNews](https://spacenews.com) | Long-standing private space news organization |
+| [Parabolic Arc](http://www.parabolicarc.com) | Space news blog |
 
 # [Programming](programming)
 

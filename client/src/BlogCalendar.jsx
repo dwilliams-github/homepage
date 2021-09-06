@@ -1,160 +1,170 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
 import queryString from 'query-string';
 
-//
-// This object is a little confusing because we are
-// attempting to keep the state of our object sync'ed to
-// the state of the contained calendar
-//
-class BlogCalendar extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            year: this.props.year,
-            month: this.props.month,
-            active: {
-                days: [],
-                months: []
-            }
-        };
-
-        this.updateDate = this.updateDate.bind(this);
-        this.clickDay = this.clickDay.bind(this);
-        this.clickMonth = this.clickMonth.bind(this);
-        this.inactiveDay = this.inactiveDay.bind(this);
-        this.newView = this.newView.bind(this);
-    }
-    
-    componentDidMount() {
-        this.updateDate(this.state.year,this.state.month);
-    }
+function BlogCalendar(props) {
+    const [value, setValue] = useState(
+        props.year ? new Date(props.year,props.month ? props.month-1 : 0) : new Date()
+    );
 
     //
-    // This is needed to interpret url query arguments when they change,
-    // since react-router-dom does not remount objects if the root
-    // url address is unchanged.
+    // The days and months with activity (at least one article)
+    //   * months: all years/months
+    //   * days: days for given targetMonth
     //
-    componentDidUpdate(prevProps) {
-        if (prevProps.year != this.props.year || 
-            prevProps.month != this.props.month ||
-            prevProps.cat != this.props.cat 
-        ) {
-            this.updateDate(this.props.year, this.props.month, this.props.cat);
+    const [active, setActive] = useState({
+        months: [],
+        targetMonth: undefined,
+        days: []
+    });
+
+    //
+    // The month we are viewing. We need to keep
+    // track of this, so that we can update active days.
+    //
+    // We keep this separate from the active hook above,
+    // to keep update logic clean:
+    //     new month clicked => set activeMonth
+    //     new activeMonth => make API query
+    //     API query finished => set active
+    //     active changed => update tileDisabled callback 
+    //
+    // While active is being updated, we just display all
+    // days as inactive
+    //
+    const [activeMonth, setActiveMonth] = useState({
+        year: value.getFullYear(),
+        month: value.getMonth()+1
+    });
+
+    //
+    // Our props can change if links are clicked, in which case
+    // we reset the date shown. We need to formally propagate this.
+    //
+    useEffect( () => {
+        setValue(props.year ? new Date(props.year,props.month ? props.month-1 : 0) : new Date())
+        setActiveMonth({
+            year: props.year,
+            month: props.month
+        })
+    }, [props.year, props.month])
+
+    //
+    // The calendar will tell us if the active date has changed.
+    // We'll need to update the active month, to trigger an API call.
+    //
+    const setActiveDate = ({view, activeStartDate}) => {
+        if (activeMonth === undefined || view == "month") {
+            setActiveMonth({
+                year: activeStartDate.getFullYear(),
+                month: activeStartDate.getMonth()+1
+            });
         }
     }
 
-    updateDate(year,month,cat) {
+    //
+    // Update list of active days (synchronously), when necessary
+    //
+    useEffect( () => {
         axios.get("/api/blog/days", {
             params: {
-                year: year,
-                month: month,
-                cat: cat,
+                year: activeMonth ? activeMonth.year : undefined,
+                month: activeMonth ? activeMonth.month : undefined,
+                cat: props.cat,
                 timezone: "America/Los_Angeles"
             }
         })
         .then( res => {
             if (!res.data.success) throw res.data.error;
+            //
+            // The API returns the next active month, so the target
+            // date may not match the query
+            //
             const target = new Date(res.data.target);
-            this.setState({
-                active: res.data,
-                year: target.getFullYear(),
-                month: target.getMonth()
+            setActive({
+                months: res.data.months,
+                targetMonth: {
+                    year: target.getFullYear(),
+                    month: target.getMonth()+1
+                },
+                days: res.data.days
             });
         })
         .catch( err => {
             console.log(err.errmsg || err);
-        });       
-    }
+        }); 
+    }, [activeMonth, props.cat])
 
-    newView(day) {
-        if (day.view == "month") {
-            //
-            // Change month by clicking on header.
-            // Month with an article?
-            //
-            let newMonth = day.activeStartDate.getMonth()+1;
-            let newYear = day.activeStartDate.getFullYear();
+    //
+    // Decide if a calendar element is active, based on whether
+    // it includes any articles.
+    //
+    // We keep a list of all active months, but only the days
+    // of the month for a given month. 
+    //
+    const tileDisabled = useCallback( ({date, view}) => {
+        if (active.targetMonth === undefined) return true;
 
-            let hasArticle = this.state.active.months.find( m => (
-                m.year == newYear && m.month == newMonth
-            ));
-
-            if (hasArticle) {
-                this.updateDate(
-                    day.activeStartDate.getFullYear(),
-                    day.activeStartDate.getMonth()+1,
-                    this.props.cat
-                );
-            } else {
-                this.setState({
-                    active: {
-                        ...this.state.active,
-                        days: []
-                    }
-                });
-            }
-        }
-    }
-
-    // by the way, "getDate" fetches the day of the month
-    inactiveDay(day) {
-        switch(day.view) {
+        switch(view) {
             case "month":
-                return !this.state.active.days.includes(day.date.getDate());
+                return (
+                    active.targetMonth.year != date.getFullYear() ||
+                    active.targetMonth.month != date.getMonth()+1 ||
+                    !active.days.includes(date.getDate())
+                );
             case "year":
-                return !this.state.active.months.find( m => (
-                    m.year == day.date.getFullYear() && m.month == day.date.getMonth()+1
+                return !active.months.find( m => (
+                    m.year == date.getFullYear() && m.month == date.getMonth()+1
                 ));
             case "decade":
-                return !this.state.active.months.find( m => (
-                    m.year == day.date.getFullYear()
+                return !active.months.find( m => (
+                    m.year == date.getFullYear()
                 ));
             case "century":
-                return !this.state.active.months.find( m => (
-                    Math.floor(m.year/10) == Math.floor(day.date.getFullYear()/10)
+                return !active.months.find( m => (
+                    Math.floor(m.year/10) == Math.floor(date.getFullYear()/10)
                 ));
         }
+    }, [active])
 
-        return false;
-    }
-
-    clickDay(day) {
-        this.props.history.push("/blog?" + queryString.stringify({
+    //
+    // What happens if we click (an active) day
+    //
+    const clickDay = useCallback( (day) => {
+        props.history.push("/blog?" + queryString.stringify({
             month: day.getMonth() + 1,
             year: day.getFullYear(),
             day: day.getDate(),
-            cat: this.props.cat
+            cat: props.cat
         }))
-    }
+    }, [props.cat]);
 
-    clickMonth(day) {
-        this.props.history.push("/blog?" + queryString.stringify({
+    //
+    // What happens if we click (an active) month
+    //
+    const clickMonth = useCallback( (day) => {
+        props.history.push("/blog?" + queryString.stringify({
             month: day.getMonth() + 1,
             year: day.getFullYear(),
-            cat: this.props.cat
+            cat: props.cat
         }))
-    }
+    }, [props.cat]);
 
-    render() {
-        const { year, month } = this.state;
+    return (
+        <Calendar
+            value={value}
+            onChange={setValue}
+            tileDisabled={tileDisabled}
+            onViewChange={setActiveDate}
+            onActiveStartDateChange={setActiveDate}
+            onClickDay={clickDay}
+            onClickMonth={clickMonth}
+            showNeighboringMonth={false}
+            maxDate={new Date}
+        />
+    );
 
-        const date = year ? new Date(year,month||0) : new Date();
-
-        return (
-            <Calendar
-                value={date}
-                onActiveDateChange={this.newView}
-                onClickDay={this.clickDay}
-                onClickMonth={this.clickMonth}
-                tileDisabled={this.inactiveDay}
-                showNeighboringMonth={false}
-                maxDate={new Date}
-            />
-        );
-    }
-};
+}
 
 export default BlogCalendar;
