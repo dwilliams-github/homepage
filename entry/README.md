@@ -19,7 +19,7 @@ babel, and react.
 really possible, or at least not easy, because mongoose and webpack do not mix.
 Instead, run an express server in an electron thread.
 
-* Some suggest running threads in an electron render process, but,
+  * Some suggest running threads in an electron render process, but,
 actually, why would we do this? Electron is a full node.js application, so i figured
 I would just use normal thread methods (cluster) for the data serving stuff.
 
@@ -32,4 +32,4 @@ I haven't bothered to make the app very pretty, just functional.
 
 ## Todo
 
-* It might be educational to learn to package this, eventhough it's only for personal use.
+* It might be educational to learn to package this, even though it's only for personal use.

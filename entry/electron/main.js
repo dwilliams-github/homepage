@@ -16,7 +16,8 @@ if (cluster.isMaster) {
             width: 1000, 
             height: 600,
             webPreferences: {
-                nodeIntegration: true       // blueprintjs expects a process object
+                nodeIntegration: true,       // blueprintjs expects a process object
+                contextIsolation: false
             }
         });
 
