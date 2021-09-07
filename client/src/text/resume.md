@@ -2,12 +2,11 @@
 [Knowledge and Skills](#skills)
 ====================
 
--  Broad experience in data science, including very large data sets, inference, and modeling
--  Practiced in the art of presenting complex data analyses accurately, clearly, and concisely
--  First-hand experience with the drug development process, from discovery to first-in-human, including target validation, assay development, lead optimization, and DMPK  
-- Mentor and manager to more than a dozen researchers in the fields of programming, algorithms, mathematics, physical chemistry, and quantum physics
-- Capable of independently guiding research and development projects from concept to publication 
-- Broad knowledge in and practical experience with the theory and application of molecular simulations in drug discovery
+- Experience and original research in virtual screening, molecular dynamics, pharmacophore modeling, virtual library generation, cheminformatics, chemical diversity, and machine learning
+- First-hand experience with the drug development process, from discovery to first-in-human, including target validation, hit finding, assay development, lead optimization, and DMPK
+- Mentor and manager to more than a dozen researchers in the fields of programming, algorithms, mathematics, physical chemistry, and quantum physics  
+- Broad experience in data science, including very large data sets, inference, and modeling
+- A skilled technical writer, with experience in scientific, technical, and marketing roles 
 - A proficient software programmer with experience in a wide range of development roles
 
 
@@ -17,16 +16,16 @@
 
 ## Senior Director of Platform Technology, Verseon, Fremont, CA, 2018–Present
 
-Maintained responsibilities held under Director, Research and Development, with a focus on further expanding Verseon's pioneering efforts in computational drug development through recruitment and directed research in mathematics and computational science. Collaborated with medicinal chemists and research biologists in guiding Verseon’s anticoagulant program through phase I.
+Maintained responsibilities held under Director, Research and Development, with a focus on further expanding Verseon's pioneering efforts in computational drug development through recruitment, directed research in computational chemistry, and drug program initiation. Collaborated with medicinal chemists and research biologists in guiding Verseon’s anticoagulant program into phase I.
 
 ## Director, Research and Development, Verseon, Fremont, CA 2011–2018
 
-Responsible for managing Verseon’s Computational R&D efforts, including operations, planning, purchasing, and recruiting. Produced R&D promotional collateral and developed corporate-wide IT and IP policies in preparation for Verseon's IPO. Continued to directly contribute to code development efforts. Assisted with target selection. Provided computational, managerial, and statistical support for Verseon’s drug development programs.
+Responsible for managing Verseon’s Computational R&D efforts, including planning, budgeting, operations, and recruiting. Contributed to original research in protein modeling, molecular dynamics, forcefield parameterization, and small molecular library generation. Continued to directly contribute to code development efforts. Assisted with target selection. Provided computational, managerial, and statistical support for Verseon’s drug development programs.
 
 
 ## Scientist, Verseon, Fremont, CA 2006–2011
 
-Played a central role in the development and testing of Verseon’s computational drug-discovery platform. Responsible for the continued development and maintenance of the corporate virtual compound library. Primary author of Verseon’s custom LIS, featuring instrument integration, curve fitting, and project workflow. Assisted in Verseon’s drug development programs as needed.
+Played a central role in the development and deployment of Verseon’s computational drug-discovery platform. Responsible for the development and maintenance of the company’s proprietary virtual compound library. Primary author of Verseon’s custom LIMS, featuring instrument integration, curve fitting, project workflow, and cheminformatics. Assisted in Verseon’s drug development programs as needed.
 
 ## Chief Technologist, BlockRules Ltd., Fremont, CA, 2018–Present
 
@@ -48,14 +47,13 @@ Organized and taught the graduate course “Introduction to Particle Physics.”
 [Computational Experience](#computer)
 ========================
 
--  Broad experience with the practice and theory of data science using a variety of techniques and platforms, including multiple regression, maximum likelihood, decision trees, and neural networks
--  Experience with a variety of chemistry toolsets and platforms, including MarvinBeans (ChemAxon), OpenEye, RDKit, GROMACS, Amber, and MOE
--  Proficient in multiple computer languages, including Python, R, Javascript, c++, and SQL
+- Experience with the use and integration of a variety of chemistry toolsets and platforms, including MarvinBeans (ChemAxon), OpenEye, RDKit, NWChem, PyMOL, Percepta, GROMACS, AmberTools, and MOE
+- Proficient in more than a dozen computer languages, including Python, R, c++, and SQL
 - Responsible for numerous applications in numerical computing developed for a wide range of research roles
-- Extensive experience with full-stack web development including modern tools and practices
+- Broad experience with the practice and theory of data science using a variety of techniques and platforms, including multiple regression, maximum likelihood, decision trees, and neural networks
+- Firsthand experience with full-stack web development, including front-end implementations with React, Redux, jQuery, CSS, and SVG, with backend implementations with Python, perl, Node.js, SQL, MongoDB, and Boto
 - Direct experience with a wide range of computer hardware and operating systems, old and new
-- Experience with high-performance computing, containers, AWS, run-time environments, embedded computer systems, and high-speed data acquisition
-
+- Familiar with high-performance computing, containers, run-time environments, and system design
 
 [Education](#education)
 =========
@@ -68,6 +66,7 @@ B.S., Physics, Northeastern University, Boston, MA, 1987
 [Selected Publications and Patents](#publications)
 =================================
 
+- Williams, David C., et al, “Robust ligand-protein docking using an advanced genetic algorithm.” Submitted to the *Journal of Computer-Aided Molecular Design.*
 - Sivaraja, Mohanram, et al. “VE-1902—A direct thrombin inhibitor with reversible covalent mechanism of action shows efficacy with reduced bleeding in rodent models of thrombosis.” *Thrombosis Research* 190 (2020): 112-121.
 - Sivaraja, Mohanram, et al. “Reversible covalent direct thrombin inhibitors.” *PloS one* 13.8 (2018): e0201377.
 - Aubert, Bernard, et al. “Observation of a charmed baryon decaying to D0 p at a mass near 2.94 GeV/c2.” *Physical review letters* 98.1 (2007): 012001.

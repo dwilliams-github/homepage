@@ -8,7 +8,7 @@ const Landing = lazy(() => import('./Landing'));
 const About = lazy(() => import('./About'));
 const Music = lazy(() => import('./Music'));
 const Projects = lazy(() => import('./Projects'));
-const ProjectsHepAuthors = lazy(() => import('./ProjectsHepAuthors'));
+const HepAuthors = lazy(() => import('./ProjectsHepAuthors'));
 const Blog = lazy(() => import('./Blog'));
 const Links = lazy(() => import('./Links'));
 const Resume = lazy(() => import('./Resume'));
@@ -21,7 +21,7 @@ const routing = (
             <Switch>
                 <Route path="/about" component={About} />
                 <Route path="/music" component={Music} />
-                <Route path="/projects/hepauthors" component={ProjectsHepAuthors} />
+                <Route path="/projects/hepauthors" exact component={HepAuthors} />
                 <Route path="/projects" exact component={Projects} />
                 <Route path="/blog" component={Blog} />
                 <Route path="/links" component={Links} />

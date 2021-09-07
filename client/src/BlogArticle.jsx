@@ -26,7 +26,7 @@ function BlogArticle({ article }) {
                     <img alt={p.caption} src={"data:image/jpeg;base64," + imageToBase64(p.image)}/>
                 </div>
             ))}
-            <Markdown children={article.body} remarkPlugins={[gfm]}/>
+            <Markdown children={article.body} remarkPlugins={[gfm]} linkTarget="_blank"/>
             <div className="posted">
                 <div>
                     Posted at:&nbsp;
