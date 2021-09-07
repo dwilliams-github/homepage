@@ -52,7 +52,7 @@ function Projects() {
             <Banner />
             <Side contents={sides}/>
             <div className="text" >
-                <h3><a name="chem">Drug discovery</a></h3>
+                <h3><a name="chem">Drug Discovery</a></h3>
 
                 <p>
                     My profession these last few years has been the study and application
@@ -304,8 +304,8 @@ function Projects() {
                         <li>
                             <a href="public/papers/banana.pdf" target="_blank">
                                 The Most Likely Path of an Energetic Charged Particle 
-                                Through a Uniform Medium, David C. Williams, Phys.Med.Biol. 49 No 13: (2004) 2899.
-                            </a>
+                                Through a Uniform Medium, David C. Williams
+                            </a>, Phys.Med.Biol. 49 No 13: (2004) 2899.
                         </li>
                     </ol>
                 </div>
