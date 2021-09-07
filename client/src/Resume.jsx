@@ -27,13 +27,8 @@ function Resume() {
         {
             title: "Academic Links",
             items: [
-                <a href={"https://inspirehep.net/search?" + queryString.stringify({
-                    p: "FIND AUTHOR D C WILLIAMS AND (J PRLTA OR J PHRVA OR J PHLTA OR J ZEPYA OR J EPHJA OR J NUIMA)"
-                })} target="_blank">
-                    Journal Publications (SPIRES)
-                </a>,
-                <a href="/public/documents/cv.pdf" target="_blank">
-                    Curriculum Vitae (out of date)
+                <a href="https://orcid.org/0000-0002-4123-9339" target="_blank">
+                    Journal Publications (ORCID)
                 </a>
             ]
         },

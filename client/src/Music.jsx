@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import BeatLoader from 'react-spinners/BeatLoader';
@@ -22,7 +22,7 @@ function Music() {
         });
     }, []);
 
-    const sides = [
+    const sides = useMemo(() => {[
         {
             title: 'Contents',
             items: [
@@ -48,7 +48,7 @@ function Music() {
         {
             special: "about"
         }
-    ];
+    ]}, []);
 
     return (
         <div className="music content">

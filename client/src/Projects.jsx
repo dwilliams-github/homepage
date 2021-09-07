@@ -37,8 +37,8 @@ function Projects() {
                 <a href="https://flyer.slashdave.com/" target="_blank">
                     Flyer
                 </a>,
-                <a href="http://scipp.ucsc.edu/" target="_blank">
-                    Santa Cruz Institute of Particle Physics
+                <a href="https://orcid.org/0000-0002-4123-9339" target="_blank">
+                    Research record (ORCID)
                 </a>
             ]
         },
@@ -215,7 +215,7 @@ function Projects() {
                 </p>
 
                 <div className="image-right">
-                    <iframe src="https://player.vimeo.com/video/379925448" width="380" height="200" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
+                    <iframe src="https://player.vimeo.com/video/379925448" width="380" height="200" frameBorder="0" allow="fullscreen" allowFullScreen></iframe>
                 </div>
 
                 <p>
@@ -314,7 +314,8 @@ function Projects() {
 
                 <p>
                     The authorship of publications is a <Link to="projects/hepauthors" >complicated subject</Link>{' '}  
-                    in high-energy physics (I am technically on the author list of some 400 or 
+                    in high-energy physics (I am technically on the author list of some{' '} 
+                    <a href="https://orcid.org/0000-0002-4123-9339">470</a> or 
                     so peer-reviewed journal articles). The result is that you will need to trust 
                     me when I say that I actually wrote the following papers. The style follows 
                     the convention of the collaboration under which they were prepared, which 

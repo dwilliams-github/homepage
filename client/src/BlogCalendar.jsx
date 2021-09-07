@@ -94,7 +94,7 @@ function BlogCalendar(props) {
         .catch( err => {
             console.log(err.errmsg || err);
         }); 
-    }, [activeMonth, props.cat])
+    }, [activeMonth, props.cat]);
 
     //
     // Decide if a calendar element is active, based on whether
@@ -126,7 +126,7 @@ function BlogCalendar(props) {
                     Math.floor(m.year/10) == Math.floor(date.getFullYear()/10)
                 ));
         }
-    }, [active])
+    }, [active]);
 
     //
     // What happens if we click (an active) day
