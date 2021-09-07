@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import BeatLoader from 'react-spinners/BeatLoader';
@@ -8,17 +8,19 @@ import './css/music.css';
 function Music() {
     const [data, setData] = useState({loading: true, gigs:[]});
 
-    axios.get("/api/music/get")
-    .then( (res) => {
-        if (!res.data.success) throw res.error;
-        setData({
-            loading: false,
-            gigs: res.data.data.map(g => ({...g, start_msec: Date.parse(g.start_date)}))
+    useEffect( () => {
+        axios.get("/api/music/get")
+        .then( (res) => {
+            if (!res.data.success) throw res.error;
+            setData({
+                loading: false,
+                gigs: res.data.data.map(g => ({...g, start_msec: Date.parse(g.start_date)}))
+            });
+        })
+        .catch( (err) => {
+            console.log(err);
         });
-    })
-    .catch( (err) => {
-        console.log(err);
-    });
+    }, []);
 
     const sides = [
         {
