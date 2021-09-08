@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
 import queryString from 'query-string';
@@ -36,14 +36,24 @@ function BlogCalendar(props) {
     //
     // Update list of active days (asynchronously), when necessary
     //
+	const cancelRef = useRef({ token: axios.CancelToken })
+
     useEffect( () => {
+        //
+		// Use axios cancellation to preserve order of requests
+		//
+		const cancel = cancelRef.current;
+		cancel.source && cancel.source.cancel();
+		cancel.source = cancel.token.source();
+        
         axios.get("/api/blog/days", {
             params: {
                 year: activeDate.getFullYear(),
                 month: activeDate.getMonth()+1,
                 cat: props.cat,
                 timezone: "America/Los_Angeles"
-            }
+            },
+			cancelToken: cancel.source.token
         })
         .then( res => {
             if (!res.data.success) throw res.data.error;
@@ -62,7 +72,9 @@ function BlogCalendar(props) {
             });
         })
         .catch( err => {
-            console.log(err.errmsg || err);
+            if (!axios.isCancel(err)) {
+                console.log(err.errmsg || err);
+            }
         }); 
     }, [activeDate, props.cat]);
 
