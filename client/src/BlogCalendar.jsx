@@ -34,7 +34,7 @@ function BlogCalendar(props) {
     });
     
     //
-    // Update list of active days (synchronously), when necessary
+    // Update list of active days (asynchronously), when necessary
     //
     useEffect( () => {
         axios.get("/api/blog/days", {
