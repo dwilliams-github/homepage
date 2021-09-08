@@ -152,35 +152,35 @@ function Projects() {
 
                 <p>
                     The web site you are currently reading is my own design and implementation. 
-                    In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/">React</a>, 
-                    the backend runs on <a href="https://nodejs.org/en/">Node.js</a>, and data is stored in{' '}
-                    <a href="https://www.mongodb.com/">MongoDB</a>. You can find all of the details on{' '}
-                    <a href="https://github.com/dwilliams-github/homepage">github</a>. 
-                    It is currently deployed on <a href="https://aws.amazon.com/">AWS</a>.
+                    In its current incarnation, the frontend is implemented in <a href="https://reactjs.org/" target="_blank">React</a>, 
+                    the backend runs on <a href="https://nodejs.org/en/" target="_blank">Node.js</a>, and data is stored in{' '}
+                    <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>. You can find all of the details on{' '}
+                    <a href="https://github.com/dwilliams-github/homepage" target="_blank">github</a>. 
+                    It is currently deployed on <a href="https://aws.amazon.com/" target="_blank">AWS</a>.
                 </p>
 
                 <p>
                     When the COVID-19 pandemic reached the United States, I could not resist studying its 
                     spread by analyzing data from several publicly available sources. My analyses started 
                     as a set of ad-hoc scripts which I pulled together organically using some of my favorite 
-                    data science tools, including <a href="https://pandas.pydata.org/">pandas</a>,{' '}
-                    <a href="https://matplotlib.org/">matplotlib</a>, and <a href="https://jupyter.org/">juypter</a>.
+                    data science tools, including <a href="https://pandas.pydata.org/" target="_blank">pandas</a>,{' '}
+                    <a href="https://matplotlib.org/" target="_blank">matplotlib</a>, and <a href="https://jupyter.org/" target="_blank">juypter</a>.
                 </p>
 
                 <p>
                     Once I started sharing some of my COVID-19 analyzes with friends and family, 
                     it started to become tedious to re-run them regularly. 
                     So I spent a weekend putting together a{' '}
-                    <a href="https://covid19.slashdave.com/">simple web site</a>, 
-                    built on <a href="https://flask.palletsprojects.com/">Flask</a> and 
-                    powered by <a href="https://gunicorn.org/">gunicorn</a>/
-                    <a href="https://www.nginx.com/">nginx</a>. 
-                    For this web site I switched to <a href="https://vega.github.io/vega-lite//">Vega-Lite</a>{' '}
+                    <a href="https://covid19.slashdave.com/" target="_blank">simple web site</a>, 
+                    built on <a href="https://flask.palletsprojects.com/" target="_blank">Flask</a> and 
+                    powered by <a href="https://gunicorn.org/" target="_blank">gunicorn</a>/
+                    <a href="https://www.nginx.com/" target="_blank">nginx</a>. 
+                    For this web site I switched to <a href="https://vega.github.io/vega-lite//" target="_blank">Vega-Lite</a>{' '}
                     in order to provide graphics output more suitable to a web page. 
-                    I also employed <a href="https://redis.io/">redis</a> as a data cache, so as 
+                    I also employed <a href="https://redis.io/" target="_blank">redis</a> as a data cache, so as 
                     to minimize the load on third-party data sources and to improve performance. 
-                    All of the details are on <a href="https://github.com/dwilliams-github/covidweb">github</a>. 
-                    It is currently deployed on <a href="https://aws.amazon.com/">AWS</a>.
+                    All of the details are on <a href="https://github.com/dwilliams-github/covidweb" target="_blank">github</a>. 
+                    It is currently deployed on <a href="https://aws.amazon.com/" target="_blank">AWS</a>.
                 </p>
 
 
@@ -313,9 +313,9 @@ function Projects() {
                 <h3><a name="hep">High-Energy Physics</a></h3>
 
                 <p>
-                    The authorship of publications is a <Link to="projects/hepauthors" >complicated subject</Link>{' '}  
+                    The authorship of publications is a <Link to="projects/hepauthors">complicated subject</Link>{' '}  
                     in high-energy physics (I am technically on the author list of some{' '} 
-                    <a href="https://orcid.org/0000-0002-4123-9339">470</a> or 
+                    <a href="https://orcid.org/0000-0002-4123-9339" target="_blank">470</a> or 
                     so peer-reviewed journal articles). The result is that you will need to trust 
                     me when I say that I actually wrote the following papers. The style follows 
                     the convention of the collaboration under which they were prepared, which 

@@ -19,7 +19,6 @@
 	font-weight:normal;
 	padding:5px;	
 	width:210px;
-	margin-bottom:10px;
 }
 .blog .react-calendar {
 	background: inherit;
@@ -28,10 +27,9 @@
 }
 .blog .react-calendar button {
 	color: #AAA;
-	min-width: 35px;
+	min-width: 24px;
 	border: none;
 	background: inherit;
-	padding: 0.2rem 0;
 }
 .blog .react-calendar button[disabled] {
 	background: inherit;
@@ -50,7 +48,6 @@
 	font-weight: normal;
 	text-transform: uppercase;
 	font-size: smaller;
-	padding: 0.2rem 0;
 }
 .blog .react-calendar .react-calendar__tile {
 	padding: 0.25em 0.25em;
@@ -69,7 +66,6 @@
 	font-weight:bold;
 	line-height:140%;
 	padding-top:10px;
-	padding-bottom:2px;
 }	
 .week {
 	clear:left;

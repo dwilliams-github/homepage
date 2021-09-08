@@ -2,11 +2,25 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
 import queryString from 'query-string';
+import 'react-calendar/dist/Calendar.css';
 
 function BlogCalendar(props) {
-    const [value, setValue] = useState(
-        props.year ? new Date(props.year,props.month ? props.month-1 : 0) : new Date()
-    );
+    //
+    // The date we are showing
+    //
+    const [activeDate, setActiveDate] = useState(new Date());
+
+    //
+    // Our props can change if links are clicked, in which case
+    // we reset the date shown. We need to formally propagate this.
+    //
+    // Note that we count months from 1, but Date() counts from zero.
+    //
+    useEffect( () => {
+        setActiveDate(
+            props.year ? new Date(props.year,props.month ? props.month-1 : 0) : new Date()
+        )
+    }, [props.year, props.month])
 
     //
     // The days and months with activity (at least one article)
@@ -18,59 +32,15 @@ function BlogCalendar(props) {
         targetMonth: undefined,
         days: []
     });
-
-    //
-    // The month we are viewing. We need to keep
-    // track of this, so that we can update active days.
-    //
-    // We keep this separate from the active hook above,
-    // to keep update logic clean:
-    //     new month clicked => set activeMonth
-    //     new activeMonth => make API query
-    //     API query finished => set active
-    //     active changed => update tileDisabled callback 
-    //
-    // While active is being updated, we just display all
-    // days as inactive
-    //
-    const [activeMonth, setActiveMonth] = useState({
-        year: value.getFullYear(),
-        month: value.getMonth()+1
-    });
-
-    //
-    // Our props can change if links are clicked, in which case
-    // we reset the date shown. We need to formally propagate this.
-    //
-    useEffect( () => {
-        setValue(props.year ? new Date(props.year,props.month ? props.month-1 : 0) : new Date())
-        setActiveMonth({
-            year: props.year,
-            month: props.month
-        })
-    }, [props.year, props.month])
-
-    //
-    // The calendar will tell us if the active date has changed.
-    // We'll need to update the active month, to trigger an API call.
-    //
-    const setActiveDate = ({view, activeStartDate}) => {
-        if (activeMonth === undefined || view == "month") {
-            setActiveMonth({
-                year: activeStartDate.getFullYear(),
-                month: activeStartDate.getMonth()+1
-            });
-        }
-    }
-
+    
     //
     // Update list of active days (synchronously), when necessary
     //
     useEffect( () => {
         axios.get("/api/blog/days", {
             params: {
-                year: activeMonth ? activeMonth.year : undefined,
-                month: activeMonth ? activeMonth.month : undefined,
+                year: activeDate.getFullYear(),
+                month: activeDate.getMonth()+1,
                 cat: props.cat,
                 timezone: "America/Los_Angeles"
             }
@@ -94,7 +64,7 @@ function BlogCalendar(props) {
         .catch( err => {
             console.log(err.errmsg || err);
         }); 
-    }, [activeMonth, props.cat]);
+    }, [activeDate, props.cat]);
 
     //
     // Decide if a calendar element is active, based on whether
@@ -153,11 +123,9 @@ function BlogCalendar(props) {
 
     return (
         <Calendar
-            value={value}
-            onChange={setValue}
+            activeStartDate={activeDate}
+            onActiveStartDateChange={({activeStartDate}) => setActiveDate(activeStartDate)}
             tileDisabled={tileDisabled}
-            onViewChange={setActiveDate}
-            onActiveStartDateChange={setActiveDate}
             onClickDay={clickDay}
             onClickMonth={clickMonth}
             showNeighboringMonth={false}
