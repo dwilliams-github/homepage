@@ -26,5 +26,5 @@ on a standard node environment.
 
 ```
 cd backend
-zip -r ../backend.zip .
+zip -r ../backend.zip . -x 'node_modules/*'
 ```
