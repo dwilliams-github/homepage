@@ -14,7 +14,7 @@ function BlogArticle({ article }) {
     const created = new Date(article.created);
     const modified = new Date(article.modified);
 
-    const altered = article.modified && modified-created > 60000;
+    const altered = article.modified && modified-created > 600000;
 
     const imageToBase64 = i => new Buffer(i.data).toString("base64");
 

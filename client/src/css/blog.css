@@ -5,7 +5,8 @@
 }
 .blog .articles {
 	float: left;
-	width: 68%;
+	width: 70%;
+	max-width: 45rem;
 	padding: 10px 0;
 }
 .blog .calendar-wrap {

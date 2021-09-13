@@ -36,7 +36,7 @@ function BlogCalendar(props) {
     //
     // Update list of active days (asynchronously), when necessary
     //
-	const cancelRef = useRef({ token: axios.CancelToken })
+	const cancelRef = useRef({ token: axios.CancelToken });
 
     useEffect( () => {
         //

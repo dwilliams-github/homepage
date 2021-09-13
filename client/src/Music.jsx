@@ -1,9 +1,33 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { Fragment, useState, useEffect, useMemo } from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import BeatLoader from 'react-spinners/BeatLoader';
 import axios from 'axios';
 import './css/music.css';
+
+function ShowGigs(props) {
+    const { gigs } = props;
+
+    return (
+        <Fragment>
+        {gigs.sort( (a,b) => b.start_msec - a.start_msec ).map( d => (
+            <div className="show" key={d._id}>
+                <div className="title">{d.title}</div>
+                <div className="author">{d.authors}</div>
+                <div className="pres">
+                    Presented by {urlOrNot(d.group)}, music director {urlOrNot(d.director)}
+                </div>
+                <div className="venue">{urlOrNot(d.venue)}</div>
+                <div className="dates">
+                    {timeStampToDate(d.start_date)} to {timeStampToDate(d.end_date)}
+                </div>
+                <div className="pos">{d.position}</div>
+            </div>
+        ))}
+        </Fragment>
+    )
+}
+
 
 function Music() {
     const [data, setData] = useState({loading: true, gigs:[]});
@@ -65,20 +89,7 @@ function Music() {
             <h3><a name="shows">Shows</a></h3>
             <p>Here is a list of the shows I have been involved with. There is a bit of history to go through here, so I apologize in advance if I got any details wrong, or missed a show.</p>
             {data.loading ? <BeatLoader color="#FFFF99" />  : ""}
-            {data.gigs.sort( (a,b) => b.start_msec - a.start_msec ).map( d => (
-                <div className="show" key={d._id}>
-                    <div className="title">{d.title}</div>
-                    <div className="author">{d.authors}</div>
-                    <div className="pres">
-                        Presented by {urlOrNot(d.group)}, music director {urlOrNot(d.director)}
-                    </div>
-                    <div className="venue">{urlOrNot(d.venue)}</div>
-                    <div className="dates">
-                        {timeStampToDate(d.start_date)} to {timeStampToDate(d.end_date)}
-                    </div>
-                    <div className="pos">{d.position}</div>
-                </div>
-            ))}
+            <ShowGigs {...data} />
         </div>
     )
 }
