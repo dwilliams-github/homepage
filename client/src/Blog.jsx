@@ -8,47 +8,41 @@ import Side from './Side';
 import queryString from 'query-string';
 import './css/blog.css';
 
-class Blog extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+function Blog(props) {
+    const parsed = queryString.parse(props.location.search);
 
-    render() {
-        const parsed = queryString.parse(this.props.location.search);
+    const sides = [
+        {
+            items: [
+                <div className="calendar-wrap">
+                    <BlogCalendar {...props} {...parsed} />
+                </div>
+            ]
+        },
+        {
+            title: 'Categories',
+            items: [ <BlogCategories {...parsed}/> ]
+        },
+        {
+            title: 'Archive',
+            items: [ <BlogArchive {...parsed}/> ]
+        },
+        {
+            special: "site"
+        },
+        {
+            special: "about"
+        }
+    ]
 
-        const sides = [
-            {
-                items: [
-                    <div className="calendar-wrap">
-                        <BlogCalendar {...this.props} {...parsed} />
-                    </div>
-                ]
-            },
-            {
-                title: 'Categories',
-                items: [ <BlogCategories {...parsed}/> ]
-            },
-            {
-                title: 'Archive',
-                items: [ <BlogArchive {...parsed}/> ]
-            },
-            {
-                special: "site"
-            },
-            {
-                special: "about"
-            }
-        ]
-
-        return (
-            <div className="blog content">
-                <Banner />
-                <div id="bannercaption">The mad ramblings of a scientist</div>
-                <Side contents={sides} />
-                <BlogArticleList  {...this.props} {...parsed} />
-            </div>
-        )
-    }
+    return (
+        <div className="blog content">
+            <Banner />
+            <div id="bannercaption">The mad ramblings of a scientist</div>
+            <Side contents={sides} />
+            <BlogArticleList  {...props} {...parsed} />
+        </div>
+    )
 }
 
 export default Blog;
