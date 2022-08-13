@@ -2,9 +2,11 @@
 [Knowledge and Skills](#skills)
 ====================
 
-- Experience and original research in virtual screening, molecular dynamics, pharmacophore modeling, virtual library generation, cheminformatics, chemical diversity, and machine learning
+- Experience and original research in virtual screening, molecular dynamics, pharmacophore modeling, virtual library generation, and cheminformatics
+- Familiar with the practice, implementation and theory of many of the latest techniques in deep learning, 
+including graph neural networks, transformers, and diffusion
+- Mentor and manager in the fields of programming, algorithms, mathematics, physical chemistry, and quantum physics  
 - First-hand experience with the drug development process, from discovery to first-in-human, including target validation, hit finding, assay development, lead optimization, and DMPK
-- Mentor and manager to more than a dozen researchers in the fields of programming, algorithms, mathematics, physical chemistry, and quantum physics  
 - Broad experience in data science, including very large data sets, inference, and modeling
 - A skilled technical writer, with experience in scientific, technical, and marketing roles 
 - A proficient software programmer with experience in a wide range of development roles
@@ -14,7 +16,19 @@
 =======================
 
 
-## Senior Director of Platform Technology, Verseon, Fremont, CA, 2018–Present
+## Principal Engineer, Molecular Structures, Nobias Therapeutics, 2021–Present
+
+Tasked with integrating physics-informed, atom-level molecular information into the 
+company's AI platform, using best practices in cheminformatics, ligand docking, 
+molecular dynamics, and protein processing, and with
+special attention to machine-learning augmentation. Tools employed include
+PyTorch, OpenMM, OpenForcefield, OpenFold, Vina, Gnina, Open Babel, and RDKit. Developed proprietary 
+machine-learning models by integrating various techniques, such as natural-language processing (NLP), 
+graph convolutional neural networks (GCNN), transformers, 
+and variational diffusion models (VDM).
+
+
+## Senior Director of Platform Technology, Verseon, Fremont, CA, 2018–2021
 
 Maintained responsibilities held under Director, Research and Development, with a focus on further expanding Verseon's pioneering efforts in computational drug development through recruitment, directed research in computational chemistry, and drug program initiation. Collaborated with medicinal chemists and research biologists in guiding Verseon’s anticoagulant program into phase I.
 
