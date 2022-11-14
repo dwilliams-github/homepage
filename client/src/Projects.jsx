@@ -31,9 +31,6 @@ function Projects() {
                 <a href="https://github.com/dwilliams-github" target="_blank">
                     Public code repository (GitHub)
                 </a>,
-                <a href="https://covid19.slashdave.com/" target="_blank">
-                    A collection of plots on COVID-19
-                </a>,
                 <a href="https://flyer.slashdave.com/" target="_blank">
                     Flyer
                 </a>,
@@ -65,6 +62,12 @@ function Projects() {
 
                 <div className="reference">
                     <ul>
+                        <li>
+                            <a href="https://doi.org/10.1016/j.ejmech.2022.114855" target="_blank">
+                                Discovery of novel N-acylpyrazoles as potent and selective thrombin inhibitors
+                            </a>,
+                           KM. Short, et al., European Journal of Medicinal Chemistry (2022): 114855. 
+                        </li>
                         <li>
                             <a href="https://chemrxiv.org/engage/chemrxiv/article-details/60ee20cf551cb0b4a8af665d" target="_blank">
                                 Robust ligand-protein docking using an advanced genetic algorithm.
@@ -156,7 +159,8 @@ function Projects() {
                     the backend runs on <a href="https://nodejs.org/en/" target="_blank">Node.js</a>, and data is stored in{' '}
                     <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>. You can find all of the details on{' '}
                     <a href="https://github.com/dwilliams-github/homepage" target="_blank">github</a>. 
-                    It is currently deployed on <a href="https://aws.amazon.com/" target="_blank">AWS</a>.
+                    It is currently deployed on <a href="https://aws.amazon.com/" target="_blank">AWS</a>{' '} 
+                    (via Elastic Beanstalk).
                 </p>
 
                 <p>
@@ -170,17 +174,17 @@ function Projects() {
                 <p>
                     Once I started sharing some of my COVID-19 analyzes with friends and family, 
                     it started to become tedious to re-run them regularly. 
-                    So I spent a weekend putting together a{' '}
-                    <a href="https://covid19.slashdave.com/" target="_blank">simple web site</a>, 
-                    built on <a href="https://flask.palletsprojects.com/" target="_blank">Flask</a> and 
+                    So I spent a weekend putting together a simple web site (since depreciated).
+                    The web site was 
+                    built on <a href="https://flask.palletsprojects.com/" target="_blank">Flask</a>, 
                     powered by <a href="https://gunicorn.org/" target="_blank">gunicorn</a>/
-                    <a href="https://www.nginx.com/" target="_blank">nginx</a>. 
-                    For this web site I switched to <a href="https://vega.github.io/vega-lite//" target="_blank">Vega-Lite</a>{' '}
+                    <a href="https://www.nginx.com/" target="_blank">nginx</a>, and deployed
+                    on an <a href="https://aws.amazon.com/" target="_blank">AWS</a> EC2 instance.
+                    To run in a browser I switched to <a href="https://vega.github.io/vega-lite//" target="_blank">Vega-Lite</a>{' '}
                     in order to provide graphics output more suitable to a web page. 
                     I also employed <a href="https://redis.io/" target="_blank">redis</a> as a data cache, so as 
                     to minimize the load on third-party data sources and to improve performance. 
                     All of the details are on <a href="https://github.com/dwilliams-github/covidweb" target="_blank">github</a>. 
-                    It is currently deployed on <a href="https://aws.amazon.com/" target="_blank">AWS</a>.
                 </p>
 
 
