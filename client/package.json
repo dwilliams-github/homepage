@@ -17,7 +17,6 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "axios": "^0.21.1",
-    "babel-core": "^4.7.16",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "buffer": "^6.0.3",
