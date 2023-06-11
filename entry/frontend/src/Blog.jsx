@@ -491,7 +491,7 @@ class Blog extends Component {
                     </Collapse>
                     <Collapse isOpen={addImage}>
                         <div className="dialog">
-                            <FileInput text="Choose file..." onInputChange={(e) => this.setImageFile(e)}/>
+                            <input type="file" onChange={(e) => this.setImageFile(e)}/>
                             <InputGroup
                                 placeholder="Caption"
                                 onChange={(e) => this.setImageCaption(e)}

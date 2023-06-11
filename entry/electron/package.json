@@ -7,8 +7,8 @@
         "serve": "node_modules/.bin/electron ."
     },
     "dependencies": {
-        "electron": "^22.0.0",
-        "electron-rebuild": "^3.2.7",
+        "electron": "^25.1.0",
+        "electron-rebuild": "^3.2.9",
         "electron-reload": "^2.0.0-alpha.1",
         "express": "^4.17.1",
         "formidable": "^2.0.1",
