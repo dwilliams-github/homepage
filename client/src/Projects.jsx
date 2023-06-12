@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Banner from './Banner';
 import Side from './Side';
 import fred from './images/fred.jpg';
@@ -46,6 +47,11 @@ function Projects() {
 
     return (
         <div className="projects content">
+            <Helmet>
+                <title>David C. Williams, Ph.D.</title>
+                <meta name="description" content="A few personal projects"/>
+                <link rel="canonical" href="https://slashdave.com/projects"/>
+            </Helmet>
             <Banner />
             <Side contents={sides}/>
             <div className="text" >

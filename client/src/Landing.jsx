@@ -1,12 +1,18 @@
 import React from 'react';
 import Banner from './Banner';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { FaQuestion, FaQuoteRight, FaHammer, FaMusic, FaLink } from 'react-icons/fa';
 import './css/landing.css';
 
 function Landing() {
     return (
         <div className="landing">
+            <Helmet>
+                <title>David C. Williams, Ph.D.</title>
+                <meta name="description" content="Home page"/>
+                <link rel="canonical" href="https://slashdave.com/"/>
+            </Helmet>
             <div className="menu">
                 <Banner />
                 <div className="frame">

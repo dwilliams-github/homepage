@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 import Banner from './Banner';
 import Side from './Side';
 import Markdown from 'react-markdown';
@@ -31,6 +32,11 @@ function Links() {
 
     return (
         <div className="content">
+            <Helmet>
+                <title>David C. Williams, Ph.D.</title>
+                <meta name="description" content="A few links I have found useful or interesting"/>
+                <link rel="canonical" href="https://slashdave.com/links"/>
+            </Helmet>
             <Banner />
             <div id="bannercaption">A few links I have found useful or interesting</div>
             <Side contents={sides}/>
