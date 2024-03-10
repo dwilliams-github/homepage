@@ -120,7 +120,7 @@ class Blog extends Component {
         .then( (res) => {
             if (!res.data.success) throw res.error;
             this.setState({
-                gigs: [
+                blogs: [
                     ...this.state.blogs,
                     res.data.data
                 ],
