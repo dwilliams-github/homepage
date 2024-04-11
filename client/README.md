@@ -52,5 +52,7 @@ For development, it is handy to use live reloading:
 > npm run watch
 ```
 
+This above does not serve the files. For that, see the ```backend``` directory.
+
 
 

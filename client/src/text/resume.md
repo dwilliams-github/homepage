@@ -22,7 +22,7 @@ Tasked with integrating physics-informed, atom-level molecular information into 
 company's AI platform, using best practices in cheminformatics, ligand docking, 
 molecular dynamics, and protein processing, and with
 special attention to machine-learning augmentation. Tools employed include
-PyTorch, OpenMM, OpenForcefield, OpenFold, Vina, Gnina, Open Babel, and RDKit. Developed proprietary 
+PyTorch, OpenMM, OpenForcefield, OpenFold, Vina, GNINA, Open Babel, and RDKit. Developed proprietary 
 machine-learning models by integrating various techniques, such as natural-language processing (NLP), 
 graph convolutional neural networks (GCNN), transformers, 
 and variational diffusion models (VDM).
@@ -61,7 +61,8 @@ Organized and taught the graduate course “Introduction to Particle Physics.”
 [Computational Experience](#computer)
 ========================
 
-- Experience with the use and integration of a variety of chemistry toolsets and platforms, including MarvinBeans (ChemAxon), OpenEye, RDKit, NWChem, PyMOL, Percepta, GROMACS, AmberTools, and MOE
+- Up to date with the latest techniques and practices in deep-learning research and engineering, including implementations employing PyTorch, PyG, Parquet, Arrow and Ray Tune
+- Experience with the use and integration of a variety of chemistry toolsets and platforms, including RDKit, OpenMM, OpenBabel, MarvinBeans (ChemAxon), OpenEye, NWChem, PyMOL, Percepta, GROMACS, AmberTools, and MOE
 - Proficient in more than a dozen computer languages, including Python, R, c++, and SQL
 - Responsible for numerous applications in numerical computing developed for a wide range of research roles
 - Broad experience with the practice and theory of data science using a variety of techniques and platforms, including multiple regression, maximum likelihood, decision trees, and neural networks
@@ -80,16 +81,17 @@ B.S., Physics, Northeastern University, Boston, MA, 1987
 [Selected Publications and Patents](#publications)
 =================================
 
-- Short, Kevin M., et al. “Discovery of novel N-acylpyrazoles as potent and selective thrombin inhibitors.” European Journal of Medicinal Chemistry (2022): 114855.
-- Williams, David C., et al, “Robust ligand-protein docking using an advanced genetic algorithm.” Submitted to the *Journal of Computer-Aided Molecular Design.*
+- Williams, David C. and Inala, Neil "Physics-Informed Generative Model for Drug-like Molecule Conformers." To appear in *Journal of Computer-Aided Molecular Design*.
+- Short, Kevin M., et al. “Discovery of novel N-acylpyrazoles as potent and selective thrombin inhibitors.” *European Journal of Medicinal Chemistry* (2022): 114855.
+- Williams, David C., et al. “Robust ligand-protein docking using an advanced genetic algorithm.” Submitted to *Journal of Computer-Aided Molecular Design.*
 - Sivaraja, Mohanram, et al. “VE-1902—A direct thrombin inhibitor with reversible covalent mechanism of action shows efficacy with reduced bleeding in rodent models of thrombosis.” *Thrombosis Research* 190 (2020): 112-121.
 - Sivaraja, Mohanram, et al. “Reversible covalent direct thrombin inhibitors.” *PloS one* 13.8 (2018): e0201377.
 - Aubert, Bernard, et al. “Observation of a charmed baryon decaying to D0 p at a mass near 2.94 GeV/c2.” *Physical review letters* 98.1 (2007): 012001.
 - Schulte, Reinhard W., et al. "Density resolution of proton computed tomography." *Medical Physics* 32.4 (2005): 1035-1046.
-- Williams, D. C. “The most likely path of an energetic charged particle through a uniform medium.” *Physics in Medicine & Biology* 49.13 (2004): 2899.
+- Williams, David C. “The most likely path of an energetic charged particle through a uniform medium.” *Physics in Medicine & Biology* 49.13 (2004): 2899.
 - Bosisio, Luciano, et al. "Limits on D0-D0-bar mixing and CP violation from the ratio of lifetimes for decay to K−pi+, K−K+ and pi−pi+." *Physical Review Letters* 91.12 (2003): 121801.
-- Short, Kevin Michael, et al. “Multisubstituted aromatic compounds as serine protease inhibitors.” U.S. Patent No. 10,251,872. 9 Apr. 2019.
-- Short, Kevin Michael, Son Minh Pham, and David Charles Williams. “Halogenopyrazoles as inhibitors of thrombin.” U.S. Patent No. 9,951,025. 24 Apr. 2018.
-- Short, Kevin Michael, et al. “Multisubstituted aromatic compounds as inhibitors of thrombin.” U.S. Patent No. 9,533,967. 3 Jan. 2017.
+- Short, Kevin M., et al. “Multisubstituted aromatic compounds as serine protease inhibitors.” U.S. Patent No. 10,251,872. 9 Apr. 2019.
+- Short, Kevin M., Son Minh Pham, and David Charles Williams. “Halogenopyrazoles as inhibitors of thrombin.” U.S. Patent No. 9,951,025. 24 Apr. 2018.
+- Short, Kevin M., et al. “Multisubstituted aromatic compounds as inhibitors of thrombin.” U.S. Patent No. 9,533,967. 3 Jan. 2017.
 
 

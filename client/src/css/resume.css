@@ -24,7 +24,14 @@
 	margin: 1px 9px;
 }
 @media print {
-    .resume .content { width: 80% }
+	body {
+		background: #FFF;		
+		color: #222222;
+	}
+	a:link { color: #515128 }
+	.resume h1 { color: #515128 }
+    .resume .content { width: 80%; font-size: 8pt }
+	.resume #address { font-size: 8pt }
     .resume #side { display: none; }
 }
 @media only screen and (max-width: 960px) {

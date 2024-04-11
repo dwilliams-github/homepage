@@ -3,13 +3,13 @@ const resolve = require('path').resolve;
 const config = {
     entry: resolve(__dirname, 'src') + '/index.jsx',
     output: {
-        path: resolve('../backend/public/js/'),
+        path: resolve(__dirname,'../backend/public/js/'),
         chunkFilename: "[id].js",
         filename: 'bundle.js',
         publicPath: 'public/js/'
     },
     resolve: {
-        extensions: ['.js','.jsx','.css']
+        extensions: [".js",".jsx",".md",".css"],
     },
     module: {
         rules: [

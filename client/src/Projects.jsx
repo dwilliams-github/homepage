@@ -63,6 +63,12 @@ function Projects() {
                 <div className="reference">
                     <ul>
                         <li>
+                            <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.3c01816" target="_blank">
+                            Physics-Informed Generative Model for Drug-like Molecule Conformers
+                            </a>,
+                           DC. Williams and N. Inala, <i>to appear in</i> Journal of Computer-Aided Molecular Design. 
+                        </li>
+                        <li>
                             <a href="https://doi.org/10.1016/j.ejmech.2022.114855" target="_blank">
                                 Discovery of novel N-acylpyrazoles as potent and selective thrombin inhibitors
                             </a>,
@@ -72,7 +78,7 @@ function Projects() {
                             <a href="https://chemrxiv.org/engage/chemrxiv/article-details/60ee20cf551cb0b4a8af665d" target="_blank">
                                 Robust ligand-protein docking using an advanced genetic algorithm.
                             </a>,
-                            DC. Williams, et al., submitted to the Journal of Computer-Aided Molecular Design.
+                            DC. Williams, et al., <i>submitted to</i> Journal of Computer-Aided Molecular Design.
                         </li>
                         <li>
                             <a href="https://linkinghub.elsevier.com/retrieve/pii/S0049384820301365" target="_blank">
