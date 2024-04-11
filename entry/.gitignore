@@ -3,4 +3,6 @@ config.json
 
 # don't save secrets
 data/config.json
+# nor generated license
+electron/bundle.js.LICENSE.txt
 
