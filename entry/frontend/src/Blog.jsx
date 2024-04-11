@@ -120,7 +120,7 @@ class Blog extends Component {
         .then( (res) => {
             if (!res.data.success) throw res.error;
             this.setState({
-                gigs: [
+                blogs: [
                     ...this.state.blogs,
                     res.data.data
                 ],
@@ -491,7 +491,7 @@ class Blog extends Component {
                     </Collapse>
                     <Collapse isOpen={addImage}>
                         <div className="dialog">
-                            <FileInput text="Choose file..." onInputChange={(e) => this.setImageFile(e)}/>
+                            <input type="file" onChange={(e) => this.setImageFile(e)}/>
                             <InputGroup
                                 placeholder="Caption"
                                 onChange={(e) => this.setImageCaption(e)}

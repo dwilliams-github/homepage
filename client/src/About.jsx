@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import portrait from './images/portrait.jpg';
 import react from './images/react.svg';
 import aws from './images/aws_smile-header-desktop-en-white_59x35.png';
@@ -78,6 +79,12 @@ function About() {
 
     return (
         <div className="about content">
+            <Helmet>
+                <title>About slashdave.com</title>
+                <meta name="description" content="Welcome to my small corner of the internet"/>
+                <link rel="canonical" href="https://slashdave.com/about"/>
+                <meta property="og:image" content={portrait}/>
+            </Helmet>
             <Banner />
             <Side contents={sides}/>
             <div className="about-main">

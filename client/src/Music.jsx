@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect, useMemo } from 'react';
+import { Helmet } from "react-helmet";
 import Banner from './Banner';
 import Side from './Side';
 import BeatLoader from 'react-spinners/BeatLoader';
@@ -76,6 +77,11 @@ function Music() {
 
     return (
         <div className="music content">
+            <Helmet>
+                <title>David C. Williams, Ph.D.</title>
+                <meta name="description" content="Music"/>
+                <link rel="canonical" href="https://slashdave.com/music"/>
+            </Helmet>
             <Banner />
             <div id="bannercaption">Music</div>
             <Side contents={sides}/>
