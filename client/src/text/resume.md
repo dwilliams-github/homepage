@@ -81,7 +81,7 @@ B.S., Physics, Northeastern University, Boston, MA, 1987
 [Selected Publications and Patents](#publications)
 =================================
 
-- Williams, David C. and Inala, Neil "Physics-Informed Generative Model for Drug-like Molecule Conformers." To appear in *Journal of Computer-Aided Molecular Design*.
+- Williams, David C. and Inala, Neil "Physics-Informed Generative Model for Drug-like Molecule Conformers." *Journal of Computer-Aided Molecular Design* 64.8 (2024): 2988.
 - Short, Kevin M., et al. “Discovery of novel N-acylpyrazoles as potent and selective thrombin inhibitors.” *European Journal of Medicinal Chemistry* (2022): 114855.
 - Williams, David C., et al. “Robust ligand-protein docking using an advanced genetic algorithm.” Submitted to *Journal of Computer-Aided Molecular Design.*
 - Sivaraja, Mohanram, et al. “VE-1902—A direct thrombin inhibitor with reversible covalent mechanism of action shows efficacy with reduced bleeding in rodent models of thrombosis.” *Thrombosis Research* 190 (2020): 112-121.

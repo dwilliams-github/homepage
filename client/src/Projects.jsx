@@ -72,7 +72,7 @@ function Projects() {
                             <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.3c01816" target="_blank">
                             Physics-Informed Generative Model for Drug-like Molecule Conformers
                             </a>,
-                           DC. Williams and N. Inala, <i>to appear in</i> Journal of Computer-Aided Molecular Design. 
+                           DC. Williams and N. Inala, Journal of Computer-Aided Molecular Design, 64.8 (2024): 2988. 
                         </li>
                         <li>
                             <a href="https://doi.org/10.1016/j.ejmech.2022.114855" target="_blank">
