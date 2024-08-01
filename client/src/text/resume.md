@@ -22,7 +22,8 @@ Tasked with integrating physics-informed, atom-level molecular information into 
 company's AI platform, using best practices in cheminformatics, ligand docking, 
 molecular dynamics, and protein processing, and with
 special attention to machine-learning augmentation. Tools employed include
-PyTorch, OpenMM, OpenForcefield, OpenFold, Vina, GNINA, Open Babel, and RDKit. Developed proprietary 
+PyTorch, OpenMM, OpenForcefield, OpenFold, Vina, GNINA, Open Babel, and RDKit. 
+Designed and implemented the company's scalable, cloud-based ligand docking API and web frontend. Developed proprietary 
 machine-learning models by integrating various techniques, such as natural-language processing (NLP), 
 graph convolutional neural networks (GCNN), transformers, 
 and variational diffusion models (VDM).
@@ -41,7 +42,7 @@ Responsible for managing Verseon’s Computational R&D efforts, including planni
 
 Played a central role in the development and deployment of Verseon’s computational drug-discovery platform. Responsible for the development and maintenance of the company’s proprietary virtual compound library. Primary author of Verseon’s custom LIMS, featuring instrument integration, curve fitting, project workflow, and cheminformatics. Assisted in Verseon’s drug development programs as needed.
 
-## Chief Technologist, BlockRules Ltd., Fremont, CA, 2018–Present
+## Chief Technologist, BlockRules Ltd., Fremont, CA, 2018–2020
 
 Responsible for establishing and evangelizing the technological
 foundation of BlockRules' financial securities platform.
