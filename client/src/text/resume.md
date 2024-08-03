@@ -1,6 +1,5 @@
 
-[Knowledge and Skills](#skills)
-====================
+# Knowledge and Skills
 
 - Experience and original research in virtual screening, molecular dynamics, pharmacophore modeling, virtual library generation, and cheminformatics
 - Familiar with the practice, implementation and theory of many of the latest techniques in deep learning, 
@@ -12,8 +11,7 @@ including graph neural networks, transformers, and diffusion
 - A proficient software programmer with experience in a wide range of development roles
 
 
-[Professional Experience](#experience)
-=======================
+# Professional Experience
 
 
 ## Principal Engineer, Molecular Structures, Nobias Therapeutics, 2021–Present
@@ -59,8 +57,7 @@ the pCT Collaboration.
 
 Organized and taught the graduate course “Introduction to Particle Physics.”
 
-[Computational Experience](#computer)
-========================
+# Computational Experience
 
 - Up to date with the latest techniques and practices in deep-learning research and engineering, including implementations employing PyTorch, PyG, Parquet, Arrow and Ray Tune
 - Experience with the use and integration of a variety of chemistry toolsets and platforms, including RDKit, OpenMM, OpenBabel, MarvinBeans (ChemAxon), OpenEye, NWChem, PyMOL, Percepta, GROMACS, AmberTools, and MOE
@@ -71,16 +68,14 @@ Organized and taught the graduate course “Introduction to Particle Physics.”
 - Direct experience with a wide range of computer hardware and operating systems, old and new
 - Familiar with high-performance computing, containers, run-time environments, and system design
 
-[Education](#education)
-=========
+# Education
 
 Ph.D., Physics, Massachusetts Institute of Technology, Cambridge, MA, 1994
 
 B.S., Physics, Northeastern University, Boston, MA, 1987
 
 
-[Selected Publications and Patents](#publications)
-=================================
+# Selected Publications and Patents
 
 - Williams, David C. and Inala, Neil "Physics-Informed Generative Model for Drug-like Molecule Conformers." *Journal of Computer-Aided Molecular Design* 64.8 (2024): 2988.
 - Short, Kevin M., et al. “Discovery of novel N-acylpyrazoles as potent and selective thrombin inhibitors.” *European Journal of Medicinal Chemistry* (2022): 114855.

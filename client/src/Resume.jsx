@@ -2,7 +2,8 @@ import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import Markdown from 'react-markdown';
-import queryString from 'query-string';
+import { HashLink } from "react-router-hash-link";
+import rehypeSlug from "rehype-slug";
 import resume from './text/resume.md';
 import './css/resume';
 
@@ -11,11 +12,11 @@ function Resume() {
         {
             title: 'Contents',
             items: [
-                <a href="#skills">Knowledge and Skills</a>,
-                <a href="#experience">Professional Experience</a>,
-                <a href="#education">Education</a>,
-                <a href="#computer">Computer Experience</a>,
-                <a href="#publications">Selected Publications and Patents</a>
+                <HashLink to="#knowledge-and-skills">Knowledge and Skills</HashLink>,
+                <HashLink to="#professional-experience">Professional Experience</HashLink>,
+                <HashLink to="#education">Education</HashLink>,
+                <HashLink to="#computer-experience">Computer Experience</HashLink>,
+                <HashLink to="#selected-publications-and-patents">Selected Publications and Patents</HashLink>
             ]
         },
         {
@@ -49,7 +50,7 @@ function Resume() {
             </div>
             <Side contents={sides}/>
             <div className="content">
-                <Markdown children={resume} linkTarget="_blank" />
+                <Markdown children={resume} linkTarget="_blank" rehypePlugins={[[rehypeSlug,{}]]}/>
             </div>
         </div>
     )
