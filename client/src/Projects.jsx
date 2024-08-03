@@ -109,6 +109,14 @@ function Projects() {
                     </a>.
                 </p>
 
+                <p>
+                    I am also a contributor to the {' '}
+                    <a href="https://openmm.org/" target="_blank">openmm</a> and {' '}
+                    <a href="https://molstar.org/" target="_blank">Mol*</a> {' '}
+                    open-source projects.
+                </p>
+
+
                 <h3><a name="apps">Apps</a></h3>
 
                 <div className="image">
@@ -186,7 +194,7 @@ function Projects() {
                 <p>
                     Once I started sharing some of my COVID-19 analyzes with friends and family, 
                     it started to become tedious to re-run them regularly. 
-                    So I spent a weekend putting together a simple web site (since depreciated).
+                    So I spent a weekend putting together a simple web site (since deprecated).
                     The web site was 
                     built on <a href="https://flask.palletsprojects.com/" target="_blank">Flask</a>, 
                     powered by <a href="https://gunicorn.org/" target="_blank">gunicorn</a>/
