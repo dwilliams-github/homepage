@@ -9,7 +9,7 @@ or otherwise.
 
 Any opinions expressed on this web site belong
 to the author alone and do not reflect the official policy or
-position of Nobias Therapeutics.
+position of Nobias Therapeutics or any prior employer.
 
 No personal data is collected or stored by this web site,
 with the exception of conventional server log data which may

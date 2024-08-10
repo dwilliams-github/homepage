@@ -16,16 +16,7 @@ including graph neural networks, transformers, and diffusion
 
 ## Principal Engineer, Molecular Structures, Nobias Therapeutics, 2021–Present
 
-Tasked with integrating physics-informed, atom-level molecular information into the 
-company's AI platform, using best practices in cheminformatics, ligand docking, 
-molecular dynamics, and protein processing, and with
-special attention to machine-learning augmentation. Tools employed include
-PyTorch, OpenMM, OpenForcefield, OpenFold, Vina, GNINA, Open Babel, and RDKit. 
-Designed and implemented the company's scalable, cloud-based ligand docking API and web frontend. Developed proprietary 
-machine-learning models by integrating various techniques, such as natural-language processing (NLP), 
-graph convolutional neural networks (GCNN), transformers, 
-and variational diffusion models (VDM).
-
+Tasked with integrating physics-informed, atom-level molecular analysis into the company's AI platform, with special attention to machine-learning augmentation. Designed and implemented the company's scalable, cloud-based ligand docking API and web frontend. Designed and implemented a double-decoupling, free-energy perturbation ligand binding calculator featuring automated force field assignment, Boresch restraints, ligand RMSD sampling, and solute tempering. Developed proprietary deep-learning models by integrating various techniques, such as natural-language processing (NLP), graph convolutional neural networks (GCNN), transformers, and diffusion probabilistic models (DPM).
 
 ## Senior Director of Platform Technology, Verseon, Fremont, CA, 2018–2021
 

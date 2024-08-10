@@ -82,7 +82,7 @@ function Music() {
             <ul>
                 <li><a href="http://newarksymphonic.org/">Newark Symphonic Winds</a>, a community-based concert band</li>
                 <li>Brass Menagerie, a brass quintet</li>
-                <li><a href="https://starstrucktheatre.org/">Starstruck</a>, a youth performing arts organization</li>
+                <li><a href="https://starstrucktheatre.org/">Starstruck</a>, a youth performing-arts organization</li>
             </ul>
             <h3><a name="shows">Shows</a></h3>
             <p>Here is a list of the shows I have been involved with. There is a bit of history to go through here, so I apologize in advance if I got any details wrong, or missed a show.</p>

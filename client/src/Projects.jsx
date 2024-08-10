@@ -59,7 +59,7 @@ function Projects() {
 
                 <p>
                     My profession these last few years has been the study and application
-                    of computational methods in drug discovery.
+                    of computational methods and machine learning in drug discovery.
                     I prefer to keep my professional and public profiles separate, so I won't dwell on
                     any details here (you can find
                     them <Link to="/resume">elsewhere</Link> on this web site).
@@ -107,13 +107,6 @@ function Projects() {
                     <a href="https://patents.google.com/?inventor=%22WILLIAMS+DAVID%22&assignee=Verseon&country=US&status=GRANT&dups=language0" target="_blank">
                         here
                     </a>.
-                </p>
-
-                <p>
-                    I am also a contributor to the {' '}
-                    <a href="https://openmm.org/" target="_blank">openmm</a> and {' '}
-                    <a href="https://molstar.org/" target="_blank">Mol*</a> {' '}
-                    open-source projects.
                 </p>
 
 
