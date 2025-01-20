@@ -5,6 +5,7 @@ import BlogCalendar from './BlogCalendar';
 import BlogArchive from './BlogArchive';
 import BlogCategories from './BlogCategories';
 import Side from './Side';
+import { useLocation } from 'react-router'
 import queryString from 'query-string';
 import './css/blog.css';
 
@@ -19,7 +20,8 @@ export const Head = () => {
 }
 
 function Blog(props) {
-    const parsed = queryString.parse(props.location.search);
+    let location = useLocation();
+    const parsed = queryString.parse(location.search);
 
     const sides = [
         {

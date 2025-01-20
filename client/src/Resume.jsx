@@ -50,7 +50,7 @@ function Resume() {
             </div>
             <Side contents={sides}/>
             <div className="content">
-                <Markdown children={resume} linkTarget="_blank" rehypePlugins={[[rehypeSlug,{}]]}/>
+                <Markdown children={resume} rehypePlugins={[[rehypeSlug,{}]]}/>
             </div>
         </div>
     )

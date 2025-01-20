@@ -3,6 +3,7 @@ import Banner from './Banner';
 import Side from './Side';
 import { HashLink } from "react-router-hash-link";
 import rehypeSlug from "rehype-slug";
+import rehypeExternalLinks from "rehype-external-links";
 import Markdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import links from './text/links.md'
@@ -48,7 +49,7 @@ function Links() {
             <div id="bannercaption">A few links I have found useful or interesting</div>
             <Side contents={sides}/>
             <div className="links-content">
-                <Markdown children={links} remarkPlugins={[gfm]} rehypePlugins={[[rehypeSlug,{}]]} linkTarget="_blank"/>
+                <Markdown children={links} remarkPlugins={[gfm]} rehypePlugins={[[rehypeSlug,{}], [rehypeExternalLinks, {target: "_blank"}]]} />
             </div>
         </div>
     )

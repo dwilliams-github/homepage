@@ -1,6 +1,6 @@
-import React, { Suspense, lazy } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Suspense, lazy, StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BeatLoader from 'react-spinners/BeatLoader';
 import './css/styles-site.css';
 
@@ -18,21 +18,26 @@ const NotFound = lazy(() => import('./NotFound'));
 const routing = (
     <Router>
         <Suspense fallback={<BeatLoader color="#FFFF99" />}>
-            <Switch>
-                <Route path="/about" component={About} />
-                <Route path="/music" component={Music} />
-                <Route path="/projects/hepauthors" exact component={HepAuthors} />
-                <Route path="/projects" exact component={Projects} />
-                <Route path="/blog" component={Blog} />
-                <Route path="/links" component={Links} />
-                <Route path="/resume" component={Resume} />
-                <Route path="/terms" component={Terms} />
-                <Route path="/" exact component={Landing} />
-                <Route component={NotFound} />
-            </Switch>
+            <Routes>
+                <Route path="/about" element={<About />} />
+                <Route path="/music" element={<Music />} />
+                <Route path="/projects/hepauthors" element={<HepAuthors />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/links" element={<Links />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/" element={<Landing />} />
+                <Route element={<NotFound />} />
+            </Routes>
         </Suspense>
     </Router>
-)
+);
 
-ReactDOM.render(routing, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+root.render(
+    <StrictMode>
+        {routing}
+    </StrictMode>
+);
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import queryString from 'query-string';
+import rehypeExternalLinks from "rehype-external-links";
 import { Link } from 'react-router-dom';
 import { Buffer } from 'buffer';
 import { format } from 'date-fns-tz';
@@ -26,7 +27,7 @@ function BlogArticle({ article }) {
                     <img alt={p.caption} src={"data:image/jpeg;base64," + imageToBase64(p.image)}/>
                 </div>
             ))}
-            <Markdown children={article.body} remarkPlugins={[gfm]} linkTarget="_blank"/>
+            <Markdown children={article.body} remarkPlugins={[gfm]} rehypePlugins={[[rehypeExternalLinks, {target: "_blank"}]]} />
             <div className="posted">
                 <div>
                     Posted at:&nbsp;
