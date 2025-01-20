@@ -1,10 +1,19 @@
 import React, { Fragment, useState, useEffect, useMemo } from 'react';
-import { Helmet } from "react-helmet";
 import Banner from './Banner';
 import Side from './Side';
 import BeatLoader from 'react-spinners/BeatLoader';
 import axios from 'axios';
 import './css/music.css';
+
+export const Head = () => {
+    return (
+        <>
+            <title>David C. Williams, Ph.D.</title>
+            <meta name="description" content="Music"/>
+            <link rel="canonical" href="https://slashdave.com/music"/>
+        </>
+    )
+}
 
 function ShowGigs(props) {
     const { gigs } = props;
@@ -69,11 +78,7 @@ function Music() {
 
     return (
         <div className="music content">
-            <Helmet>
-                <title>David C. Williams, Ph.D.</title>
-                <meta name="description" content="Music"/>
-                <link rel="canonical" href="https://slashdave.com/music"/>
-            </Helmet>
+            <Head />
             <Banner />
             <div id="bannercaption">Music</div>
             <Side contents={sides}/>

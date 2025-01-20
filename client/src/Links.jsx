@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from "react-helmet";
 import Banner from './Banner';
 import Side from './Side';
 import { HashLink } from "react-router-hash-link";
@@ -8,6 +7,16 @@ import Markdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import links from './text/links.md'
 import './css/links';
+
+export const Head = () => {
+    return (
+        <>
+            <title>David C. Williams, Ph.D.</title>
+            <meta name="description" content="A few links I have found useful or interesting"/>
+            <link rel="canonical" href="https://slashdave.com/links"/>
+        </>
+    )
+}
 
 function Links() {
     const sides = [
@@ -34,11 +43,7 @@ function Links() {
 
     return (
         <div className="content">
-            <Helmet>
-                <title>David C. Williams, Ph.D.</title>
-                <meta name="description" content="A few links I have found useful or interesting"/>
-                <link rel="canonical" href="https://slashdave.com/links"/>
-            </Helmet>
+            <Head />
             <Banner />
             <div id="bannercaption">A few links I have found useful or interesting</div>
             <Side contents={sides}/>

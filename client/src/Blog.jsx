@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from "react-helmet";
 import Banner from './Banner';
 import BlogArticleList from './BlogArticleList';
 import BlogCalendar from './BlogCalendar';
@@ -8,6 +7,16 @@ import BlogCategories from './BlogCategories';
 import Side from './Side';
 import queryString from 'query-string';
 import './css/blog.css';
+
+export const Head = () => {
+    return (
+        <>
+            <title>David C. Williams, Ph.D.</title>
+            <meta name="description" content="The mad ramblings of a scientist"/>
+            <link rel="canonical" href="https://slashdave.com/blog"/>
+        </>
+    )
+}
 
 function Blog(props) {
     const parsed = queryString.parse(props.location.search);
@@ -38,11 +47,7 @@ function Blog(props) {
 
     return (
         <div className="blog content">
-            <Helmet>
-                <title>David C. Williams, Ph.D.</title>
-                <meta name="description" content="The mad ramblings of a scientist"/>
-                <link rel="canonical" href="https://slashdave.com/blog"/>
-            </Helmet>
+            <Head />
             <Banner />
             <div id="bannercaption">The mad ramblings of a scientist</div>
             <Side contents={sides} />
