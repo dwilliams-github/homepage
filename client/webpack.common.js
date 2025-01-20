@@ -1,9 +1,9 @@
-const resolve = require('path').resolve;
+const path = require('path');
 
 const config = {
-    entry: resolve(__dirname, 'src') + '/index.jsx',
+    entry: path.resolve(__dirname, 'src') + '/index.jsx',
     output: {
-        path: resolve(__dirname,'../backend/public/js/'),
+        path: path.resolve(__dirname,'../backend/public/js/'),
         chunkFilename: "[id].js",
         filename: 'bundle.js',
         publicPath: 'public/js/'
