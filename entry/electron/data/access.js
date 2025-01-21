@@ -390,9 +390,9 @@ function service(port) {
             //
             // Chain query: load file, then link
             //
-            Data.Picture.create({ image: fs.readFileSync(files.image.filepath), caption: caption })
+            Data.Picture.create({ image: fs.readFileSync(files.image[0].filepath), caption: caption[0] })
                 .then( (pic) => {
-                    Data.Article.updateOne( { '_id': id }, {$push: {pictures: pic.id}} )
+                    Data.Article.updateOne( { '_id': id[0] }, {$push: {pictures: pic.id}} )
                         .then( () => {
                             res.json({ success: true, data: pic.id });
                         })
