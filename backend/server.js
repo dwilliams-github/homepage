@@ -1,5 +1,4 @@
 const express = require('express');
-const async = require("async");
 const path = require('path');
 var cors = require('cors');
 const bodyParser = require('body-parser');
