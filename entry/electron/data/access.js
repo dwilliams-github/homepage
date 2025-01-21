@@ -66,7 +66,7 @@ function service(port) {
     //
     app.get('/gigs/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Gig.updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Gig.updateOne( { '_id': id }, values )
             .then( (data) => {
                 res.json({ success: true, data: data });
             })
@@ -127,7 +127,7 @@ function service(port) {
     //
     app.get('/venues/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Venue.updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Venue.updateOne( { '_id': id }, values )
             .then( (data) => {
                 res.json({ success: true, data: data });
             })
@@ -188,7 +188,7 @@ function service(port) {
     //
     app.get('/groups/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Group.updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Group.updateOne( { '_id': id }, values )
             .then( (data) => {
                 res.json({ success: true, data: data });
             })
@@ -249,7 +249,7 @@ function service(port) {
     //
     app.get('/directors/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Director.updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Director.updateOne( { '_id': id }, values )
             .then( (data) => {
                 res.json({ success: true, data: data });
             })
@@ -325,7 +325,7 @@ function service(port) {
     //
     app.get('/blogs/update', (req, res) => {
         const { id, values } = req.query;
-        Data.Article.updateOne( { '_id': id }, JSON.parse(values) )
+        Data.Article.updateOne( { '_id': id }, values )
             .then( (data) => {
                 res.json({ success: true, data: data });
             })
