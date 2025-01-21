@@ -145,45 +145,40 @@ function BlogDays(res,target_date,timezone) {
     // So, whereas our queries are using the local timezone,
     // the aggregate $dayOfMonth doesn't. Specify timezone explicitly.
     //
-    async.parallel({
-        days: function(callback) {
-            Data.Article.aggregate([
-                {
-                    $match: {
-                        created: { $gte: start, $lt: end }
-                    }
-                },
-                {
-                    $group: {
-                        _id: {
-                            $dayOfMonth: {date: "$created", timezone: timezone}
-                        }
+    Promise.all([
+        Data.Article.aggregate([
+            {
+                $match: {
+                    created: { $gte: start, $lt: end }
+                }
+            },
+            {
+                $group: {
+                    _id: {
+                        $dayOfMonth: {date: "$created", timezone: timezone}
                     }
                 }
-            ])
-            .exec(callback);
-        },
-        months: function(callback) {
-            Data.Article.aggregate([
-                {
-                    $group: { 
-                        _id: { 
-                            year: {$year: "$created"},
-                            month: {$month: "$created"}
-                        }
+            }
+        ]),
+        Data.Article.aggregate([
+            {
+                $group: { 
+                    _id: { 
+                        year: {$year: "$created"},
+                        month: {$month: "$created"}
                     }
                 }
-            ])
-            .exec(callback);
-        }
-    }, (err,results) => {
-        if (err) res.json({ success: false, error: err });
+            }
+        ])
+    ]).then(([days, months]) => {
         res.json({ 
             success: true, 
             target: target_date,
-            days: results.days.map(function(r){return r._id}), 
-            months: results.months.map(function(r){return r._id})
+            days: days.map(function(r){return r._id}), 
+            months: months.map(function(r){return r._id})
         });
+    }).catch(err => {
+        if (err) res.json({ success: false, error: err });
     })
 };
 
