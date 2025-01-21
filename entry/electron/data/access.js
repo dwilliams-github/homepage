@@ -24,7 +24,7 @@ function service(port) {
     // the connection all schemas (previously declared or not) will be 
     // associated to that one database.
     //
-    mongoose.connect(config.dbroute, { useNewUrlParser: true })
+    mongoose.connect(config.dbroute)
     mongoose.connection.once('open', () => console.log('Connected to database'));
     mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
