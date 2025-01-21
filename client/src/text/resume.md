@@ -14,7 +14,12 @@ including graph neural networks, transformers, and diffusion
 # Professional Experience
 
 
-## Principal Engineer, Molecular Structures, Nobias Therapeutics, 2021–Present
+## Principle Machine Learning Research Engineer, Genesis Therapeutics, 2024–2025
+
+Developing and implementing industry-leading generative models for drug discovery.
+
+
+## Principle Engineer, Molecular Structures, Nobias Therapeutics, 2021–2024
 
 Tasked with integrating physics-informed, atom-level molecular analysis into the company's AI platform, with special attention to machine-learning augmentation. Designed and implemented the company's scalable, cloud-based ligand docking API and web frontend. Designed and implemented a double-decoupling, free-energy perturbation ligand binding calculator featuring automated force field assignment, Boresch restraints, ligand RMSD sampling, and solute tempering. Developed proprietary deep-learning models by integrating various techniques, such as natural-language processing (NLP), graph convolutional neural networks (GCNN), transformers, and diffusion probabilistic models (DPM).
 
@@ -50,7 +55,7 @@ Organized and taught the graduate course “Introduction to Particle Physics.”
 
 # Computational Experience
 
-- Up to date with the latest techniques and practices in deep-learning research and engineering, including implementations employing PyTorch, PyG, Parquet, Arrow and Ray Tune
+- Up to date with the latest techniques and practices in deep-learning research and engineering, including implementations employing PyTorch, Lightning, Parquet and Ray
 - Experience with the use and integration of a variety of chemistry toolsets and platforms, including RDKit, OpenMM, OpenBabel, MarvinBeans (ChemAxon), OpenEye, NWChem, PyMOL, Percepta, GROMACS, AmberTools, and MOE
 - Proficient in more than a dozen computer languages, including Python, R, c++, and SQL
 - Responsible for numerous applications in numerical computing developed for a wide range of research roles
