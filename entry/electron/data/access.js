@@ -61,9 +61,6 @@ function service(port) {
     //
     // Update gigs (one at a time)
     //
-    // Note that url requests don't support nested json structures,
-    // so manual parsing is required
-    //
     app.get('/gigs/update', (req, res) => {
         const { id, values } = req.query;
         Data.Gig.updateOne( { '_id': id }, values )
@@ -121,9 +118,6 @@ function service(port) {
 
     //
     // Update venues (one at a time)
-    //
-    // Note that url requests don't support nested json structures,
-    // so manual parsing is required
     //
     app.get('/venues/update', (req, res) => {
         const { id, values } = req.query;
@@ -183,9 +177,6 @@ function service(port) {
     //
     // Update groups (one at a time)
     //
-    // Note that url requests don't support nested json structures,
-    // so manual parsing is required
-    //
     app.get('/groups/update', (req, res) => {
         const { id, values } = req.query;
         Data.Group.updateOne( { '_id': id }, values )
@@ -243,9 +234,6 @@ function service(port) {
 
     //
     // Update directors (one at a time)
-    //
-    // Note that url requests don't support nested json structures,
-    // so manual parsing is required
     //
     app.get('/directors/update', (req, res) => {
         const { id, values } = req.query;
@@ -319,9 +307,6 @@ function service(port) {
 
     //
     // Update blog articles (one at a time)
-    //
-    // Note that url requests don't support nested json structures,
-    // so manual parsing is required
     //
     app.get('/blogs/update', (req, res) => {
         const { id, values } = req.query;
