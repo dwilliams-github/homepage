@@ -55,7 +55,6 @@ considered by many as the state-of-the-art for numerical linear algebra.
 | [space.com](https://www.space.com/news) | News from [space.com](https://www.space.com/) |
 | [NASA Spaceflight](https://www.nasaspaceflight.com) | Community-based news and discussion |
 | [SpaceNews](https://spacenews.com) | Long-standing private space news organization |
-| [Parabolic Arc](http://www.parabolicarc.com) | Space news blog |
 
 # Programming
 
@@ -63,6 +62,9 @@ Finally, a good, free [programming editor](https://code.visualstudio.com/) that 
 anywhere. Just pretend you didn't know it came from [Microsoft](https://www.microsoft.com/).
 By the way, if you are curious how it works, you can take a peek at all the
 details on [github](https://github.com/microsoft/vscode).
+
+I was never much of a fan of LLM for programming, until I met [Cursor](https://cursor.com/en).
+A soft introduction to vibe programming, especially if you are already happy with VSCode.
 
 Well, some say its ruined interviewing for computer science jobs, but [LeetCode](https://leetcode.com/)
 is still a good way to learn algorithms. If you are new to programming and find their

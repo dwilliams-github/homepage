@@ -1,6 +1,7 @@
 .resume .content {
     font-size: small;
     width: 70%;
+	max-width: 800px;
     margin: 0;
     padding: 0;
 }
