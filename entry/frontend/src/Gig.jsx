@@ -7,6 +7,11 @@ import DropDownEditor from './DropDownEditor';
 import axios from 'axios';
 import '@blueprintjs/table/lib/css/table.css'
 
+/**
+ * Gig component handles the display and management of gig data in a grid format.
+ * Provides functionality to add, remove, sort, and edit gig entries including their
+ * associated venues, directors, and groups.
+ */
 class Gig extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +30,10 @@ class Gig extends Component {
         this.add = {}
     }
 
+    /**
+     * Fetches initial gig data and related entities (venues, directors, groups) from the server
+     * when component mounts.
+     */
     componentDidMount() {
         axios.get("http://localhost:8000/gigs/get")
         .then( (res) => {
@@ -76,10 +85,19 @@ class Gig extends Component {
         });
     }
 
+    /**
+     * Updates the add form data when input fields change
+     * @param {string} name - The field name to update
+     * @param {Event} event - The change event containing the new value
+     */
     addOnChange(name,event) {
         this.add[name] = event.target.value;
     }
 
+    /**
+     * Updates the date range values in the add form
+     * @param {Date[]} range - Array containing start and end dates
+     */
     dateChange(range) {
         this.add = {
             ...this.add,
@@ -88,6 +106,9 @@ class Gig extends Component {
         }
     }
 
+    /**
+     * Submits a new gig entry to the server and updates the local state
+     */
     submitAdd() {
         axios.get("http://localhost:8000/gigs/add", {
             params: this.add
@@ -107,6 +128,9 @@ class Gig extends Component {
         });
     }
     
+    /**
+     * Removes a gig entry from the server and updates the local state
+     */
     submitRemove() {
         axios.get("http://localhost:8000/gigs/remove", {
             params: { id: this.state.removing }
@@ -131,6 +155,12 @@ class Gig extends Component {
         this.setState({removing: null});
     }
 
+    /**
+     * Returns cell action buttons for the grid (add/remove)
+     * @param {Object} col - Column information
+     * @param {Object} row - Row data
+     * @returns {Array} Array of action objects with icons and callbacks
+     */
     cellActions(col,row) {
         if (col.key != '_id') return;
 
@@ -146,6 +176,11 @@ class Gig extends Component {
         ]
     }
 
+    /**
+     * Sorts the gig data based on column and direction
+     * @param {string} col - Column to sort by
+     * @param {string} dir - Sort direction ('ASC' or 'DESC')
+     */
     sortRow( col, dir ) {
         switch(dir) {
             case 'ASC':
@@ -161,6 +196,13 @@ class Gig extends Component {
         }
     }
 
+    /**
+     * Updates row data both on the server and in local state
+     * @param {Object} param0 - Object containing update information
+     * @param {number} param0.fromRow - Starting row index
+     * @param {number} param0.toRow - Ending row index
+     * @param {Object} param0.updated - Updated values
+     */
     updateRow( {fromRow, toRow, updated} ) {
         //
         // Update mongo
@@ -347,14 +389,20 @@ class Gig extends Component {
     }
 }
 
-
-//
-// Convert object dictionary to sorted array.
-//
+/**
+ * Converts an object dictionary to a sorted array of options for dropdown menus
+ * @param {Object} f - Object with key-value pairs
+ * @returns {Array} Array of objects with value and text properties
+ */
 const dropdownOptions = (f) => 
     Object.entries(f).map(([k,v]) => ({value: k, text: v}))
         .sort( (a,b) => a.text < b.text ? -1 : 1);
 
+/**
+ * Converts a timestamp to a formatted date string
+ * @param {string} ts - ISO timestamp
+ * @returns {string} Formatted date string
+ */
 function timeStampToDate(ts) {
     return new Date(ts).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' } );
 }
