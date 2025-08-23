@@ -28,7 +28,7 @@ const routing = (
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/" element={<Landing />} />
-                <Route element={<NotFound />} />
+                <Route path='*' element={<NotFound />} />
             </Routes>
         </Suspense>
     </Router>
