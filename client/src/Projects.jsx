@@ -74,6 +74,12 @@ function Projects() {
                 <div className="reference">
                     <ul>
                         <li>
+                            <a href="https://arxiv.org/abs/2510.24670" target="_blank">
+                            Pearl: A Foundation Model for Placing Every Atom in the Right Location
+                            </a>,
+                            Genesis Research Team, arXiv:2510.24670 (2025).
+                        </li>
+                        <li>
                             <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.3c01816" target="_blank">
                             Physics-Informed Generative Model for Drug-like Molecule Conformers
                             </a>,
