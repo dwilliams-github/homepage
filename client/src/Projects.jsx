@@ -330,7 +330,7 @@ function Projects() {
                 <div className="reference">
                     <ol>
                         <li>
-                            <a href="public/papers/banana.pdf" target="_blank">
+                            <a href="/public/papers/banana.pdf" target="_blank">
                                 The Most Likely Path of an Energetic Charged Particle 
                                 Through a Uniform Medium, David C. Williams
                             </a>, Phys.Med.Biol. 49 No 13: (2004) 2899.
@@ -442,10 +442,10 @@ function Projects() {
 
                 <ul>
                     <li>
-                        <a href="public/fiction/story.workshop1.pdf" target="_blank">A Large, Bearded Man</a>
+                        <a href="/public/fiction/story.workshop1.pdf" target="_blank">A Large, Bearded Man</a>
                     </li>
                     <li>
-                        <a href="public/fiction/story.workshop2.pdf" target="_blank">To the 2nd Street Theater</a>
+                        <a href="/public/fiction/story.workshop2.pdf" target="_blank">To the 2nd Street Theater</a>
                     </li>
                 </ul>
             </div>
