@@ -251,6 +251,11 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 // append /api for our api requests
 app.use('/api', router);
 
+// For search engines
+app.get('/robots.txt', (req,res) => {
+    res.sendFile(path.join(__dirname,'static','robots.txt'));
+});
+
 // Issue index.html for any requests that don't match the ones above
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname,'public','js','index.html'));
