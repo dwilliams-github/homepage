@@ -31,12 +31,12 @@ npm run build
 ## AWS
 
 For Elastic Beanstalk, zip the backend directory. The result is ready to be
-deployed on a standard node environment. The ```-FS``` option syncs an
-existing archive with the directory, so stale build files are removed:
+deployed on a standard node environment:
 
 ```
 cd backend
 zip -FS -r ../backend.zip . -x 'node_modules/*' '*.DS_Store' '*.map'
 ```
 
-Note that the archive includes ```.env```, which holds the database credentials.
+Note that the archive includes ```.env```, which holds the database credentials, and is not
+in the repository.
