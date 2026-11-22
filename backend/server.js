@@ -18,7 +18,7 @@ app.use(logger('dev'));
 // the connection all schemas (previously declared or not) will be 
 // associated to that one database.
 //
-mongoose.connect(process.env.dbroute, { useNewUrlParser: true })
+mongoose.connect(process.env.dbroute);
 mongoose.connection.once('open', () => console.log('Connected to database'));
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
