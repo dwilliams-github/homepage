@@ -1,7 +1,7 @@
 import React, { useState,  useEffect } from 'react';
 import BlogArticle from './BlogArticle';
 import BlogPager from './BlogPager';
-import BeatLoader from 'react-spinners/BeatLoader';
+import { BeatLoader } from 'react-spinners';
 import axios from 'axios';
 
 function dayOnly(ts) {

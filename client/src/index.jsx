@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import BeatLoader from 'react-spinners/BeatLoader';
+import { BeatLoader } from 'react-spinners';
 import './css/styles-site.css';
 
 const Landing = lazy(() => import('./Landing'));

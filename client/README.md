@@ -48,14 +48,6 @@ backend directory (```../backend/public/js```), replacing whatever was there bef
 > npm run build
 ```
 
-To test the built files as the backend serves them, rebuilding on every change:
-
-```
-> npm run watch
-```
-
-(Run the backend separately for this; see the ```backend``` directory.)
-
 To inspect bundle sizes (opens a treemap in the browser):
 
 ```
