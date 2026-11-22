@@ -1,7 +1,5 @@
 const express = require('express');
 const path = require('path');
-var cors = require('cors');
-const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
@@ -12,9 +10,6 @@ require("dotenv").config();
 // Our server app
 //
 const app = express();
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.use(logger('dev'));
 
 //
