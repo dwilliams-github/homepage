@@ -31,20 +31,30 @@ in various subdirectories (```css```, ```image```, ```text```).
 
 ## Building
 
-Production builds are sent directly to the backend directory
-(```../backend/public/js```), replacing whatever was there before:
+For development, run the backend and the Vite dev server together:
+
+```
+> npm run dev
+```
+
+and browse to http://localhost:5173. Edits appear instantly (hot module
+replacement). API calls and backend-hosted files (```/api```, ```/public```)
+are proxied to the backend on port 8080; set ```BACKEND_URL``` to change that.
+
+Production builds, including ```index.html```, are sent directly to the
+backend directory (```../backend/public/js```), replacing whatever was there before:
 
 ```
 > npm run build
 ```
 
-For development, it is handy to use live reloading:
+To test the built files as the backend serves them, rebuilding on every change:
 
 ```
 > npm run watch
 ```
 
-This rebuilds on every change, but does not serve the files. For that, see the ```backend``` directory.
+(Run the backend separately for this; see the ```backend``` directory.)
 
 To inspect bundle sizes (opens a treemap in the browser):
 
