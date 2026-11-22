@@ -1,20 +1,14 @@
 const express = require('express');
 const path = require('path');
-var cors = require('cors');
-const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const Data = require('./data');
-require("dotenv").config();
 
 //
 // Our server app
 //
 const app = express();
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.use(logger('dev'));
 
 //
@@ -24,9 +18,18 @@ app.use(logger('dev'));
 // the connection all schemas (previously declared or not) will be 
 // associated to that one database.
 //
-mongoose.connect(process.env.dbroute, { useNewUrlParser: true })
+mongoose.connect(process.env.dbroute);
 mongoose.connection.once('open', () => console.log('Connected to database'));
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//
+// Report a failure. The details go to our log, where only we can see
+// them; the caller just gets a 500 without any database internals.
+//
+function fail(res, err) {
+    console.error(err);
+    res.status(500).json({ success: false, error: "Server error" });
+}
 
 //
 // We're going to dump our API into one route
@@ -44,9 +47,7 @@ router.get('/music/get', (req, res) => {
         .then( data => {
             res.json({ success: true, data: data });
         })
-        .catch( err => {
-            res.json({ success: false, error: err });
-        });
+        .catch( err => fail(res, err) );
 });
 
 
@@ -80,9 +81,7 @@ router.get('/blog/months', (req, res) => {
         .then( data => {
             res.json({ success: true, data: data.map(function(r){return r._id}) });
         })
-        .catch( err => {
-            res.json({ success: false, error: err });
-        });
+        .catch( err => fail(res, err) );
 });
 
 
@@ -100,7 +99,7 @@ router.get('/blog/days', (req, res) => {
     //
     const target_date = year ? new Date( year, Number(month || 0) ) : new Date();
 
-    query = {
+    const query = {
         created: {$lte: target_date}
     };
 
@@ -119,9 +118,7 @@ router.get('/blog/days', (req, res) => {
             //
             BlogDays( res, results.length ? results[0].created : target_date, timezone );
         })
-        .catch( err => {
-            res.json({ success: false, error: err });
-        });
+        .catch( err => fail(res, err) );
 });
 
 
@@ -133,7 +130,7 @@ function BlogDays(res,target_date,timezone) {
     //
     // Oh, and month counts from 0 and day counts from 1. Just because.
     //
-    date_obj = new Date(target_date);
+    const date_obj = new Date(target_date);
     var year = date_obj.getFullYear();
     var month = date_obj.getMonth();
 
@@ -176,9 +173,7 @@ function BlogDays(res,target_date,timezone) {
             days: days.map(function(r){return r._id}), 
             months: months.map(function(r){return r._id})
         });
-    }).catch(err => {
-        if (err) res.json({ success: false, error: err });
-    })
+    }).catch( err => fail(res, err) )
 };
 
 
@@ -191,9 +186,7 @@ router.get('/blog/categories', (req, res) => {
         .then( data => {
             res.json({ success: true, data: data });
         })
-        .catch( err => {
-            res.json({ success: false, error: err });
-        })
+        .catch( err => fail(res, err) )
 });
 
 //
@@ -243,9 +236,7 @@ router.get('/blog/article/get', (req, res) => {
         .then( results => {
             res.json({ success: true,  articles: results });
         })
-        .catch( err => {
-            res.json({ success: false, error: err });
-        });
+        .catch( err => fail(res, err) );
 });
 
 // In case someone calls a missing or misnamed api.
@@ -259,6 +250,11 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 
 // append /api for our api requests
 app.use('/api', router);
+
+// For search engines
+app.get('/robots.txt', (req,res) => {
+    res.sendFile(path.join(__dirname,'static','robots.txt'));
+});
 
 // Issue index.html for any requests that don't match the ones above
 app.get('*', (req,res) =>{

@@ -13,7 +13,7 @@ See the client directory above this one. All content in ```public/js``` is gener
 
 ## Configuration
 
-Settings are read from ```.env``` (see [dotenv](https://www.npmjs.com/package/dotenv)):
+Settings are read from ```.env``` (using Node's ```--env-file``` option):
 
  * ```port```: port to listen on
  * ```dbroute```: MongoDB connection string
@@ -28,6 +28,8 @@ cd client
 npm run build
 ```
 
+You will need a `.env` with credentials. Include `dbroute` and `port`.
+
 ## AWS
 
 For Elastic Beanstalk, zip the backend directory. The result is ready to be
@@ -37,6 +39,3 @@ deployed on a standard node environment:
 cd backend
 zip -FS -r ../backend.zip . -x 'node_modules/*' '*.DS_Store' '*.map'
 ```
-
-Note that the archive includes ```.env```, which holds the database credentials, and is not
-in the repository.
