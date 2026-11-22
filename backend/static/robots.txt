@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
+# Allow everything: pages render client-side from /public/js and /api
 User-agent: *
-Disallow: /static/
+Disallow:
