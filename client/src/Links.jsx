@@ -6,8 +6,8 @@ import rehypeSlug from "rehype-slug";
 import rehypeExternalLinks from "rehype-external-links";
 import Markdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import links from './text/links.md'
-import './css/links';
+import links from './text/links.md?raw'
+import './css/links.css';
 
 export const Head = () => {
     return (

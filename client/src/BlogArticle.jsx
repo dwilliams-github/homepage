@@ -4,7 +4,6 @@ import gfm from 'remark-gfm';
 import queryString from 'query-string';
 import rehypeExternalLinks from "rehype-external-links";
 import { Link } from 'react-router-dom';
-import { Buffer } from 'buffer';
 import { format } from 'date-fns-tz';
 
 function BlogArticle({ article }) {
@@ -17,7 +16,14 @@ function BlogArticle({ article }) {
 
     const altered = article.modified && modified-created > 600000;
 
-    const imageToBase64 = i => new Buffer(i.data).toString("base64");
+    //
+    // Images arrive as serialized Node Buffers ({type: "Buffer", data: [bytes]})
+    //
+    const imageToBase64 = i => {
+        let binary = "";
+        for (const byte of i.data) binary += String.fromCharCode(byte);
+        return btoa(binary);
+    };
 
     return (
         <div className="body">

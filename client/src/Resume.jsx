@@ -4,8 +4,8 @@ import Side from './Side';
 import Markdown from 'react-markdown';
 import { HashLink } from "react-router-hash-link";
 import rehypeSlug from "rehype-slug";
-import resume from './text/resume.md';
-import './css/resume';
+import resume from './text/resume.md?raw';
+import './css/resume.css';
 
 function Resume() {
     const sides = [

@@ -2,9 +2,11 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
 import queryString from 'query-string';
+import { useNavigate } from 'react-router-dom';
 import 'react-calendar/dist/Calendar.css';
 
 function BlogCalendar(props) {
+    const navigate = useNavigate();
     //
     // The date we are showing
     //
@@ -114,24 +116,24 @@ function BlogCalendar(props) {
     // What happens if we click (an active) day
     //
     const clickDay = useCallback( (day) => {
-        props.history.push("/blog?" + queryString.stringify({
+        navigate("/blog?" + queryString.stringify({
             month: day.getMonth() + 1,
             year: day.getFullYear(),
             day: day.getDate(),
             cat: props.cat
         }))
-    }, [props.cat]);
+    }, [props.cat, navigate]);
 
     //
     // What happens if we click (an active) month
     //
     const clickMonth = useCallback( (day) => {
-        props.history.push("/blog?" + queryString.stringify({
+        navigate("/blog?" + queryString.stringify({
             month: day.getMonth() + 1,
             year: day.getFullYear(),
             cat: props.cat
         }))
-    }, [props.cat]);
+    }, [props.cat, navigate]);
 
     return (
         <Calendar
