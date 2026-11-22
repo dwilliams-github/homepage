@@ -2,8 +2,8 @@ import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
 import Markdown from 'react-markdown';
-import terms from './text/terms.md'
-import './css/terms';
+import terms from './text/terms.md?raw'
+import './css/terms.css';
 
 function Terms() {
     const sides = [

@@ -1,13 +1,12 @@
 import React from 'react';
 import Banner from './Banner';
 import Side from './Side';
-import { HashLink } from "react-router-hash-link";
 import rehypeSlug from "rehype-slug";
 import rehypeExternalLinks from "rehype-external-links";
 import Markdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import links from './text/links.md'
-import './css/links';
+import links from './text/links.md?raw'
+import './css/links.css';
 
 export const Head = () => {
     return (
@@ -24,14 +23,14 @@ function Links() {
         {
             title: 'Contents',
             items: [
-                <HashLink to="#mathematics-and-algorithms">Mathematics and Algorithms</HashLink>,
-                <HashLink to="#biotech-news">Biotech News</HashLink>,
-                <HashLink to="#computing-news">Computing News</HashLink>,
-                <HashLink to="#physics-news">Physics News</HashLink>,
-                <HashLink to="#space-news">Space News</HashLink>,
-                <HashLink to="#programming">Programming</HashLink>,
-                <HashLink to='#comics'>Comics</HashLink>,
-                <HashLink to="#writing">Writing</HashLink>
+                <a href="#mathematics-and-algorithms">Mathematics and Algorithms</a>,
+                <a href="#biotech-news">Biotech News</a>,
+                <a href="#computing-news">Computing News</a>,
+                <a href="#physics-news">Physics News</a>,
+                <a href="#space-news">Space News</a>,
+                <a href="#programming">Programming</a>,
+                <a href='#comics'>Comics</a>,
+                <a href="#writing">Writing</a>
             ]
         },
         {

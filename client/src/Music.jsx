@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect, useMemo } from 'react';
 import Banner from './Banner';
 import Side from './Side';
-import BeatLoader from 'react-spinners/BeatLoader';
+import { BeatLoader } from 'react-spinners';
 import axios from 'axios';
 import './css/music.css';
 

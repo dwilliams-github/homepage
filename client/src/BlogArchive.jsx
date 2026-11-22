@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import queryString from 'query-string';
-import BeatLoader from 'react-spinners/BeatLoader';
+import { BeatLoader } from 'react-spinners';
 import { FaEllipsisH } from 'react-icons/fa';
 import { format } from 'date-fns';
 
