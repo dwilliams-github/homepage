@@ -4,7 +4,6 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const Data = require('./data');
-require("dotenv").config();
 
 //
 // Our server app
